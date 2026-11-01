@@ -9,10 +9,12 @@ window.DARKFUN = {
   /* Where submitted films are sent (the form on the site). */
   submitTo: 'studios.darkfun@gmail.com',
 
-  /* Optional: a short silent video for the opening frame.
-     Put the file in the "clips" folder and write its path here,
-     for example: 'clips/opening.mp4'. Leave '' to use the stills. */
-  heroClip: '',
+  /* The silent video in the opening frame (the showreel).
+     heroClipSmall is a lighter copy for phones.
+     Leave heroClip as '' to show the rotating stills instead. */
+  heroClip: 'clips/opening.mp4',
+  heroClipSmall: 'clips/opening-small.mp4',
+  heroPoster: 'images/films/opening-poster.jpg',
 
   /* ---------- The catalog: every film, one line each ----------
      Columns:  number,  title,  label,  runtime,  views,  YouTube link
@@ -81,9 +83,9 @@ window.DARKFUN = {
   featured: [
     { film: 'The Elevator', line: 'Floor five. Nobody pressed it.', still: 'images/films/the-elevator.jpg', focus: '62% 40%', quiet: ['Lift Night', '#171729'], loud: ['Bruise', '#3F3562'], clip: '' },
     { film: "Don't Run", line: 'She told you.', still: 'images/films/dont-run.jpg', focus: '45% 60%', quiet: ['Dust', '#A19393'], loud: ['Salt Sky', '#99ACCF'], clip: '' },
-    { film: 'The Painting', line: 'It was straight when you left.', still: 'images/films/the-painting.jpg', focus: '50% 35%', quiet: ['Plaster', '#CFC6AE'], loud: ['Scarf', '#5D734B'], clip: '' },
+    { film: 'The Painting', line: 'It was straight when you left.', still: 'images/films/the-painting.jpg', focus: '62% 40%', quiet: ['Plaster', '#CFC6AE'], loud: ['Scarf', '#5D734B'], clip: '' },
     { film: 'Bloody Mary', line: 'Say it three times. Then wait.', still: 'images/films/bloody-mary.jpg', focus: '50% 45%', quiet: ['Séance', '#171D27'], loud: ['Candle', '#C98A45'], clip: '', bug: false },
     { film: "Don't Run 2", line: 'She told you twice.', still: 'images/films/dont-run-2.jpg', focus: '50% 45%', quiet: ['Dashboard', '#272721'], loud: ['Glass', '#A9C8B8'], clip: '', bug: false },
-    { film: 'Funny Woman', line: "Laughter, the killer's symphony.", still: 'images/films/funny-woman.jpg', focus: '55% 35%', quiet: ['Black Light', '#162651'], loud: ['Clown Orange', '#B04D37'], clip: '' }
+    { film: 'Funny Woman', line: "Laughter, the killer's symphony.", still: 'images/films/funny-woman.jpg', focus: '62% 40%', quiet: ['Black Light', '#162651'], loud: ['Clown Orange', '#B04D37'], clip: '' }
   ]
 };

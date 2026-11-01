@@ -802,8 +802,8 @@ em { font-style: italic; }
 .hero__slide img,
 .hero__slide video { transform: scale(1.02); }
 
-.hero__slide.is-active img,
-.hero__slide.is-active video { animation: kenburns 11s linear forwards; }
+.hero__slide.is-active img { animation: kenburns 11s linear forwards; }
+.hero__slide video { transform: none; }
 
 @keyframes kenburns {
   from { transform: scale(1.02); }
@@ -1586,7 +1586,7 @@ em { font-style: italic; }
   padding: 1.5rem;
   background:
     linear-gradient(rgba(12, 13, 11, 0.72), rgba(12, 13, 11, 0.72)),
-    url("images/films/the-painting-phone.jpg") center 30% / cover no-repeat,
+    url("images/films/submit-frame.jpg") center 55% / cover no-repeat,
     var(--grave);
 }
 

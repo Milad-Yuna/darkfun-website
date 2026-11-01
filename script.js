@@ -193,17 +193,30 @@
   var heroTimer = null;
   var heroVisible = true;
 
-  if (DATA.heroClip && heroSlides[0]) {
+  // The showreel replaces the stills, except for visitors who prefer less motion or save data
+  var saveData = !!(navigator.connection && navigator.connection.saveData);
+  if (DATA.heroClip && heroSlides[0] && !reduceMotion && !saveData) {
     var v = document.createElement('video');
-    v.src = DATA.heroClip;
+    var small = DATA.heroClipSmall && window.innerWidth < 900;
+    var mp4 = small ? DATA.heroClipSmall : DATA.heroClip;
+    // A lighter WebM copy is used first when it exists (same name, .webm); the MP4 is the fallback
+    [[mp4.replace(/\.mp4$/i, '.webm'), 'video/webm'], [mp4, 'video/mp4']].forEach(function (s, i) {
+      if (i === 0 && s[0] === mp4) return;
+      var src = document.createElement('source');
+      src.src = s[0];
+      src.type = s[1];
+      v.appendChild(src);
+    });
     v.muted = true;
     v.loop = true;
+    v.autoplay = true;
     v.playsInline = true;
     v.setAttribute('playsinline', '');
     v.setAttribute('aria-hidden', 'true');
-    v.poster = $('img', heroSlides[0]).getAttribute('src');
-    if (!reduceMotion) v.autoplay = true;
+    v.poster = DATA.heroPoster || $('img', heroSlides[0]).getAttribute('src');
     heroSlides[0].replaceChild(v, $('img', heroSlides[0]));
+    heroSlides[0].setAttribute('data-slate', 'DarkFun · Showreel · ' + FILMS.length + ' films');
+    if (heroSlate) heroSlate.textContent = heroSlides[0].getAttribute('data-slate');
     heroSlides.slice(1).forEach(function (s) { s.remove(); });
     heroSlides = heroSlides.slice(0, 1);
   }
