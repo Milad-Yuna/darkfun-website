@@ -1,117 +1,131 @@
-# DARK FUN website
+# DarkFun website
 
-This is the website for **DARK FUN**, an independent horror film studio.
+The website for **DarkFun**, an independent horror studio. *Smile at the dark.*
 
-It is just a few plain files. There is nothing to install and nothing to build.
+It's a few plain files. There is nothing to install and nothing to build.
 
 | File / folder | What it is |
 | --- | --- |
-| `index.html` | All the text and links on the page |
-| `style.css` | Colours, fonts and layout |
-| `script.js` | The phone menu and the small scroll effects |
-| `images/` | Every picture on the site |
+| `data.js` | **Your films and settings.** This is the file you'll edit most. |
+| `index.html` | All the other text on the page |
+| `style.css` | Colours, fonts and layout (all from the Brand Bible) |
+| `script.js` | The moving parts: the opening card, the lift, the sound, the films, the form |
+| `images/brand/` | Logo, Grin, Drop, icon, grain, share picture |
+| `images/films/` | Frames and thumbnails from the films |
 
 ---
 
 ## 1. Put the site online (one time only)
 
-1. On GitHub, open this repository.
-2. Click **Settings**, then **Pages** (in the left menu).
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-4. Set the branch to **main** and the folder to **/ (root)**. Click **Save**.
-5. Wait one or two minutes. Your site will be at:
-   **https://milad-yuna.github.io/darkfun-website/**
+1. On GitHub, open this repository and click **Settings**, then **Pages**.
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+3. Choose the branch **main** and the folder **/ (root)**. Click **Save**.
+4. Wait a minute or two. The site is at **https://milad-yuna.github.io/darkfun-website/**
 
-Every time you change a file on the `main` branch, the site updates by itself within a minute or two.
+After that, every change you save on `main` goes live by itself within a minute or two.
 
 ---
 
-## 2. Swap in the real pictures
+## 2. Turn on the film submission form (one time only)
 
-Right now every picture is a dark placeholder box with its file name written on it.
-To replace one, you upload your picture **with exactly the same file name**. That's all.
-You do not need to touch any code.
+When a filmmaker fills in the form, it's emailed to **studios.darkfun@gmail.com** by a free service called FormSubmit.
 
-| Picture | File name to use | Best size |
+1. Once the site is online, open it and send yourself a test submission.
+2. FormSubmit sends studios.darkfun@gmail.com an email asking you to activate the form. If you can't find it, check Spam.
+3. Click the activate button in that email. That's it. Every submission now arrives in that inbox as an email.
+
+To send submissions to a different address, open `data.js` and change `submitTo`.
+You'll need to activate once more for the new address.
+
+---
+
+## 3. Add a film, or change one
+
+Open `data.js` on GitHub and click the **pencil icon** to edit.
+
+Each film is one block, like this:
+
+```js
+{
+  no: '001',
+  title: 'The Elevator',
+  label: 'original',          // 'original', 'series' or 'presents'
+  runtime: '06:15',
+  views: '10M',
+  line: 'Floor five. Nobody pressed it.',
+  youtube: '',                // paste the link from YouTube's Share button
+  still: 'images/films/the-elevator.jpg',
+  thumb: 'images/films/the-elevator-thumb.jpg',
+  clip: '',
+  focus: '62% 40%',
+  quiet: ['Lift Night', '#171729'],
+  loud: ['Bruise', '#3F3562'],
+  featured: true
+},
+```
+
+- **To add a film:** copy a whole block (from `{` to `},`), paste it below, and change the words.
+- **YouTube link:** on YouTube, open the film, click **Share**, then **Copy**, and paste it between the quote marks after `youtube:`. For a series, paste the playlist link. With a link in place, the film plays right on the site.
+- **featured: true** shows the film big at the top of the Films section. Keep it to about six.
+- **quiet / loud:** each film's two colours, as the Brand Bible describes on page 09.
+- Keep the quote marks and the commas. If the films disappear from the page, a comma or quote mark is probably missing.
+
+Click **Commit changes** when you're done.
+
+---
+
+## 4. Swap pictures
+
+Pictures live in `images/films/`. To replace one, upload a new picture **with exactly the same file name**:
+
+1. Open the `images/films` folder on GitHub.
+2. Click **Add file**, then **Upload files**, and drag your picture in.
+3. Click **Commit changes**.
+
+| Kind | Best size | Example name |
 | --- | --- | --- |
-| Poster: The Elevator | `the-elevator.jpg` | 800 × 1200 (tall) |
-| Poster: Don't Run | `dont-run.jpg` | 800 × 1200 (tall) |
-| Poster: The Mirror | `the-mirror.jpg` | 800 × 1200 (tall) |
-| Poster: Funny Woman | `funny-woman.jpg` | 800 × 1200 (tall) |
-| Photo: Mohsen | `team-mohsen.jpg` | 800 × 1000 (tall) |
-| Photo: Mostafa | `team-mostafa.jpg` | 800 × 1000 (tall) |
-| Photo: Shahab | `team-shahab.jpg` | 800 × 1000 (tall) |
-| Preview picture for when someone shares the link | `share.jpg` | 1200 × 630 (wide) |
+| A wide frame from the film | 1600 px wide, JPG | `the-elevator.jpg` |
+| The YouTube thumbnail | 1280 × 720, JPG | `the-elevator-thumb.jpg` |
 
-**How to upload on GitHub:**
+For a new film, upload its pictures with new names, then write those names in `data.js`.
+Keep pictures under about 300 KB. [squoosh.app](https://squoosh.app) can shrink them for free.
 
-1. Rename your picture on your computer to the exact name above (all small letters, with `.jpg` at the end).
-2. On GitHub, open the `images` folder.
-3. Click **Add file**, then **Upload files**.
-4. Drag your picture in. Because the name is the same, it replaces the old one.
-5. Click **Commit changes**.
-
-**Tips**
-
-- Pictures must be **.jpg**. If yours is a .png, open it at [squoosh.app](https://squoosh.app), choose **MozJPEG**, and download it. That also makes it smaller.
-- Try to keep each picture under **300 KB** so the site stays fast. Squoosh can do this too.
-- If your picture is a different shape, that's fine. It will be trimmed at the edges to fit the box.
-- Team photos are shown in **black and white** on purpose. If you want colour, open `style.css`, find the line that says `filter: grayscale(1) contrast(1.05);` and delete it.
-- `share.jpg` is already a finished DARK FUN title card, so you can leave it as it is.
+The four frames that open the site are listed in `index.html`. Search for `hero__slide`.
 
 ---
 
-## 3. Put in the real links
+## 5. Add video clips (the biggest "wow")
 
-The four film cards currently open a search for that title on your YouTube channel.
-It works, but it's better to link straight to each film.
+Short silent clips make the site come alive.
 
-1. On YouTube, open the film (or the playlist, for a series). Click **Share**, then **Copy**.
-2. On GitHub, open `index.html` and click the **pencil icon** (Edit this file).
-3. Press **Ctrl + F** (or **Cmd + F** on a Mac) and search for the word **REPLACE**.
-4. Right under each REPLACE note there is a line with `href="..."`.
-   Delete the old address between the two quote marks and paste your link in its place.
-   Keep the quote marks.
-5. Click **Commit changes**.
-
-Example, before:
-
-```html
-<a class="film__link" href="https://www.youtube.com/@darkfunhorror/search?query=The%20Elevator" ...>
-```
-
-After:
-
-```html
-<a class="film__link" href="https://youtu.be/YOUR-VIDEO-CODE" ...>
-```
-
-The REPLACE notes are:
-
-- The Elevator (YouTube video link)
-- Don't Run (YouTube video link)
-- The Mirror (YouTube playlist link)
-- Funny Woman (YouTube playlist link)
-- Chilling (optional: only if you have a direct link to your page on Chilling)
-- Web address near the top of the file (only if you later move to your own domain name)
+1. Make an MP4 clip with no sound: 10–20 seconds for the opening, 5–8 seconds for each film. Under about 5 MB each.
+2. On GitHub, click **Add file → Upload files** and drag the clips in. To put them in a folder, type `clips/` before the file name, or drag a folder named `clips`.
+3. In `data.js`:
+   - for the opening: `heroClip: 'clips/opening.mp4',`
+   - for a film: `clip: 'clips/the-elevator.mp4',`
 
 ---
 
-## 4. Change any text
+## 6. Change other text
 
-Open `index.html` with the pencil icon, find the sentence with **Ctrl + F**, and type over it.
+Open `index.html` with the pencil icon, find the sentence with **Ctrl + F** (**Cmd + F** on a Mac), and type over it.
 Only change the words. Leave everything inside the `< >` signs as it is.
 
-The email address `studios.darkfun@gmail.com` appears in a few places. Search for it to find them all.
+---
+
+## 7. Logo files
+
+The logo pieces in `images/brand/` were taken straight from the Brand Bible:
+`wordmark.svg`, `grin.svg`, `stack.svg`, `drop.svg` and the wet Grin `wet-grin.webp`.
+If your designer sends official files, upload them with the same names.
+The SVGs need to be one plain shape, because the site colours them itself.
 
 ---
 
-## 5. Change the colours (optional)
+## What visitors will notice
 
-Open `style.css`. The colours are listed at the very top, for example:
-
-```css
---red: #8f1219;   /* the one deep red accent */
-```
-
-Change the colour code, commit, and the whole site follows.
+- **The opening card** plays once per visit. Any click, key or scroll skips it.
+- **The lift display** (bottom right) shows which floor you're on. Click it to jump to any floor.
+- **Floor five:** stay still for about 25 seconds and the lift goes to floor five by itself. Nobody pressed it.
+- **Sound on:** off until the visitor turns it on. A low room tone and a lift chime.
+- Visitors who have reduced motion turned on in their settings get a calm version with no animation.
