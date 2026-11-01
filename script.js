@@ -7,7 +7,22 @@
 
   var root = document.documentElement;
   var DATA = window.DARKFUN || { films: [], submitTo: 'studios.darkfun@gmail.com', heroClip: '' };
-  var FILMS = DATA.films || [];
+  /* Every film from data.js, as { no, title, label, runtime, views, youtube, thumb } */
+  var FILMS = (DATA.catalog || []).map(function (r) {
+    var f = { no: r[0] || '', title: r[1] || '', label: r[2] || 'original', runtime: r[3] || '', views: r[4] || '', youtube: r[5] || '' };
+    var yt = youtubeInfo(f.youtube);
+    f.ytId = yt && yt.id ? yt.id : '';
+    f.thumb = f.ytId ? 'images/films/yt/' + f.ytId + '.jpg' : '';
+    return f;
+  });
+
+  /* If a thumbnail isn't saved in images/films/yt yet, borrow it from YouTube */
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG' || !img.getAttribute('data-yt') || img.getAttribute('data-fallback')) return;
+    img.setAttribute('data-fallback', '1');
+    img.src = 'https://i.ytimg.com/vi/' + img.getAttribute('data-yt') + '/mqdefault.jpg';
+  }, true);
   var CHANNEL = 'https://www.youtube.com/@darkfunhorror';
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
@@ -484,7 +499,14 @@
   }
 
   /* ---- Featured list + stage ---- */
-  var featured = FILMS.filter(function (f) { return f.featured; });
+  var byTitle = {};
+  FILMS.forEach(function (f) { byTitle[f.title.toLowerCase()] = f; });
+  var featured = (DATA.featured || []).map(function (x) {
+    var f = {}, k, base = byTitle[String(x.film || '').toLowerCase()] || { title: x.film || '' };
+    for (k in base) f[k] = base[k];
+    for (k in x) f[k] = x[k];
+    return f;
+  }).filter(function (f) { return f.title; });
   var list = $('.feature__list');
   var stage = $('.feature__stage');
   var stageFrame = $('.stage__frame');
@@ -557,6 +579,7 @@
     media.style.objectPosition = f.focus || '50% 50%';
     media.style.opacity = '0';
     stageFrame.insertBefore(media, $('.bug', stageFrame));
+    stageFrame.classList.toggle('no-bug', f.bug === false);
     requestAnimationFrame(function () {
       requestAnimationFrame(function () { media.style.opacity = '1'; });
     });
@@ -576,23 +599,35 @@
   var peek = $('.peek');
   var peekImg = peek ? $('img', peek) : null;
 
-  function viewsNumber(v) {
-    var m = String(v || '').trim().match(/^([\d.]+)\s*([KkMm]?)/);
-    if (!m) return 0;
-    return parseFloat(m[1]) * (/[Mm]/.test(m[2]) ? 1e6 : /[Kk]/.test(m[2]) ? 1e3 : 1);
+  // Newest first
+  var catalog = FILMS.slice().sort(function (a, b) { return (parseInt(b.no, 10) || 0) - (parseInt(a.no, 10) || 0); });
+  var SHOW_FIRST = 12;
+  var catMore = $('.catalog__more');
+  var catExpanded = false;
+  var catKind = 'all';
+
+  function thumbImg(f, cls) {
+    if (!f.thumb) return '';
+    return '<img' + (cls ? ' class="' + cls + '"' : '') + ' src="' + esc(f.thumb) + '" data-yt="' + esc(f.ytId) + '" alt="" width="640" height="360" loading="lazy" decoding="async">';
   }
 
-  var catalog = FILMS.slice().sort(function (a, b) {
-    if (a.no && b.no) return a.no.localeCompare(b.no);
-    if (a.no) return -1;
-    if (b.no) return 1;
-    return 0;
-  });
+  function applyCatalog() {
+    var shown = 0, matching = 0;
+    $$('li', catList).forEach(function (li) {
+      var match = catKind === 'all' || li.getAttribute('data-label') === catKind;
+      if (match) matching++;
+      var show = match && (catKind !== 'all' || catExpanded || matching <= SHOW_FIRST);
+      li.hidden = !show;
+      if (show) shown++;
+    });
+    if (catEmpty) catEmpty.hidden = matching > 0;
+    if (catMore) catMore.hidden = !(catKind === 'all' && !catExpanded && matching > SHOW_FIRST);
+  }
 
   if (catList) {
     catList.innerHTML = catalog.map(function (f) {
       var sub = [SHORT_LABELS[f.label] || 'Original', f.runtime, f.views].filter(Boolean).join(' · ');
-      return '<li data-label="' + esc(f.label || 'original') + '"><a class="cat-row" href="' + esc(filmUrl(f)) + '" target="_blank" rel="noopener" data-thumb="' + esc(f.thumb || '') + '">' +
+      return '<li data-label="' + esc(f.label || 'original') + '"><a class="cat-row" href="' + esc(filmUrl(f)) + '" target="_blank" rel="noopener" data-thumb="' + esc(f.thumb || '') + '" data-yt="' + esc(f.ytId) + '">' +
         '<span class="cat-no">DF—' + (f.no ? esc(f.no) : '···') + '</span>' +
         '<span class="cat-title">' + esc(f.title) + '</span>' +
         '<span class="cat-label">' + esc(SHORT_LABELS[f.label] || 'Original') + '</span>' +
@@ -608,10 +643,18 @@
       a.addEventListener('click', function (e) { openFilm(f, e); });
     });
 
-    var total = catalog.reduce(function (sum, f) { return sum + viewsNumber(f.views); }, 0);
-    if (catCount) {
-      catCount.textContent = catalog.length + ' films' + (total ? ' · ' + (Math.floor(total / 1e5) / 10) + 'M views' : '');
+    if (catCount) catCount.textContent = catalog.length + ' films · Newest first';
+    if (catMore) {
+      catMore.textContent = 'Show all ' + catalog.length + ' films';
+      catMore.addEventListener('click', function () {
+        catExpanded = true;
+        applyCatalog();
+        var next = $$('li', catList)[SHOW_FIRST];
+        if (next) $('a', next).focus({ preventScroll: true });
+        Sound.tick();
+      });
     }
+    applyCatalog();
 
     // Filters
     $$('.chip').forEach(function (chip) {
@@ -624,13 +667,8 @@
           c.classList.toggle('is-on', on);
           c.setAttribute('aria-pressed', String(on));
         });
-        var shown = 0;
-        $$('li', catList).forEach(function (li) {
-          var show = kind === 'all' || li.getAttribute('data-label') === kind;
-          li.hidden = !show;
-          if (show) shown++;
-        });
-        if (catEmpty) catEmpty.hidden = shown > 0;
+        catKind = kind;
+        applyCatalog();
         Sound.tick();
       });
     });
@@ -654,7 +692,11 @@
         a.addEventListener('pointerenter', function (e) {
           var src = a.getAttribute('data-thumb');
           if (!src) { peek.classList.remove('is-on'); return; }
-          if (peekImg.getAttribute('src') !== src) peekImg.src = src;
+          if (peekImg.getAttribute('src') !== src) {
+            peekImg.removeAttribute('data-fallback');
+            peekImg.setAttribute('data-yt', a.getAttribute('data-yt') || '');
+            peekImg.src = src;
+          }
           if (!peek.classList.contains('is-on')) {
             px = tx = e.clientX + 28;
             py = ty = e.clientY - 150;
@@ -666,6 +708,43 @@
       });
       catList.addEventListener('pointerleave', function () { peek.classList.remove('is-on'); });
     }
+  }
+
+  /* ---- Newest film in the opening frame ---- */
+  var newest = catalog[0];
+  var heroLive = $('.hero__live');
+  if (heroLive && newest) {
+    $('.hero__live-text', heroLive).textContent = 'New film · ' + newest.title;
+    heroLive.href = filmUrl(newest);
+    heroLive.addEventListener('click', function (e) { openFilm(newest, e); });
+  }
+
+  /* ---- The three newest films on the YouTube row ---- */
+  var shots = $('.platform__shots');
+  if (shots) {
+    shots.innerHTML = catalog.slice(0, 3).map(function (f) {
+      return '<span class="shot"><span class="shot__frame">' + thumbImg(f) + '</span><span class="data">DF—' + esc(f.no) + ' · ' + esc(f.title) + '</span></span>';
+    }).join('');
+  }
+
+  /* ---- Watch next: two films, different on every visit ---- */
+  var nextGrid = $('.watch-next__grid');
+  if (nextGrid && catalog.length) {
+    var pool = catalog.filter(function (f) { return f.thumb; });
+    var picks = [];
+    while (picks.length < Math.min(2, pool.length)) {
+      var pick = pool[Math.floor(Math.random() * pool.length)];
+      if (picks.indexOf(pick) === -1) picks.push(pick);
+    }
+    nextGrid.innerHTML = picks.map(function (f, i) {
+      return '<a class="next-film" href="' + esc(filmUrl(f)) + '" target="_blank" rel="noopener" data-i="' + i + '">' +
+        '<span class="next-film__frame">' + thumbImg(f) + '<span class="next-film__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg></span></span>' +
+        '<span class="data">DF—' + esc(f.no) + ' · ' + esc(f.runtime) + ' · ' + esc(SHORT_LABELS[f.label] || 'Original') + '</span>' +
+        '<span class="next-film__title">' + esc(f.title) + '</span></a>';
+    }).join('');
+    $$('.next-film', nextGrid).forEach(function (a) {
+      a.addEventListener('click', function (e) { openFilm(picks[+a.getAttribute('data-i')], e); });
+    });
   }
 
   /* ==========================================================

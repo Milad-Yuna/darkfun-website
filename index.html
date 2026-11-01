@@ -115,22 +115,22 @@
     <section class="hero" id="home" data-floor="6" aria-labelledby="hero-title">
       <div class="hero__inner">
         <div class="hero__bar hero__bar--top">
-          <p class="data hero__slate" aria-live="off">DF—001 · The Elevator · 06:15 · A DarkFun Original</p>
-          <p class="data hero__live"><span class="hot-dot" aria-hidden="true"></span>Now showing</p>
+          <p class="data hero__slate" aria-live="off">DF—011 · The Elevator · 06:15 · A DarkFun Original</p>
+          <a class="data hero__live" href="https://www.youtube.com/@darkfunhorror/videos" target="_blank" rel="noopener"><span class="hot-dot" aria-hidden="true"></span><span class="hero__live-text">New film</span></a>
         </div>
 
         <div class="frame hero__frame">
           <div class="hero__slides">
-            <figure class="hero__slide is-active" data-slate="DF—001 · The Elevator · 06:15 · A DarkFun Original">
+            <figure class="hero__slide is-active" data-slate="DF—011 · The Elevator · 06:15 · A DarkFun Original">
               <img src="images/films/the-elevator.jpg" alt="A woman in an elevator, smiling through blood. From The Elevator." width="1600" height="895" fetchpriority="high" style="object-position: 62% 40%">
             </figure>
-            <figure class="hero__slide" data-slate="Don't Run · 06:40 · A DarkFun Original">
+            <figure class="hero__slide" data-slate="DF—001 · Don't Run · 06:40 · A DarkFun Series">
               <img src="images/films/dont-run.jpg" alt="A woman walking away from a car in an empty desert. From Don't Run." width="1600" height="678" style="object-position: 45% 60%">
             </figure>
-            <figure class="hero__slide" data-slate="Funny Woman · 04:31 · A DarkFun Series">
+            <figure class="hero__slide" data-slate="DF—013 · Funny Woman · 04:31 · A DarkFun Series">
               <img src="images/films/funny-woman.jpg" alt="A grinning woman in clown make-up in a blue room. From Funny Woman." width="1600" height="863" style="object-position: 55% 35%">
             </figure>
-            <figure class="hero__slide" data-slate="The Painting · 06:24 · A DarkFun Original">
+            <figure class="hero__slide" data-slate="DF—007 · The Painting · 06:24 · A DarkFun Original">
               <img src="images/films/the-painting.jpg" alt="A woman in a green scarf standing in a pale doorway. From The Painting." width="1600" height="863" style="object-position: 50% 35%">
             </figure>
           </div>
@@ -167,7 +167,7 @@
         <aside class="about__side">
           <figure class="about__still reveal">
             <div class="frame frame--wide">
-              <img src="images/films/the-elevator-hall.jpg" alt="A woman in round sunglasses in a stairwell. From The Elevator." width="1600" height="898" loading="lazy" decoding="async" style="object-position: 50% 30%">
+              <img src="images/films/the-elevator.jpg" alt="A woman in an elevator, smiling through blood. From The Elevator." width="1600" height="895" loading="lazy" decoding="async" style="object-position: 60% 38%">
             </div>
             <figcaption class="data"><span>The Elevator · A DarkFun Original</span><span>06:15</span></figcaption>
           </figure>
@@ -194,6 +194,13 @@
           </div>
           <p class="whisper reveal">DarkFun is an independent horror studio. We make short, sharp horror on small budgets, <em>and we make every frame look bigger than it cost.</em></p>
         </div>
+
+        <ul class="creed__strip" aria-label="Frames from our films">
+          <li class="reveal"><figure><span class="creed__frame"><img src="images/films/dont-run.jpg" alt="A woman walking away from a car in an empty desert. From Don't Run." width="1600" height="678" loading="lazy" decoding="async" style="object-position: 40% 60%"></span><figcaption class="data">01 · Daylight · Don't Run</figcaption></figure></li>
+          <li class="reveal"><figure><span class="creed__frame"><img src="images/films/funny-woman.jpg" alt="A grinning woman in clown make-up in a blue room. From Funny Woman." width="1600" height="863" loading="lazy" decoding="async" style="object-position: 62% 40%"></span><figcaption class="data">02 · One loud color · Funny Woman</figcaption></figure></li>
+          <li class="reveal"><figure><span class="creed__frame"><img src="images/films/the-elevator-hall.jpg" alt="A woman in round sunglasses in a stairwell. From The Elevator." width="1600" height="898" loading="lazy" decoding="async" style="object-position: 50% 35%"></span><figcaption class="data">03 · Faces, close · The Elevator</figcaption></figure></li>
+          <li class="reveal"><figure><span class="creed__frame"><img src="images/films/the-painting.jpg" alt="A woman in a green scarf in a pale doorway. From The Painting." width="1600" height="863" loading="lazy" decoding="async" style="object-position: 50% 35%"></span><figcaption class="data">04 · Ordinary places · The Painting</figcaption></figure></li>
+        </ul>
 
         <ol class="creed__list">
           <li class="reveal"><span class="data">01</span><h3>One room, one idea</h3><p>Limits are our method. A lift, a hallway, a car. The idea does the heavy lifting, not the budget.</p></li>
@@ -266,6 +273,7 @@
               <span>No.</span><span>Title</span><span>Label</span><span>Runtime</span><span>Views</span><span></span>
             </div>
             <ul class="catalog__list"></ul>
+            <button class="btn btn--ghost catalog__more" type="button" hidden>Show all films</button>
             <p class="catalog__empty whisper" hidden>No DarkFun Presents release yet. <a href="#submit">Yours could be the first.</a></p>
           </div>
 
@@ -292,6 +300,7 @@
                 <span class="data">Every full film · @darkfunhorror</span>
                 <span class="whisper">Our home. New films land here.</span>
               </span>
+              <span class="platform__media platform__shots" aria-hidden="true"></span>
               <span class="platform__go" aria-hidden="true">↗</span>
             </a>
           </li>
@@ -303,6 +312,7 @@
                 <span class="data">Selected films · chillingapp.com</span>
                 <span class="whisper">The streaming app made for horror.</span>
               </span>
+              <span class="platform__media" aria-hidden="true"><span class="shot"><span class="shot__frame"><img src="images/films/dont-run-mirror.jpg" alt="" width="1600" height="676" loading="lazy" decoding="async"></span><span class="data">Don't Run</span></span></span>
               <span class="platform__go" aria-hidden="true">↗</span>
             </a>
           </li>
@@ -406,6 +416,11 @@
               <span class="label">Subscribe</span>
             </a>
           </div>
+        </div>
+
+        <div class="watch-next">
+          <p class="label reveal">Watch next</p>
+          <div class="watch-next__grid reveal"></div>
         </div>
 
         <p class="contact__sign whisper reveal"><em>Lights off. Sound on.</em></p>

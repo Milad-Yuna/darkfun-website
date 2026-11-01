@@ -82,6 +82,7 @@ body::after {
 }
 
 img, video { display: block; max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, p, ol, ul, dl, dd, figure { margin: 0; }
 ol, ul { padding: 0; list-style: none; }
@@ -301,6 +302,8 @@ em { font-style: italic; }
   height: 100%;
   object-fit: cover;
 }
+
+.frame.no-bug .bug { display: none; }
 
 .frame .bug {
   position: absolute;
@@ -780,6 +783,8 @@ em { font-style: italic; }
 .hero__bar--top { padding-bottom: 0.9rem; }
 
 .hero__live { color: var(--bone); }
+.hero__live:hover .hero__live-text,
+.hero__live:focus-visible .hero__live-text { text-decoration: underline; text-underline-offset: 0.35em; }
 
 .hero__frame { width: 100%; }
 
@@ -938,6 +943,36 @@ em { font-style: italic; }
 }
 
 .creed__head .title { max-width: 10ch; }
+
+.creed__strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem 1rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+}
+
+@media (min-width: 900px) {
+  .creed__strip { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+}
+
+.creed__frame {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.creed__frame img { width: 100%; height: 100%; object-fit: cover; }
+
+.creed__strip figcaption {
+  margin-top: 0.65rem;
+  font-size: 0.62rem;
+  color: var(--ink);
+}
+
+.can-reveal .creed__strip li:nth-child(2) { transition-delay: 0.08s; }
+.can-reveal .creed__strip li:nth-child(3) { transition-delay: 0.16s; }
+.can-reveal .creed__strip li:nth-child(4) { transition-delay: 0.24s; }
 
 .creed__list {
   display: grid;
@@ -1327,6 +1362,9 @@ em { font-style: italic; }
   .cat-go { grid-row: 1; grid-column: 3; }
 }
 
+.catalog__more { margin-top: 1.5rem; }
+.catalog__more + .catalog__empty { padding-top: 1rem; }
+
 .catalog__empty { padding: 2rem 0; color: var(--ash); }
 .catalog__empty a { color: var(--bone); border-bottom: 1px solid var(--line-strong); }
 
@@ -1361,6 +1399,7 @@ em { font-style: italic; }
 .platform {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "name name" "media media" "meta go";
   align-items: end;
   gap: 1rem 2rem;
   padding: clamp(1.25rem, 2.5vw, 2rem) 0;
@@ -1370,7 +1409,7 @@ em { font-style: italic; }
 .platforms li:last-child .platform { border-bottom: 1px solid var(--line); }
 
 .platform__name {
-  grid-column: 1 / -1;
+  grid-area: name;
   font-family: var(--f-title);
   font-weight: 700;
   font-size: clamp(4.2rem, 16vw, 13.5rem);
@@ -1380,13 +1419,62 @@ em { font-style: italic; }
 }
 
 .platform__meta {
+  grid-area: meta;
   display: grid;
   gap: 0.3rem;
 }
 
 .platform__meta .whisper { font-size: clamp(1.25rem, 2vw, 1.6rem); color: var(--ash); }
 
+.platform__media {
+  grid-area: media;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 0.6rem;
+  align-self: center;
+}
+
+.shot { display: grid; gap: 0.45rem; min-width: 0; }
+
+.shot__frame {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--line);
+}
+
+.platform__media .shot:only-child .shot__frame { aspect-ratio: 2.6 / 1; }
+
+.shot__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) brightness(0.85);
+  transition: transform 0.8s var(--ease), filter 0.8s var(--ease);
+}
+
+.platform:hover .shot__frame img,
+.platform:focus-visible .shot__frame img { transform: scale(1.04); filter: none; }
+
+.shot .data {
+  font-size: 0.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 900px) {
+  .platform {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr) auto;
+    grid-template-areas: "name media go" "meta media go";
+    column-gap: 2.5rem;
+  }
+}
+
 .platform__go {
+  grid-area: go;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   line-height: 1;
   color: var(--ash);
@@ -1496,7 +1584,10 @@ em { font-style: italic; }
 .titlecard__frame {
   aspect-ratio: 2.39 / 1;
   padding: 1.5rem;
-  background: radial-gradient(70% 90% at 50% 50%, #1f261f, var(--grave) 70%);
+  background:
+    linear-gradient(rgba(12, 13, 11, 0.72), rgba(12, 13, 11, 0.72)),
+    url("images/films/the-painting-phone.jpg") center 30% / cover no-repeat,
+    var(--grave);
 }
 
 .titlecard__top { color: var(--lichen); letter-spacing: 0.3em; }
@@ -1663,6 +1754,65 @@ em { font-style: italic; }
 .subscribe__grin { width: 3.2rem; color: var(--bone); }
 .subscribe:hover .subscribe__ring { border-color: var(--bone); }
 .subscribe .label { color: var(--bone); }
+
+.watch-next { margin-top: clamp(4rem, 8vw, 6rem); }
+
+.watch-next__grid {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 1.2rem;
+}
+
+@media (min-width: 700px) {
+  .watch-next__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+}
+
+.next-film { display: grid; gap: 0.6rem; }
+
+.next-film__frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--line);
+  transition: border-color 0.4s var(--ease);
+}
+
+.next-film__frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
+
+.next-film__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  margin: auto;
+  border: 1px solid rgba(221, 226, 192, 0.7);
+  border-radius: 50%;
+  background: rgba(12, 13, 11, 0.55);
+  color: var(--bone);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+
+.next-film__play svg { width: 1.3rem; height: 1.3rem; margin-left: 0.15rem; }
+
+.next-film:hover .next-film__frame,
+.next-film:focus-visible .next-film__frame { border-color: var(--bone); }
+.next-film:hover img,
+.next-film:focus-visible img { transform: scale(1.04); }
+.next-film:hover .next-film__play,
+.next-film:focus-visible .next-film__play { opacity: 1; }
+
+.next-film__title {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
 
 .contact__sign {
   margin-top: clamp(4rem, 8vw, 6rem);

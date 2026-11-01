@@ -39,38 +39,30 @@ You'll need to activate once more for the new address.
 
 ---
 
-## 3. Add a film, or change one
+## 3. Add a new film
 
 Open `data.js` on GitHub and click the **pencil icon** to edit.
 
-Each film is one block, like this:
+Every film is one line in the **catalog** list, oldest first:
 
 ```js
-{
-  no: '001',
-  title: 'The Elevator',
-  label: 'original',          // 'original', 'series' or 'presents'
-  runtime: '06:15',
-  views: '10M',
-  line: 'Floor five. Nobody pressed it.',
-  youtube: '',                // paste the link from YouTube's Share button
-  still: 'images/films/the-elevator.jpg',
-  thumb: 'images/films/the-elevator-thumb.jpg',
-  clip: '',
-  focus: '62% 40%',
-  quiet: ['Lift Night', '#171729'],
-  loud: ['Bruise', '#3F3562'],
-  featured: true
-},
+['047', "Funny Woman 4",  'series',   '04:37', '759',  'https://youtu.be/KYzAdklWzS0'],
 ```
 
-- **To add a film:** copy a whole block (from `{` to `},`), paste it below, and change the words.
-- **YouTube link:** on YouTube, open the film, click **Share**, then **Copy**, and paste it between the quote marks after `youtube:`. For a series, paste the playlist link. With a link in place, the film plays right on the site.
-- **featured: true** shows the film big at the top of the Films section. Keep it to about six.
-- **quiet / loud:** each film's two colours, as the Brand Bible describes on page 09.
-- Keep the quote marks and the commas. If the films disappear from the page, a comma or quote mark is probably missing.
+The columns are: **number, title, label, runtime, views, YouTube link.**
 
-Click **Commit changes** when you're done.
+1. Copy the last line and paste it underneath.
+2. Change the number to the next one (`'048'`), then the title, label (`'original'`, `'series'` or `'presents'`), runtime and views.
+3. For the link: on YouTube, open the film, click **Share**, then **Copy**, and paste it between the quote marks.
+4. Click **Commit changes**.
+
+That's all. The thumbnail comes from YouTube by itself, the film appears at the top of the catalog, and it shows as "New film" in the opening frame.
+
+Keep the quote marks and commas exactly as in the other lines. If the films disappear from the page, a comma or quote mark is probably missing.
+
+Views don't update by themselves. Change the numbers whenever you like.
+
+**Featured films** (the six big ones at the top of Films) are in the `featured` list further down `data.js`. Each one names a film from the catalog and adds its frame, its line and its two colours (Brand Bible, page 09).
 
 ---
 
@@ -82,15 +74,9 @@ Pictures live in `images/films/`. To replace one, upload a new picture **with ex
 2. Click **Add file**, then **Upload files**, and drag your picture in.
 3. Click **Commit changes**.
 
-| Kind | Best size | Example name |
-| --- | --- | --- |
-| A wide frame from the film | 1600 px wide, JPG | `the-elevator.jpg` |
-| The YouTube thumbnail | 1280 × 720, JPG | `the-elevator-thumb.jpg` |
-
-For a new film, upload its pictures with new names, then write those names in `data.js`.
-Keep pictures under about 300 KB. [squoosh.app](https://squoosh.app) can shrink them for free.
-
-The four frames that open the site are listed in `index.html`. Search for `hero__slide`.
+- The wide frames (`the-elevator.jpg` and so on) are best at **1600 px wide**, JPG, under about 300 KB. [squoosh.app](https://squoosh.app) can shrink them for free.
+- The thumbnails in `images/films/yt/` are copies of your YouTube thumbnails. You don't need to touch them; new films load their thumbnail from YouTube automatically.
+- The four frames that open the site are listed in `index.html`. Search for `hero__slide`.
 
 ---
 
@@ -102,7 +88,7 @@ Short silent clips make the site come alive.
 2. On GitHub, click **Add file → Upload files** and drag the clips in. To put them in a folder, type `clips/` before the file name, or drag a folder named `clips`.
 3. In `data.js`:
    - for the opening: `heroClip: 'clips/opening.mp4',`
-   - for a film: `clip: 'clips/the-elevator.mp4',`
+   - for a featured film, in the `featured` list: `clip: 'clips/the-elevator.mp4'`
 
 ---
 
