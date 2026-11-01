@@ -482,7 +482,8 @@
 
   function openFilm(f, e) {
     var src = embedUrl(f);
-    if (!src || !player || typeof player.showModal !== 'function') return; // let the link open YouTube
+    // No player (or a preview that can't embed YouTube): let the link open YouTube instead
+    if (!src || window.DARKFUN_NO_EMBED || !player || typeof player.showModal !== 'function') return;
     if (e) e.preventDefault();
     $('#player-title').textContent = slate(f);
     $('.player__line', player).textContent = f.line || '';
