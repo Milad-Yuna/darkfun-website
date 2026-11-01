@@ -1688,6 +1688,20 @@ em { font-style: italic; }
 
 .site-footer__logo { width: 104px; color: var(--bone); }
 
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+}
+
+.site-footer__links a {
+  color: var(--bone);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease);
+}
+
+.site-footer__links a:hover { border-color: var(--bone); }
+
 /* ==========================================================
    FILM PLAYER
    ========================================================== */
