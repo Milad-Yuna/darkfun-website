@@ -1,0 +1,52 @@
+/* Jostoju design tokens · brand bible v1.0 (November 2026)
+   Fonts (Google Fonts):
+   https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Markazi+Text:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400&family=Vazirmatn:wght@300;400;500;700&display=swap
+*/
+:root {
+  /* The eight dyes */
+  --jj-pashm: #F2EBDD;     /* wool · light ground */
+  --jj-kaghaz: #E4D6BA;    /* paper · second light surface */
+  --jj-morakkab: #1A1714;  /* ink · text on light */
+  --jj-nil: #121A3F;       /* indigo · dark ground */
+  --jj-lajvard: #203A8F;   /* lapis · primary blue, Pardeh lead */
+  --jj-runas: #A3261F;     /* madder · primary red, Kargah lead */
+  --jj-zafaran: #E2A63B;   /* saffron · accent, gold in print */
+  --jj-firuzeh: #2E9E97;   /* turquoise · small accents, Naqsheh lead (never text on light) */
+
+  /* Type families */
+  --jj-font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --jj-font-display-fa: "Markazi Text", "Vazirmatn", Tahoma, serif;
+  --jj-font-text: "Instrument Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --jj-font-text-fa: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+  --jj-font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --jj-font-verse: "Noto Nastaliq Urdu", "Markazi Text", serif; /* verse only */
+
+  /* Type scale (desktop px; Persian runs ~8-10% larger with more leading) */
+  --jj-size-display: clamp(3.5rem, 2rem + 6vw, 7rem);
+  --jj-size-h1: clamp(2.75rem, 1.8rem + 3.5vw, 4.5rem);
+  --jj-size-h2: clamp(2rem, 1.4rem + 2vw, 2.75rem);
+  --jj-size-h3: 1.75rem;
+  --jj-size-body: 1.0625rem;
+  --jj-size-caption: 0.875rem;
+  --jj-size-label: 0.75rem;
+  --jj-leading-display: 0.95;  --jj-leading-display-fa: 1.3;
+  --jj-leading-body: 1.6;      --jj-leading-body-fa: 1.95;
+  --jj-tracking-label: 0.1em;  /* Latin labels only; never letter-space Persian */
+
+  /* Space: multiples of one knot */
+  --jj-knot: 8px;
+  --jj-space-1: 8px;  --jj-space-2: 16px; --jj-space-3: 24px; --jj-space-4: 32px;
+  --jj-space-6: 48px; --jj-space-8: 64px; --jj-space-12: 96px; --jj-space-16: 128px;
+  --jj-radius: 0;     /* carpets have square corners */
+
+  /* Motion: woven, bottom to top */
+  --jj-ease-shuttle: cubic-bezier(.2, .7, .2, 1);
+  --jj-dur-ui: 240ms;
+  --jj-dur-reveal: 600ms;
+  --jj-dur-logo: 1200ms;
+  --jj-stagger: 60ms;   /* 40-110ms per row of knots */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --jj-dur-ui: 0ms; --jj-dur-reveal: 0ms; --jj-dur-logo: 0ms; --jj-stagger: 0ms; }
+}
