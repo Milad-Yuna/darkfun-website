@@ -215,7 +215,7 @@
     v.setAttribute('aria-hidden', 'true');
     v.poster = DATA.heroPoster || $('img', heroSlides[0]).getAttribute('src');
     heroSlides[0].replaceChild(v, $('img', heroSlides[0]));
-    heroSlides[0].setAttribute('data-slate', 'DarkFun · Showreel · ' + FILMS.length + ' films');
+    heroSlides[0].setAttribute('data-slate', 'Independent horror film studio');
     if (heroSlate) heroSlate.textContent = heroSlides[0].getAttribute('data-slate');
     heroSlides.slice(1).forEach(function (s) { s.remove(); });
     heroSlides = heroSlides.slice(0, 1);
