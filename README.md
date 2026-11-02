@@ -80,6 +80,10 @@ Pictures live in `images/films/`. To replace one, upload a new picture **with ex
 
 ---
 
+**Team portraits** are in `images/team/` (`mohsen.jpg`, `mostafa.jpg`, `shahab.jpg`). Best size: 960 × 1200 (portrait, 4:5). Upload a new one with the same name to replace it.
+
+---
+
 ## 5. Add video clips (the biggest "wow")
 
 Short silent clips make the site come alive.
