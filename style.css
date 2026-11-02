@@ -1261,7 +1261,7 @@ em { font-style: italic; }
 
 /* The catalog */
 
-.catalog { margin-top: clamp(5rem, 10vw, 8rem); }
+.catalog { margin-top: clamp(5rem, 10vw, 8rem); scroll-margin-top: calc(var(--header-h) + 1.5rem); }
 
 .catalog__head {
   display: flex;
@@ -1545,6 +1545,10 @@ em { font-style: italic; }
   margin-top: 1.6rem;
   color: var(--ash);
 }
+
+.submit__count { margin-top: 1rem; }
+.submit__count a { color: var(--bone); border-bottom: 1px solid var(--line-strong); transition: border-color 0.3s var(--ease); }
+.submit__count a:hover { border-color: var(--bone); }
 
 .submit__actions {
   display: flex;

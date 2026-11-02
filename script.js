@@ -9,7 +9,7 @@
   var DATA = window.DARKFUN || { films: [], submitTo: 'studios.darkfun@gmail.com', heroClip: '' };
   /* Every film from data.js, as { no, title, label, runtime, views, youtube, thumb } */
   var FILMS = (DATA.catalog || []).map(function (r) {
-    var f = { no: r[0] || '', title: r[1] || '', label: r[2] || 'original', runtime: r[3] || '', views: r[4] || '', youtube: r[5] || '' };
+    var f = { no: r[0] || '', title: r[1] || '', label: r[2] || 'original', runtime: r[3] || '', views: r[4] || '', youtube: r[5] || '', director: r[6] || '' };
     var yt = youtubeInfo(f.youtube);
     f.ytId = yt && yt.id ? yt.id : '';
     f.thumb = f.ytId ? 'images/films/yt/' + f.ytId + '.jpg' : '';
@@ -461,6 +461,7 @@
     parts.push(f.title);
     if (f.runtime) parts.push(f.runtime);
     parts.push(LABELS[f.label] || LABELS.original);
+    if (f.director) parts.push('A film by ' + f.director);
     return parts.join(' · ');
   }
 
@@ -722,6 +723,22 @@
       });
       catList.addEventListener('pointerleave', function () { peek.classList.remove('is-on'); });
     }
+  }
+
+  /* ---- How many DarkFun Presents films so far (Submit section) ---- */
+  var presentsLink = $('.submit__count a');
+  if (presentsLink) {
+    var nPresents = FILMS.filter(function (f) { return f.label === 'presents'; }).length;
+    if (nPresents) $('span', presentsLink).textContent = nPresents + ' films released as DarkFun Presents so far';
+    else presentsLink.parentNode.hidden = true;
+    presentsLink.addEventListener('click', function (e) {
+      var chip = $('.chip[data-filter="presents"]');
+      var cat = $('.catalog');
+      if (!chip || !cat) return;
+      e.preventDefault();
+      chip.click();
+      cat.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
   }
 
   /* ---- Newest film in the opening frame ---- */
