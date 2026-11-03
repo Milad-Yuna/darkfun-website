@@ -20,4 +20,5 @@ export const HERO_FOCUS = { wide: 0.5, tall: 0.18, vertical: 0.45 };
 export const ART = {
   seeker: { file: 'media/art/seeker.jpg', dot: [26.3, 90.7], w: 906, h: 1125 },
   camera: { file: 'media/art/camera.jpg', dot: [53.8, 45.8], w: 1500, h: 837 },
+  simorgh: { file: 'media/art/simorgh.jpg', dot: [33.2, 66.5], w: 1500, h: 636 },
 };

@@ -157,6 +157,13 @@ export function home(c) {
   <div class="wrap">
     <span class="label">${t('هفت وادی', 'The seven valleys')}</span>
     <h2 id="v-title">${t('هر فیلم ما از هفت وادی می‌گذرد', 'Every film we make crosses seven valleys')}</h2>
+    ${c.art.simorgh ? `<figure class="painting birds">
+      <div class="gold-frame"><div class="painting-in">
+        <img src="${c.asset(c.art.simorgh)}" width="${ART.simorgh.w}" height="${ART.simorgh.h}" loading="lazy" alt="${t('سی مرغ: مرغان بر نردهٔ زرین رو به آینه‌ای که در آن سیمرغ را می‌بینند', 'Thirty Birds: the birds on a golden balustrade facing a mirror in which they see the Simorgh')}">
+        <button type="button" class="find-dot" style="left:${ART.simorgh.dot[0]}%;top:${ART.simorgh.dot[1]}%" aria-label="${t('نقطهٔ گمشده', 'The lost dot')}"></button>
+      </div></div>
+      <figcaption><b>${t('سی مرغ', 'Thirty Birds')}</b><span class="hint">${t('مرغان عطار به آینه رسیدند و سیمرغ خودشان بودند. نقطهٔ گمشده هم این‌جاست؛ پیدایش کن.', 'Attar\'s birds reach the mirror and find that the Simorgh is themselves. The lost dot is here too. Find it.')}</span><span class="found-msg" aria-live="polite" data-msg="${t('پیدایش کردی: در منقار هدهد، راهنمای مرغان.', 'You found it: in the beak of the hoopoe, who led the birds.')}"></span></figcaption>
+    </figure>` : ''}
     <ol class="valleys" data-seq>
       ${VALLEYS.map(([fa, en, dfa, den], i) => `
       <li class="valley">${station({ name: 'valley', color: 'runas' })}

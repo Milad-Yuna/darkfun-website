@@ -179,7 +179,9 @@ figure.found .hint { display: none }
 .painting figcaption b { font: 700 1.5rem/1.5 var(--f-display-fa) }
 html[lang="en"] .painting figcaption b { font: 800 1.2rem/1.2 var(--f-display) }
 .painting .hint { color: var(--mute) }
-.painting .found-msg { color: var(--tala); font-weight: 500 }
+.painting .found-msg { color: var(--acc); font-weight: 500 }
+.painting.birds { margin: 0 0 clamp(32px, 5vw, 56px) }
+.painting.birds .find-dot { width: 4.2% }
 .camera h2 { max-width: 20ch }
 .timeline { list-style: none; margin: clamp(24px, 4vw, 44px) 0; padding: 0; display: grid; gap: 0; grid-template-columns: 1fr; border-top: 1px solid var(--line) }
 @media (min-width: 900px) { .timeline { grid-template-columns: repeat(3, 1fr) } }
