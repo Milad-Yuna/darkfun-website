@@ -6,13 +6,24 @@ Every image hides the **lost dot**: one small madder-red diamond jewel. On the s
 
 ## آینه‌خانه · The Mirror Hall
 
-- **Goes on:** Home · hero (until the reel is ready) and a keyframe for the hero video
+- **Goes on:** Home · the opening (until the reel is ready) and a keyframe for the opening video
 - **Type:** Photoreal film still
-- **Model:** Soul Cinema · **Aspect:** 16:9 (make a second 9:16 for phones) · **Reference:** One Qajar portrait of a woman, e.g. your red-jacket mirror painting
+- **Model:** Soul Cinema or Nano Banana Pro · **Aspect:** 16:9 · **Reference:** One Qajar portrait of a woman, e.g. your red-jacket mirror painting
 - **Save as:** `site/media/hero/still.jpg`
 
 ```
-Wide cinematic film still inside a nineteenth-century Persian mirror hall at night. The walls and vaulted ceiling are covered in thousands of small diamond-shaped mirror tiles set in a faceted geometric mosaic, each facet catching warm candlelight in scattered gold sparks. On the left third of the frame a young Persian woman sits on a low embroidered bolster in a madder-red velvet jacket worked with gold thread, strings of pearls at her neck, black hair under a pearl and emerald diadem, kohl-lined almond eyes holding a calm, direct gaze into the lens. She raises a small round hand mirror; inside it glints a single madder-red diamond of light. Heavy red curtains are drawn aside behind her, brass lanterns glow on a Persian carpet. Warm low key light from the lanterns, soft 3:1 ratio, deep shadow in the corners. Composed with the frontal stillness of a Qajar court portrait. Palette of 60% varnished black and deep emerald, 30% madder red, 10% gold and pearl white. Rule of thirds. Photorealistic, ARRI Alexa LF, Cooke anamorphic lens, natural film grain.
+Wide cinematic film still inside a nineteenth-century Persian mirror hall at night. The walls and vaulted ceiling are covered in thousands of small diamond-shaped mirror tiles set in a faceted geometric mosaic, each facet catching warm candlelight in scattered gold sparks, the hall receding to a glowing vanishing point in the centre. A young Persian woman sits small in the lower left corner of the frame on a low embroidered bolster: madder-red velvet jacket worked with gold thread, strings of pearls, black hair under a pearl and emerald diadem, kohl-lined almond eyes and joined brows, a calm direct gaze into the lens. She raises a small round hand mirror; reflected in its glass is a single flat madder-red diamond of light, a square standing on its point. Heavy red curtains are drawn aside behind her, brass lanterns glow on a Persian carpet. The centre and upper two-thirds of the frame stay open: only the glittering mirror vault. Warm low key light from the lanterns, soft 3:1 ratio, deep shadow in the corners. Palette of 60% varnished black and deep emerald, 30% madder red, 10% gold and pearl white. Rule of thirds. Photorealistic, ARRI Alexa LF, Cooke anamorphic lens, natural film grain.
+```
+
+## آینه‌خانه · عمودی · The Mirror Hall · vertical
+
+- **Goes on:** Home · the opening on phones
+- **Type:** Photoreal film still
+- **Model:** Soul Cinema or Nano Banana Pro · **Aspect:** 9:16 · **Reference:** Your 16:9 Mirror Hall image, to keep the same woman and hall
+- **Save as:** `site/media/hero/still-vertical.jpg`
+
+```
+Vertical cinematic film still inside a nineteenth-century Persian mirror hall at night. The tall vaulted ceiling and walls are covered in thousands of small diamond-shaped mirror tiles in a faceted geometric mosaic, catching warm candlelight in scattered gold sparks; the mirror vault fills the upper two-thirds of the frame. At the bottom of the frame, slightly left of centre, a young Persian woman sits on a low embroidered bolster: madder-red velvet jacket worked with gold thread, strings of pearls, black hair under a pearl and emerald diadem, kohl-lined almond eyes and joined brows, a calm direct gaze into the lens. She raises a small round hand mirror; reflected in its glass is a single flat madder-red diamond of light, a square standing on its point. Red curtains are drawn aside at the edges, brass lanterns glow on a Persian carpet. Warm low key light from the lanterns, soft 3:1 ratio, deep shadow at the top corners. Palette of 60% varnished black and deep emerald, 30% madder red, 10% gold and pearl white. Rule of thirds. Photorealistic, ARRI Alexa LF, natural film grain.
 ```
 
 ## جوینده · The Seeker
@@ -105,4 +116,20 @@ PRESERVE EXACTLY:
 - Color grade, palette, contrast, varnish, craquelure and brushwork
 
 ONLY CHANGE: add the one red diamond jewel. 100% identical otherwise.
+```
+
+## Fix a gem that looks pasted on · NBP edit (Mirror Hall)
+
+```
+Edit the image: turn the floating gem in the hand mirror into a reflection.
+
+CHANGE: Replace the pink gem shape inside the hand mirror with a soft reflection in the glass: a single flat madder-red diamond of light, a square standing on its point, glowing gently as if a red jewel in the room is reflected in the mirror. It sits inside the glass, slightly soft, with the reflected red curtain visible around it.
+
+PRESERVE EXACTLY:
+- The woman's face, expression, eyes, brows, diadem, hair and pearls
+- Her red velvet jacket, embroidery, pose, both hands, the mirror frame and handle
+- The curtains, candles, lanterns, carpet and the whole mirror hall
+- Composition, framing, lighting, color grade, contrast and grain
+
+ONLY CHANGE: the gem inside the mirror becomes a red diamond-shaped reflection. 100% identical otherwise.
 ```

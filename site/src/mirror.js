@@ -70,6 +70,7 @@ void main(){
   /* the source: video > still > painted placeholder */
   const paint = src ? null : painter();
   const img = src && src.tagName === 'IMG' ? src : null;
+  if (img && img.dataset.portrait && innerHeight > innerWidth * 1.1) img.src = img.dataset.portrait;   // phones get the vertical still
   let srcW = 960, srcH = 540, uploadedStill = false;
   const upload = () => {
     if (video) { if (video.readyState < 2) return; srcW = video.videoWidth; srcH = video.videoHeight; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, video); hero.classList.add('ready'); }

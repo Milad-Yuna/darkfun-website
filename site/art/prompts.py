@@ -2,10 +2,14 @@
 import html, os, sys
 
 PROMPTS = [
-  dict(id='mirror-hall', fa='آینه‌خانه', en='The Mirror Hall', where='Home · hero (until the reel is ready) and a keyframe for the hero video',
-       model='Soul Cinema', aspect='16:9 (make a second 9:16 for phones)', ref='One Qajar portrait of a woman, e.g. your red-jacket mirror painting',
+  dict(id='mirror-hall', fa='آینه‌خانه', en='The Mirror Hall', where='Home · the opening (until the reel is ready) and a keyframe for the opening video',
+       model='Soul Cinema or Nano Banana Pro', aspect='16:9', ref='One Qajar portrait of a woman, e.g. your red-jacket mirror painting',
        file='site/media/hero/still.jpg', kind='Photoreal film still',
-       prompt="""Wide cinematic film still inside a nineteenth-century Persian mirror hall at night. The walls and vaulted ceiling are covered in thousands of small diamond-shaped mirror tiles set in a faceted geometric mosaic, each facet catching warm candlelight in scattered gold sparks. On the left third of the frame a young Persian woman sits on a low embroidered bolster in a madder-red velvet jacket worked with gold thread, strings of pearls at her neck, black hair under a pearl and emerald diadem, kohl-lined almond eyes holding a calm, direct gaze into the lens. She raises a small round hand mirror; inside it glints a single madder-red diamond of light. Heavy red curtains are drawn aside behind her, brass lanterns glow on a Persian carpet. Warm low key light from the lanterns, soft 3:1 ratio, deep shadow in the corners. Composed with the frontal stillness of a Qajar court portrait. Palette of 60% varnished black and deep emerald, 30% madder red, 10% gold and pearl white. Rule of thirds. Photorealistic, ARRI Alexa LF, Cooke anamorphic lens, natural film grain."""),
+       prompt="""Wide cinematic film still inside a nineteenth-century Persian mirror hall at night. The walls and vaulted ceiling are covered in thousands of small diamond-shaped mirror tiles set in a faceted geometric mosaic, each facet catching warm candlelight in scattered gold sparks, the hall receding to a glowing vanishing point in the centre. A young Persian woman sits small in the lower left corner of the frame on a low embroidered bolster: madder-red velvet jacket worked with gold thread, strings of pearls, black hair under a pearl and emerald diadem, kohl-lined almond eyes and joined brows, a calm direct gaze into the lens. She raises a small round hand mirror; reflected in its glass is a single flat madder-red diamond of light, a square standing on its point. Heavy red curtains are drawn aside behind her, brass lanterns glow on a Persian carpet. The centre and upper two-thirds of the frame stay open: only the glittering mirror vault. Warm low key light from the lanterns, soft 3:1 ratio, deep shadow in the corners. Palette of 60% varnished black and deep emerald, 30% madder red, 10% gold and pearl white. Rule of thirds. Photorealistic, ARRI Alexa LF, Cooke anamorphic lens, natural film grain."""),
+  dict(id='mirror-hall-vertical', fa='آینه‌خانه · عمودی', en='The Mirror Hall · vertical', where='Home · the opening on phones',
+       model='Soul Cinema or Nano Banana Pro', aspect='9:16', ref='Your 16:9 Mirror Hall image, to keep the same woman and hall',
+       file='site/media/hero/still-vertical.jpg', kind='Photoreal film still',
+       prompt="""Vertical cinematic film still inside a nineteenth-century Persian mirror hall at night. The tall vaulted ceiling and walls are covered in thousands of small diamond-shaped mirror tiles in a faceted geometric mosaic, catching warm candlelight in scattered gold sparks; the mirror vault fills the upper two-thirds of the frame. At the bottom of the frame, slightly left of centre, a young Persian woman sits on a low embroidered bolster: madder-red velvet jacket worked with gold thread, strings of pearls, black hair under a pearl and emerald diadem, kohl-lined almond eyes and joined brows, a calm direct gaze into the lens. She raises a small round hand mirror; reflected in its glass is a single flat madder-red diamond of light, a square standing on its point. Red curtains are drawn aside at the edges, brass lanterns glow on a Persian carpet. Warm low key light from the lanterns, soft 3:1 ratio, deep shadow at the top corners. Palette of 60% varnished black and deep emerald, 30% madder red, 10% gold and pearl white. Rule of thirds. Photorealistic, ARRI Alexa LF, natural film grain."""),
   dict(id='seeker', fa='جوینده', en='The Seeker', where='Home · manifesto (red section)',
        model='Soul Cinema', aspect='4:5', ref='Your painting of the woman with the hand mirror and red jacket',
        file='site/media/art/seeker.jpg', kind='Painted artwork',
@@ -36,6 +40,18 @@ PROMPTS = [
        prompt="""Cinemascope film still: a tall standing mirror in a carved gold Qajar frame stands alone on rippled desert dunes at dawn, a caravan of camels crossing the ridge far behind it. The mirror reflects a dark palace hall full of candlelight instead of the desert. In the mirror's gold crest sits one small madder-red diamond jewel. Low golden sun from the right, long soft shadows across the sand, an empty and silent landscape. Palette of 60% pale sand and dawn rose, 30% deep shadow brown, 10% gold. Rule of thirds. Photorealistic, ARRI Alexa LF, anamorphic lens, natural film grain."""),
 ]
 
+GEM_FIX_EDIT = """Edit the image: turn the floating gem in the hand mirror into a reflection.
+
+CHANGE: Replace the pink gem shape inside the hand mirror with a soft reflection in the glass: a single flat madder-red diamond of light, a square standing on its point, glowing gently as if a red jewel in the room is reflected in the mirror. It sits inside the glass, slightly soft, with the reflected red curtain visible around it.
+
+PRESERVE EXACTLY:
+- The woman's face, expression, eyes, brows, diadem, hair and pearls
+- Her red velvet jacket, embroidery, pose, both hands, the mirror frame and handle
+- The curtains, candles, lanterns, carpet and the whole mirror hall
+- Composition, framing, lighting, color grade, contrast and grain
+
+ONLY CHANGE: the gem inside the mirror becomes a red diamond-shaped reflection. 100% identical otherwise."""
+
 LOST_DOT_EDIT = """Edit the image: add one small hidden jewel.
 
 CHANGE: Place a single small madder-red diamond-shaped jewel, faceted and catching the light like the other jewels in the image, at [WHERE, e.g. on the carpet beside the left slipper]. It is about the size of a fingertip in the scene and casts a small natural shadow.
@@ -57,6 +73,7 @@ def markdown():
                 f"- **Model:** {p['model']} · **Aspect:** {p['aspect']} · **Reference:** {p['ref']}",
                 f"- **Save as:** `{p['file']}`", '', '```', p['prompt'], '```', '']
     out += ['## Add the lost dot to any image · NBP edit', '', '```', LOST_DOT_EDIT, '```', '']
+    out += ['## Fix a gem that looks pasted on · NBP edit (Mirror Hall)', '', '```', GEM_FIX_EDIT, '```', '']
     return '\n'.join(out)
 
 def page():
@@ -125,7 +142,7 @@ footer {{ margin-top:30px; color:var(--mute); font-size:.85rem }}
   <header class="top">
     <p class="fa" lang="fa">دستورهای تصویر جستجو</p>
     <h1>Art prompts</h1>
-    <p class="lede">Eight images that turn Qajar paintings into new Jostoju artwork for the website. Every one hides the lost dot: one small madder-red diamond jewel that visitors can find on the site.</p>
+    <p class="lede">Nine images that turn Qajar paintings into new Jostoju artwork for the website. Every one hides the lost dot: one small madder-red diamond jewel that visitors can find on the site.</p>
     <div class="how">
       <div><b>Model:</b> Higgsfield Soul Cinema. Use one Qajar painting you love as the reference image; the prompt sets the new scene.</div>
       <div><b>Settings:</b> set the aspect ratio and 2k quality in the Higgsfield UI. They are not part of the prompt.</div>
@@ -136,6 +153,11 @@ footer {{ margin-top:30px; color:var(--mute); font-size:.85rem }}
   <div class="cards">
 {chr(10).join(cards)}
 {edit}
+<article class="card edit" id="gem-fix">
+  <header><span class="n">+</span><h2><span class="fa" lang="fa" dir="rtl">آینه، نه برچسب</span> <span class="en">Fix the gem in the mirror</span></h2><span class="kind">Edit · Nano Banana Pro</span></header>
+  <p class="note">For the Mirror Hall: if the jewel in the hand mirror looks pasted on, this turns it into a reflection in the glass.</p>
+  <div class="prompt"><pre id="p-gem">{E(GEM_FIX_EDIT)}</pre><button type="button" data-copy="p-gem">Copy prompt</button></div>
+</article>
   </div>
   <footer>Jostoju · art prompts v1 · prompts follow the Lira method: natural prose, technical light, 60/30/10 palette, settings in the UI.</footer>
 </div>

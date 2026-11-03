@@ -5,6 +5,7 @@ Drop files here with these exact names and run `node build.mjs`. The site picks 
 | File | Where it shows |
 |---|---|
 | `hero/reel.mp4` | The home page opening: the reel plays through the mirror hall. Keep it short, silent-friendly, H.264, ideally under 15 MB |
-| `hero/still.jpg` | The opening image while there's no reel yet (art prompt «آینه‌خانه») |
+| `hero/still.jpg` | The opening image while there's no reel yet (art prompt «آینه‌خانه», 16:9) |
+| `hero/still-vertical.jpg` | The same image for phones (art prompt «آینه‌خانه · عمودی», 9:16) |
 | `clips/*.mp4` | Films in «قاب‌ها» and on the Work page; list them in `src/clips.mjs` |
 | `art/*.jpg` | Artworks from `site/art/PROMPTS.md` |

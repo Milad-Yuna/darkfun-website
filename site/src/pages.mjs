@@ -62,7 +62,7 @@ export function home(c) {
 <section class="hero mirror" aria-labelledby="hero-title" data-hero>
   <div class="mirror-media" aria-hidden="true">
     ${heroVideo ? `<video class="mirror-src" muted loop playsinline autoplay preload="auto" src="${c.asset(heroVideo)}"${c.hero.image ? ` poster="${c.asset(c.hero.image)}"` : ''}></video>`
-      : c.hero.image ? `<img class="mirror-src" src="${c.asset(c.hero.image)}" alt="">` : ''}
+      : c.hero.image ? `<img class="mirror-src" src="${c.asset(c.hero.image)}"${c.hero.vertical ? ` data-portrait="${c.asset(c.hero.vertical)}"` : ''} alt="">` : ''}
     <canvas class="mirror-gl"></canvas>
   </div>
   <div class="mirror-veil" aria-hidden="true"></div>
