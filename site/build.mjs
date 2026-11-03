@@ -13,7 +13,10 @@ const brand = (p) => readFileSync(join(HERE, '..', 'brand', p), 'utf8');
 const uri = (svg) => `url("data:image/svg+xml,${encodeURIComponent(svg.trim()).replace(/'/g, '%27')}")`;
 const PATTERN_CSS = `:root{--p-dust:${uri(brand('patterns/zarafshan.svg'))};--p-arch:${uri(brand('patterns/arch.svg'))};--p-band:${uri(brand('patterns/band-shab.svg'))}}\n`;
 const CSS = PATTERN_CSS + read('src/site.css');
-const JS = read('src/site.js');
+const JS = read('src/site.js') + '\n' + read('src/mirror.js');
+const firstExisting = (list) => list.find((p) => existsSync(join(HERE, p))) || '';
+// Hero media: drop files with these names into site/media/hero/ and the hero picks them up.
+const HERO = { video: firstExisting(['media/hero/reel.mp4', 'media/hero/reel.webm']), image: firstExisting(['media/hero/still.jpg', 'media/hero/still.webp', 'media/hero/still.png']) };
 const FAVICON = brand('logo/favicon.svg');
 const FONTS = 'https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,800;1,6..96,500&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Nastaliq+Urdu:wght@400&family=Vazirmatn:wght@400;500;700&display=swap';
 const PAGES = ['home', 'work', 'pardeh', 'studio', 'contact'];
@@ -38,7 +41,7 @@ function ctxFor(mode, lang, page) {
     const style = left !== undefined ? ` style="left:${left}%;top:${top}%;width:${width}%"` : '';
     return `<span class="station${inline ? ' inline' : ''}" ${attrs}${style} aria-hidden="true"></span>`;
   };
-  return { mode, lang, page, t, href, mark, station, marks, asset };
+  return { mode, lang, page, t, href, mark, station, marks, asset, hero: HERO };
 }
 
 function header(c) {

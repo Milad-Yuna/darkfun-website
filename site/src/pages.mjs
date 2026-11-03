@@ -56,19 +56,27 @@ const faDigits = (n) => String(n).replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d
 /* ---------------------------------------------------------------- home */
 export function home(c) {
   const { t, mark, station, href } = c;
+  const heroVideo = c.hero.video || CLIPS[0].src;
   const hs = c.marks.hero.stations.ahead, fs = c.marks.slot.stations.home, ms = c.marks.symbol.stations.center;
   return `
-<section class="hero g-pearl" aria-labelledby="hero-title">
-  <div class="wrap">
+<section class="hero mirror" aria-labelledby="hero-title" data-hero>
+  <div class="mirror-media" aria-hidden="true">
+    ${heroVideo ? `<video class="mirror-src" muted loop playsinline autoplay preload="auto" src="${c.asset(heroVideo)}"${c.hero.image ? ` poster="${c.asset(c.hero.image)}"` : ''}></video>`
+      : c.hero.image ? `<img class="mirror-src" src="${c.asset(c.hero.image)}" alt="">` : ''}
+    <canvas class="mirror-gl"></canvas>
+  </div>
+  <div class="mirror-veil" aria-hidden="true"></div>
+  <div class="wrap hero-in">
     <div class="hero-mark">
       ${mark('hero', '', 'جستجو')}
-      ${station({ name: 'hero', left: hs.left, top: hs.top, width: hs.width, color: 'runas', elusive: true })}
+      ${station({ name: 'hero', left: hs.left, top: hs.top, width: hs.width, color: 'tala', elusive: true })}
     </div>
     ${c.lang === 'en' ? mark('en', 'en-mark', 'jostoju') : ''}
     <h1 id="hero-title" class="studio-line">${t('استودیوی فیلم‌سازی با هوش مصنوعی', 'AI Film Studio')}</h1>
     <div class="ctas">
-      <a class="btn primary" href="#clips">${t('تماشای کارها', 'Watch our work')}</a>
-      <a class="btn" href="${href('contact')}">${t('سفارش فیلم', 'Commission a film')}</a>
+      <button class="btn primary" type="button" data-play data-clear data-src="${CLIPS[0].src ? c.asset(CLIPS[0].src) : (heroVideo ? c.asset(heroVideo) : '')}" data-title="${t(...CLIPS[0].title)}">${t('تماشای شوریل', 'Watch the reel')}</button>
+      ${heroVideo ? `<button class="btn" type="button" data-sound aria-pressed="false">${t('صدا', 'Sound')}</button>` : ''}
+      <a class="btn" href="#clips">${t('کارها', 'Work')}</a>
     </div>
     <p class="follow"><i aria-hidden="true"></i>${t('نقطه گم شده است. دنبالش بیا.', 'The dot is lost. Follow it.')}</p>
   </div>
@@ -242,6 +250,16 @@ export function studio(c) {
     <p style="font-size:1.15rem">${t('«جسته‌ایم» همان فعلِ نام ماست. جستجو یعنی یافته و جوینده در یک واژه؛ و کار سینما همین است. در «منطق‌الطیر» عطار، سی مرغ به جستجوی سیمرغ می‌روند و درمی‌یابند سیمرغ خودشان‌اند. جستجویی که به آینه می‌رسد.',
       'Jostoju means sought and seeking in one word, which is the work of cinema. In Attar\'s Conference of the Birds, thirty birds search for the Simorgh and find that the Simorgh is themselves: a search that ends in a mirror.')}</p>
   </div>
+</div></section>
+<section class="section g-night camera"><div class="wrap">
+  <span class="label">${t('دوربین قاجاری', 'The Qajar camera')}</span>
+  <h2>${t('دوربین با قاجار به ایران آمد.', 'The camera came to Iran with the Qajars.')}</h2>
+  <ol class="timeline">
+    <li><b>${t('۱۲۲۱', '1842')}</b><small>${t('۱۸۴۲ میلادی', 'Photography')}</small><p>${t('نخستین دوربین عکاسی به دربار قاجار رسید.', 'The first camera reaches the Qajar court.')}</p></li>
+    <li><b>${t('۱۲۲۷–۱۲۷۵', '1848–1896')}</b><small>${t('ناصرالدین‌شاه', 'Naser al-Din Shah')}</small><p>${t('شاه خود عکاس بود؛ از نخستین پادشاهان جهان که پشت دوربین ایستاد، و در کاخ گلستان عکاس‌خانه ساخت.', 'The Shah was a photographer himself, one of the first monarchs anywhere to stand behind the camera, and built a photography house in the Golestan Palace.')}</p></li>
+    <li><b>${t('۱۲۷۹', '1900')}</b><small>${t('۱۹۰۰ میلادی · سینما', 'Cinema')}</small><p>${t('مظفرالدین‌شاه در پاریس سینماتوگراف را دید و عکاس‌باشی دربار، میرزا ابراهیم‌خان، نخستین فیلم ایرانی را گرفت.', 'Mozaffar al-Din Shah sees the cinematograph in Paris, and court photographer Mirza Ebrahim Khan Akkas Bashi shoots the first Iranian film footage.')}</p></li>
+  </ol>
+  <p class="coda">${t('پس رنگ و قاب قاجاری برای ما تزئین نیست؛ جایی است که دوربین ایرانی چشم باز کرد. جستجو از همان‌جا ادامه می‌دهد.', 'So the Qajar look is not decoration for us. It is where the Iranian camera first opened its eye, and Jostoju picks up from there.')}</p>
 </div></section>
 <section class="section g-pearl"><div class="wrap">
   <h2>${t('ارزش‌ها', 'Values')}</h2>

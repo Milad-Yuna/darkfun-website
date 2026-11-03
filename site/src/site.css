@@ -97,6 +97,47 @@ html[lang="en"] .hero h1.studio-line { font-size: clamp(2rem, 1.3rem + 3vw, 4.2r
 .follow { margin: 34px auto 0; color: var(--mute); font-size: .95rem; display: flex; gap: 10px; align-items: center; justify-content: center }
 .follow i { width: 1px; height: 34px; background: var(--line); display: block }
 
+/* ---------- the mirror hall («آینه‌کاری») hero ---------- */
+.hero.mirror { margin-top: -68px; min-height: clamp(560px, 100svh, 1000px); display: grid; align-items: center; isolation: isolate;
+  padding-block: 110px clamp(48px, 7vw, 88px); background: var(--shab); color: var(--morvarid);
+  --fg: var(--morvarid); --bg: var(--shab); --ink: var(--morvarid); --acc: var(--tala); --mute: rgba(244, 237, 224, .8) }
+.mirror-media, .mirror-veil { position: absolute; inset: 0; z-index: -1 }
+.mirror-gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity 1.2s var(--ease) }
+.hero.ready .mirror-gl { opacity: 1 }
+.mirror-src { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0 }
+.no-gl .mirror-src { opacity: 1 }
+.mirror-veil { background: radial-gradient(ellipse 70% 60% at 50% 46%, rgba(22, 17, 14, .1), rgba(22, 17, 14, .55) 80%),
+  linear-gradient(to bottom, rgba(22, 17, 14, .55), transparent 24%, transparent 72%, rgba(22, 17, 14, .75)) }
+.hero.mirror .hero-in { position: relative }
+.hero.mirror .hero-mark > svg { filter: drop-shadow(0 8px 34px rgba(0, 0, 0, .5)) }
+.hero.mirror .en-mark { --ink: var(--morvarid); --acc: var(--tala) }
+.hero.mirror h1 { text-shadow: 0 2px 24px rgba(0, 0, 0, .55) }
+.hero.mirror .btn { color: var(--morvarid) }
+.hero.mirror .btn.primary { background: var(--morvarid); color: var(--shab); border-color: var(--morvarid) }
+.hero.mirror .btn.primary:hover { background: var(--tala); border-color: var(--tala); color: var(--shab) }
+.hero.mirror .btn[aria-pressed="true"] { background: var(--tala); color: var(--shab); border-color: var(--tala) }
+.hero.mirror .follow { color: rgba(244, 237, 224, .75) }
+.hero.mirror .follow i { background: rgba(244, 237, 224, .4) }
+.site-head { transition: border-color .3s, background-color .4s, color .4s }
+.site-head.over { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom-color: transparent; color: var(--morvarid) }
+.site-head.over.scrolled { background: rgba(22, 17, 14, .78); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom-color: rgba(212, 166, 64, .25) }
+.site-head.over .brand { color: var(--morvarid) }
+.site-head.over .brand .sym, .site-head.over .brand .word { --ink: var(--morvarid); --acc: var(--tala); --ring: var(--tala) }
+.site-head.over .lang { border-color: rgba(244, 237, 224, .45) }
+.site-head.over .nav a:hover, .site-head.over .nav a[aria-current="page"] { border-bottom-color: var(--tala) }
+
+/* ---------- the Qajar camera (studio) ---------- */
+.camera h2 { max-width: 20ch }
+.timeline { list-style: none; margin: clamp(24px, 4vw, 44px) 0; padding: 0; display: grid; gap: 0; grid-template-columns: 1fr; border-top: 1px solid var(--line) }
+@media (min-width: 900px) { .timeline { grid-template-columns: repeat(3, 1fr) } }
+.timeline li { padding: 22px 0; border-bottom: 1px solid var(--line); min-width: 0 }
+@media (min-width: 900px) { .timeline li { padding: 26px 26px 26px 0; border-bottom: 0 } .timeline li + li { border-inline-start: 1px solid var(--line); padding-inline-start: 26px } }
+.timeline b { display: block; font: 700 clamp(2.4rem, 1.6rem + 2.6vw, 3.6rem)/1.3 var(--f-display-fa); color: var(--tala) }
+html[lang="en"] .timeline b { font: 800 clamp(2.2rem, 1.5rem + 2.4vw, 3.4rem)/1.1 var(--f-display) }
+.timeline small { display: block; color: var(--mute); font-size: .95rem; margin-bottom: 8px }
+.timeline p { margin: 0 }
+.camera .coda { font-size: 1.25rem; max-width: 52ch }
+
 /* ---------- clips («قاب‌ها») ---------- */
 .clips { padding-block: clamp(56px, 8vw, 110px) }
 .clips-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 24px; flex-wrap: wrap; margin-bottom: clamp(20px, 3vw, 32px) }
