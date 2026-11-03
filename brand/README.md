@@ -71,4 +71,9 @@ pip install shapely
 cd brand/logotype/source && python3 build_page.py ../logotype-round1.html
 ```
 
+**Round 2** (https://claude.ai/artifact/LhXyyUmYKhhq6AqecmEPhQ is round 1; round 2 is `logotype/logotype-round2.html`)
+sets جُسْتُجُو in Amiri Bold and Noto Sans Arabic Black (both SIL OFL) and adds four ways to make the quest visible:
+the Missing Knot (the dot of *ju*, "seek", is empty), the Road (keshideh), the Thread (سرنخ) and the Ascent.
+Recommended: **Journey** (Amiri, Road + Missing Knot). Sources in `logotype/round2/`. Run `fetch_fonts.sh` first.
+
 Once a direction is chosen, it replaces the Markazi-based wordmark in `logo/` and in the brand bible.

@@ -1,0 +1,142 @@
+<title>Jostoju Logotype</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Amiri:wght@700&display=swap">
+<style>
+/* Layout: a review sheet. The recommended mark gets a full plate; the four quest moves sit in a grid below; the same moves on the second typeface follow. */
+:root{
+  color-scheme: light;
+  --pashm:#F2EBDD; --kaghaz:#E4D6BA; --morakkab:#1A1714; --nil:#121A3F; --runas:#A3261F; --zafaran:#E2A63B; --zomorrod:#1F5A46;
+  --bg:var(--pashm); --fg:var(--morakkab); --mute:rgba(26,23,20,.68); --line:rgba(26,23,20,.16);
+  --ink:var(--morakkab); --vow:var(--runas);
+  --f-display:"Instrument Serif",Georgia,serif; --f-text:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  --f-fa:"Amiri","Times New Roman",serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--f-text);-webkit-font-smoothing:antialiased}
+[lang="fa"]{font-family:var(--f-fa);font-weight:700}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+header.top{padding-block:clamp(40px,7vw,80px) 8px;display:grid;gap:12px}
+.label{display:block;font:500 .75rem/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--runas);margin:0}
+h1{margin:0;font:400 clamp(2.3rem,1.6rem + 3.2vw,4rem)/1.02 var(--f-display);letter-spacing:-.012em;text-wrap:balance}
+h2{margin:0;font:400 clamp(1.8rem,1.4rem + 1.8vw,2.6rem)/1.08 var(--f-display);display:flex;flex-wrap:wrap;gap:.1em .5em;align-items:baseline}
+h2 [lang="fa"],h3 [lang="fa"]{color:var(--runas);font-size:.9em}
+h3{margin:0;font:400 1.45rem/1.2 var(--f-display);display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+p{margin:0 0 1em;max-width:64ch}
+.lede{font-size:1.18rem;line-height:1.55;max-width:62ch;color:var(--mute)}
+.small{font-size:.92rem;line-height:1.55}
+.mute{color:var(--mute)}
+section{padding-block:clamp(44px,6vw,80px);border-top:1px solid var(--line);display:grid;gap:22px}
+.idea{display:grid;gap:28px;grid-template-columns:1fr;align-items:center}
+@media (min-width:860px){.idea{grid-template-columns:1fr 1fr}}
+.idea>*{min-width:0}
+.halves{display:flex;direction:rtl;gap:14px;flex-wrap:wrap}
+.halves div{flex:1 1 150px;border:1px solid var(--line);background:var(--kaghaz);padding:16px 18px;display:grid;gap:4px;text-align:center}
+.halves b{font:700 2.6rem/1.5 var(--f-fa)}
+.halves span{direction:ltr;font:500 .72rem/1.5 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.halves i{font-style:normal;display:inline-block;width:14px;height:14px;transform:rotate(45deg);margin:6px auto 0}
+.plate{display:grid;place-items:center;padding:clamp(28px,6vw,72px) clamp(12px,4vw,48px);background:var(--kaghaz)}
+.plate svg{width:min(820px,100%);height:auto}
+.grounds{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.g{display:grid;place-items:center;aspect-ratio:4/3;padding:10%}
+.g svg{width:100%;height:auto;max-height:100%}
+.g-nil{background:var(--nil);--ink:var(--pashm);--vow:var(--zafaran)}
+.g-runas{background:var(--runas);--ink:var(--pashm);--vow:var(--zafaran)}
+.g-zomorrod{background:var(--zomorrod);--ink:var(--pashm);--vow:var(--zafaran)}
+.cap{font:400 .78rem/1.5 var(--f-mono);color:var(--mute);margin-top:6px}
+.sizes{display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap;padding:20px;border:1px solid var(--line)}
+.sizes figure{margin:0;display:grid;gap:8px;font:400 .75rem/1 var(--f-mono);color:var(--mute);min-width:0;max-width:100%}
+.sizes svg{display:block;height:auto}.s300{width:min(300px,100%)}.s170{width:170px}.s100{width:100px}
+.moves{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.move{border:1px solid var(--line);display:grid;grid-template-rows:auto 1fr;min-width:0}
+.move .art{display:grid;place-items:center;padding:22px 18px;background:var(--kaghaz);aspect-ratio:16/9}
+.move .art svg{width:100%;height:100%}
+.move .txt{padding:14px 16px 18px;display:grid;gap:6px;align-content:start}
+.move .txt p{font-size:.92rem;line-height:1.55;margin:0}
+.badge{display:inline-block;background:var(--runas);color:var(--pashm);font:600 .68rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;margin-inline-start:10px;vertical-align:middle}
+ol.q{margin:0;padding:0;list-style:none;counter-reset:q;display:grid;gap:14px}
+ol.q li{counter-increment:q;display:grid;grid-template-columns:2.2em 1fr;gap:6px}
+ol.q li::before{content:counter(q,decimal-leading-zero);font:500 .8rem/1.9 var(--f-mono);color:var(--runas)}
+ol.q li>*{min-width:0}
+footer{padding-block:36px 60px;border-top:1px solid var(--line);font-size:.85rem;color:var(--mute)}
+</style>
+
+{{SPRITE}}
+
+<header class="wrap top">
+  <span class="label">Jostoju · logotype · round 2</span>
+  <h1>The quest, made visible</h1>
+  <p class="lede">Built on the two typefaces you chose: Amiri, the classical Naskh you liked, and Noto Sans Arabic Black, the free face closest to the Fontiran specimen. Both are open-licensed, so we can change them and use them in the logo. In every version the dots are the brand's diamond knots and the vowel marks are the second colour.</p>
+</header>
+
+<main>
+<section class="wrap" id="idea">
+  <span class="label">The idea</span>
+  <div class="idea">
+    <div>
+      <h2>Sought, and still seeking</h2>
+      <p>جستجو is two halves of one verb: <em>jost</em>, sought (past), and <em>ju</em>, seek (present). So the dot of the first ج, in the "sought" half, is a solid knot: found. The dot of the last ج, in the "seek" half, is an empty knot: still being looked for.</p>
+      <p class="mute small">It's Rumi's «آنکه یافت می‌نشود، آنم آرزوست», what cannot be found is what I long for, and the same missing knot as the brand symbol.</p>
+    </div>
+    <div class="halves">
+      <div><b>جُسْت</b><span>jost · sought</span><i style="background:var(--morakkab)"></i><span>found</span></div>
+      <div><b>جُو</b><span>ju · seek</span><i style="border:3px solid var(--runas)"></i><span>still seeking</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="journey">
+  <span class="label">Recommended</span>
+  <h2>Journey <span lang="fa" dir="rtl">سفر</span><span class="badge">Amiri</span></h2>
+  <p class="mute">The long stretch through the سـ is the road, the empty knot under the last ج is what the road leads to, and the vowels float above in a row like the Amiri setting you liked.</p>
+  <div class="plate">{{USE:amiri-journey::جُسْتُجُو, Journey version}}</div>
+  <div class="grounds">
+    <div><div class="g g-nil">{{USE:amiri-journey::-}}</div><div class="cap">Wool on Nil · saffron vowels</div></div>
+    <div><div class="g g-runas">{{USE:amiri-journey::-}}</div><div class="cap">Wool on Runas</div></div>
+    <div><div class="g g-zomorrod">{{USE:amiri-journey::-}}</div><div class="cap">Wool on emerald</div></div>
+  </div>
+  <div class="sizes" aria-label="Size test">
+    <figure>{{USE:amiri-journey:s300:-}}<span>300 px</span></figure>
+    <figure>{{USE:amiri-journey:s170:-}}<span>170 px</span></figure>
+    <figure>{{USE:amiri-journey:s100:-}}<span>100 px</span></figure>
+  </div>
+</section>
+
+<section class="wrap" id="moves">
+  <span class="label">The four quest moves · Amiri</span>
+  <h2>Each idea on its own</h2>
+  <div class="moves">
+    <div class="move"><div class="art">{{USE:amiri-missing::Missing knot version}}</div><div class="txt"><h3>The Missing Knot <span lang="fa" dir="rtl">گره گمشده</span></h3><p>The dot of "seek" is empty. It's the quietest move and ties the logotype to the symbol.</p></div></div>
+    <div class="move"><div class="art">{{USE:amiri-road::Road version}}</div><div class="txt"><h3>The Road <span lang="fa" dir="rtl">راه</span></h3><p>A long keshideh through the سـ: the quest as distance travelled. This is the classical calligrapher's gesture.</p></div></div>
+    <div class="move"><div class="art">{{USE:amiri-thread::Thread version}}</div><div class="txt"><h3>The Thread <span lang="fa" dir="rtl">سرنخ</span></h3><p>The و tail runs on as a thread and ends in a knot. In Persian, <em>sar-e nakh</em>, the end of the thread, means a clue.</p></div></div>
+    <div class="move"><div class="art">{{USE:amiri-ascent::Ascent version}}</div><div class="txt"><h3>The Ascent <span lang="fa" dir="rtl">عروج</span></h3><p>The vowels rise from right to left like Attar's birds flying toward the Simorgh. Each one still sits over its own letter.</p></div></div>
+    <div class="move"><div class="art">{{USE:amiri-path::Path version}}</div><div class="txt"><h3>Road and thread <span lang="fa" dir="rtl">راه و سرنخ</span></h3><p>The road, then the thread, ending in the empty knot. The richest version, best kept for large formats.</p></div></div>
+  </div>
+</section>
+
+<section class="wrap" id="noto">
+  <span class="label">The same moves · Noto Sans Arabic Black</span>
+  <h2>On the Fontiran-like face</h2>
+  <p class="mute">This face is heavier and more modern. If you buy the licence for the Fontiran original, these moves carry over: I only swap the font file.</p>
+  <div class="moves">
+    <div class="move"><div class="art">{{USE:noto-journey::Journey version, Noto}}</div><div class="txt"><h3>Journey</h3><p>Road plus Missing Knot.</p></div></div>
+    <div class="move"><div class="art">{{USE:noto-missing::Missing knot version, Noto}}</div><div class="txt"><h3>The Missing Knot</h3><p>The most compact, and strongest at small sizes.</p></div></div>
+    <div class="move"><div class="art">{{USE:noto-ascent::Ascent version, Noto}}</div><div class="txt"><h3>The Ascent</h3><p>The rise reads more clearly here because the marks are heavier.</p></div></div>
+    <div class="move"><div class="art">{{USE:noto-thread::Thread version, Noto}}</div><div class="txt"><h3>The Thread</h3><p>Next to this heavy weight, the thread needs to be bolder than in Amiri.</p></div></div>
+  </div>
+</section>
+
+<section class="wrap" id="next">
+  <span class="label">Your call</span>
+  <h2>Questions for round 3</h2>
+  <ol class="q">
+    <li><span><strong>Which typeface:</strong> Amiri or the heavier Noto, or the Fontiran original if you buy the licence?</span></li>
+    <li><span><strong>Which moves:</strong> Journey as recommended, or a different mix of knot, road, thread and ascent?</span></li>
+    <li><span><strong>Weight:</strong> should Amiri be drawn heavier for the logo? I can thicken the outlines without changing the letter shapes.</span></li>
+    <li><span><strong>Empty knot colour:</strong> red, as shown, or the same colour as the letters?</span></li>
+  </ol>
+</section>
+</main>
+<footer class="wrap">Jostoju · logotype round 2 · Amiri (Khaled Hosny) and Noto Sans Arabic (Google), both SIL Open Font License · November 2026</footer>
