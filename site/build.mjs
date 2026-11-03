@@ -1,7 +1,7 @@
 // Jostoju website build. No dependencies: `node build.mjs`
 //   dist/     the real site (pretty URLs, shared /assets), ready for any static host
 //   preview/  a self-contained copy with relative links, used for review links
-import { readFileSync, writeFileSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync } from 'node:fs';
 import { dirname, relative, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as P from './src/pages.mjs';
@@ -26,18 +26,19 @@ function ctxFor(mode, lang, page) {
   const from = fileOf(lang, page);
   const href = (p, l = lang) => mode === 'site' ? urlOf(l, p) : (relative(dirname(from), fileOf(l, p)) || 'index.html');
   const t = (fa, en) => (lang === 'fa' ? fa : en);
+  const asset = (p) => mode === 'site' ? '/' + p : relative(dirname(from), p);
   const mark = (id, cls, label) => {
     const m = marks[id]; const [, , w, h] = m.viewBox.split(' ');
     const aria = label === '-' ? 'aria-hidden="true"' : `role="img" aria-label="${label}"`;
     return `<svg class="${cls}" viewBox="${m.viewBox}" width="${w}" height="${h}" ${aria}>${m.markup}</svg>`;
   };
-  const station = ({ name, left, top, width, inline, group, color, fill, elusive, found }) => {
+  const station = ({ name, left, top, width, inline, group, color, fill, elusive, found, terminal }) => {
     const attrs = [`data-station="${name}"`, group && `data-group="${group}"`, color && `data-color="${color}"`,
-      fill && 'data-fill="1"', elusive && 'data-elusive="1"', found && `data-found-target="${found}"`].filter(Boolean).join(' ');
+      fill && 'data-fill="1"', elusive && 'data-elusive="1"', found && `data-found-target="${found}"`, terminal && 'data-terminal="1"'].filter(Boolean).join(' ');
     const style = left !== undefined ? ` style="left:${left}%;top:${top}%;width:${width}%"` : '';
     return `<span class="station${inline ? ' inline' : ''}" ${attrs}${style} aria-hidden="true"></span>`;
   };
-  return { mode, lang, page, t, href, mark, station, marks };
+  return { mode, lang, page, t, href, mark, station, marks, asset };
 }
 
 function header(c) {
@@ -67,12 +68,22 @@ function footer(c) {
 </footer>`;
 }
 
+function player(c) {
+  const { t } = c;
+  return `<dialog class="reel-dialog" aria-label="${t('پخش فیلم', 'Film player')}">
+  <div class="bar"><span class="dtitle"></span><button type="button" data-close>${t('بستن', 'Close')}</button></div>
+  <div class="screen"><video controls playsinline hidden></video>
+    <div class="pending"><p>${t('این فیلم در دست تدوین است و به‌زودی همین‌جا پخش می‌شود.', 'This film is in the edit and will play right here soon.')}</p>
+    <p style="opacity:.7">${t('تا آن موقع، از کارگاه بپرسید.', 'Until then, ask the workshop.')} <span class="lat">${P.EMAIL}</span></p></div></div>
+</dialog>`;
+}
+
 const DOT = '<div class="qdot" aria-hidden="true"><svg viewBox="0 0 100 100"><path class="ring" fill-rule="evenodd" d="M50 0L100 50L50 100L0 50ZM50 27L73 50L50 73L27 50Z"/><path class="core" d="M50 27L73 50L50 73L27 50Z"/></svg></div>';
 
 function render(mode, lang, page) {
   const c = ctxFor(mode, lang, page);
   const title = c.t(...P.TITLES[page]); const desc = c.t(...P.DESC[page]);
-  const body = header(c) + `<main id="main">${P[page](c)}</main>` + footer(c) + DOT;
+  const body = header(c) + `<main id="main">${P[page](c)}</main>` + footer(c) + player(c) + DOT;
   const alt = `<link rel="alternate" hreflang="fa" href="${SITE_URL}${urlOf('fa', page)}"><link rel="alternate" hreflang="en" href="${SITE_URL}${urlOf('en', page)}">`;
   const meta = `<meta name="description" content="${desc}"><meta property="og:title" content="${title}"><meta property="og:description" content="${desc}"><meta name="theme-color" content="#F4EDE0">`;
   const fonts = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="${FONTS}">`;
@@ -98,6 +109,7 @@ for (const mode of ['site', 'preview']) {
     const f = join(out, fileOf(lang, page)); mkdirSync(dirname(f), { recursive: true });
     writeFileSync(f, render(mode, lang, page));
   }
+  if (existsSync(join(HERE, 'media'))) cpSync(join(HERE, 'media'), join(out, 'media'), { recursive: true });
   if (mode === 'site') {
     mkdirSync(join(out, 'assets'), { recursive: true });
     writeFileSync(join(out, 'assets/site.css'), CSS); writeFileSync(join(out, 'assets/site.js'), JS);

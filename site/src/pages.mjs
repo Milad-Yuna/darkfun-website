@@ -1,6 +1,8 @@
 // Jostoju website pages. Every string is written twice, natively: t(فارسی, English).
 // Persian is the default language (served at /), English lives at /en/.
 
+import { CLIPS } from './clips.mjs';
+
 export const NAV = ['work', 'pardeh', 'studio', 'contact'];
 export const EMAIL = 'hello@jostoju.studio';          // placeholder until the domain is secured
 
@@ -29,6 +31,17 @@ const scene = (kind) => ({
   portrait: '<div class="scene" style="background:var(--shab)"><div class="robe"></div><div class="face"></div><div class="pearlrow"></div></div>',
 }[kind]);
 
+export function clipCard(c, clip) {
+  const { t, asset } = c;
+  const title = t(...clip.title), kind = t(...clip.kind);
+  const has = !!clip.src;
+  const attrs = has ? ` data-play data-src="${asset(clip.src)}" data-title="${title}" tabindex="0" role="button" aria-label="${t('پخش', 'Play')}: ${title}"` : '';
+  const media = has
+    ? `<video muted loop playsinline preload="metadata"${clip.poster ? ` poster="${asset(clip.poster)}"` : ''} src="${asset(clip.src)}"></video><span class="play" aria-hidden="true"></span>`
+    : `${scene(clip.scene)}<span class="soon-chip">${t('به‌زودی', 'Coming soon')}</span>`;
+  return `<figure class="clip" style="--rw:${clip.rw};--rh:${clip.rh}"${attrs}><div class="frame">${media}</div><figcaption><b>${title}</b><span>${kind}</span></figcaption></figure>`;
+}
+
 const VALLEYS = [
   ['طلب', 'Quest', 'سفارش را به یک پرسش تبدیل می‌کنیم.', 'We turn the brief into a question.'],
   ['عشق', 'Love', 'ایده‌ای که نمی‌شود رهایش کرد.', 'The idea we cannot let go of.'],
@@ -52,15 +65,28 @@ export function home(c) {
       ${station({ name: 'hero', left: hs.left, top: hs.top, width: hs.width, color: 'runas', elusive: true })}
     </div>
     ${c.lang === 'en' ? mark('en', 'en-mark', 'jostoju') : ''}
-    <h1 id="hero-title">${t('آنچه یافت می‌نشود، می‌سازیم.', 'We make what cannot be found.')}</h1>
-    <p class="lede">${t('جستجو استودیوی فیلم‌سازی با هوش مصنوعی است، با ریشه در نقاشی قاجار، فرش ایرانی و شعر مولانا. فیلم تبلیغاتی، موزیک‌ویدیو و فیلم‌های خودمان را می‌سازیم؛ هر قاب با دست انسان.',
-      'Jostoju is an AI film studio rooted in Qajar painting, Persian carpets and the poetry of Rumi. We make commercials, music videos and films of our own, with a human hand on every frame.')}</p>
+    <h1 id="hero-title" class="studio-line">${t('استودیوی فیلم‌سازی با هوش مصنوعی', 'AI Film Studio')}</h1>
     <div class="ctas">
-      <a class="btn primary" href="#reel">${t('تماشای شوریل', 'Watch the reel')}</a>
+      <a class="btn primary" href="#clips">${t('تماشای کارها', 'Watch our work')}</a>
       <a class="btn" href="${href('contact')}">${t('سفارش فیلم', 'Commission a film')}</a>
     </div>
     <p class="follow"><i aria-hidden="true"></i>${t('نقطه گم شده است. دنبالش بیا.', 'The dot is lost. Follow it.')}</p>
   </div>
+</section>
+
+<section class="clips g-paper" id="clips" aria-labelledby="clips-title" data-strip>
+  <div class="wrap clips-head">
+    <div>
+      <span class="label">${t('کارها', 'Work')}</span>
+      <h2 id="clips-title">${t('قاب‌ها', 'Frames')}${station({ name: 'clips', inline: true, color: 'runas' })}</h2>
+    </div>
+    <div class="tools">
+      <a class="all" href="${href('work')}">${t('همهٔ کارها', 'All work')}</a>
+      <button class="arrow" type="button" data-dir="-1" aria-label="${t('قبلی', 'Previous')}">${c.lang === 'fa' ? '→' : '←'}</button>
+      <button class="arrow" type="button" data-dir="1" aria-label="${t('بعدی', 'Next')}">${c.lang === 'fa' ? '←' : '→'}</button>
+    </div>
+  </div>
+  <div class="strip">${CLIPS.map((clip) => clipCard(c, clip)).join('')}</div>
 </section>
 
 <section class="manifesto g-red" aria-labelledby="m-title">
@@ -100,7 +126,7 @@ export function home(c) {
   <div class="wrap">
     <span class="label">${t('شوریل', 'Showreel')}</span>
     <h2 id="reel-title">${t('گرهِ گمشده را پیدا کن', 'Find the missing knot')}</h2>
-    <button class="medallion" type="button" data-open-reel aria-label="${t('پخش شوریل', 'Play the showreel')}">
+    <button class="medallion" type="button" data-play data-src="${CLIPS[0].src ? c.asset(CLIPS[0].src) : ''}" data-title="${t(...CLIPS[0].title)}" aria-label="${t('پخش شوریل', 'Play the showreel')}">
       ${mark('symbol', '', '-')}
       ${station({ name: 'reel', left: ms.left, top: ms.top, width: ms.width, color: 'runas', fill: true, found: '.reel' })}
       <span class="play">${t('▶ پخش', '▶ Play')}</span>
@@ -136,22 +162,14 @@ export function home(c) {
   <div class="wrap">
     <div class="final-mark">
       ${mark('slot', '', 'جستجو')}
-      ${station({ name: 'home', left: fs.left, top: fs.top, width: fs.width, color: 'runas', fill: true, found: '.finale' })}
+      ${station({ name: 'home', left: fs.left, top: fs.top, width: fs.width, color: 'runas', fill: true, found: '.finale', terminal: true })}
     </div>
     <h2 id="f-title">${t('جستجوی بعدی، مال شماست.', 'The next quest is yours.')}</h2>
     <p>${t('فیلمی در سر دارید که هنوز پیدا نشده؟ بگویید از کجا شروع کنیم.', 'Have a film in mind that cannot be found yet? Tell us where to start.')}</p>
     <div class="ctas"><a class="btn primary" href="${href('contact')}">${t('شروع یک جستجو', 'Start a quest')}</a></div>
     <p class="mail">${EMAIL}</p>
   </div>
-</section>
-
-<dialog class="reel-dialog" aria-label="${t('شوریل', 'Showreel')}">
-  <div class="bar"><button type="button" data-close>${t('بستن', 'Close')}</button></div>
-  <div class="screen"><div>
-    <p>${t('شوریل در دست تدوین است و به‌زودی همین‌جا پخش می‌شود.', 'The showreel is in the edit and will play right here soon.')}</p>
-    <p style="opacity:.7">${t('تا آن موقع، از کارگاه بپرسید.', 'Until then, ask the workshop.')} <span class="lat">${EMAIL}</span></p>
-  </div></div>
-</dialog>`;
+</section>`;
 }
 
 /* ---------------------------------------------------------------- work */
@@ -165,14 +183,7 @@ export function work(c) {
     'The workshop\'s first films are on the loom. This is where they will live: each project with the film, the brief, its seven valleys and its credits.')}</p>
 </div></header>
 <section class="section g-pearl" style="padding-top:0"><div class="wrap">
-  <div class="cards">
-    ${[['فیلم تبلیغاتی', 'Commercial', 'curtain'], ['موزیک‌ویدیو', 'Music video', 'sky'], ['فیلم برند', 'Brand film', 'portrait']].map(([fa, en, sc]) => `
-    <article class="card">
-      <div class="thumb">${scene(sc)}</div>
-      <div class="txt"><span class="soon">${t('به‌زودی', 'Coming soon')}</span><h3>${t(fa, en)}</h3>
-      <p>${t('جای نخستین پروژه‌ها. فیلم، سفارش و تیتراژ این‌جا می‌آید.', 'A place for the first projects: the film, the brief and the credits go here.')}</p></div>
-    </article>`).join('')}
-  </div>
+  <div class="clip-grid">${CLIPS.map((clip) => clipCard(c, clip)).join('')}</div>
 </div></section>
 <section class="section g-red"><div class="wrap" style="text-align:center">
   <h2>${t('پروژهٔ اول شما می‌تواند این‌جا باشد.', 'Your project could be the first one here.')}</h2>

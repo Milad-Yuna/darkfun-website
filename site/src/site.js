@@ -15,10 +15,40 @@
   const onScroll = () => head && head.classList.toggle('scrolled', scrollY > 8);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  /* showreel dialog */
+  /* film player: anything with [data-play] opens the dialog; empty data-src shows the "in the edit" note */
   const dlg = document.querySelector('dialog.reel-dialog');
-  document.querySelectorAll('[data-open-reel]').forEach(b => b.addEventListener('click', () => { if (dlg && dlg.showModal) dlg.showModal(); }));
-  if (dlg) dlg.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => dlg.close()));
+  if (dlg) {
+    const v = dlg.querySelector('video'), pend = dlg.querySelector('.pending'), ttl = dlg.querySelector('.dtitle');
+    const open = (el) => {
+      const src = el.dataset.src || '';
+      ttl.textContent = el.dataset.title || '';
+      v.hidden = !src; pend.hidden = !!src;
+      if (src) v.src = src;
+      if (dlg.showModal) dlg.showModal();
+      if (src) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    };
+    document.querySelectorAll('[data-play]').forEach((el) => {
+      el.addEventListener('click', () => open(el));
+      if (el.tagName !== 'BUTTON') el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); } });
+    });
+    dlg.addEventListener('close', () => { v.pause(); v.removeAttribute('src'); v.load(); });
+    dlg.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => dlg.close()));
+  }
+
+  /* clips: play silently while on screen; arrows scroll the strip */
+  const vids = document.querySelectorAll('.clip video');
+  if (vids.length && 'IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) { const p = e.target.play(); if (p && p.catch) p.catch(() => {}); } else e.target.pause();
+    }), { threshold: .6 });
+    vids.forEach((v) => io.observe(v));
+  }
+  document.querySelectorAll('[data-strip]').forEach((box) => {
+    const strip = box.querySelector('.strip');
+    box.querySelectorAll('[data-dir]').forEach((b) => b.addEventListener('click', () => {
+      strip.scrollBy({ left: +b.dataset.dir * strip.clientWidth * .8 * (rtl ? -1 : 1), behavior: reduce ? 'auto' : 'smooth' });
+    }));
+  });
 
   /* contact form: posts to data-endpoint when configured, otherwise says so honestly */
   const form = document.querySelector('form[data-endpoint]');
@@ -39,6 +69,7 @@
   if (!dot || !stations.length) return;
 
   let x = null, y = null, s = 30, px = -1e4, py = -1e4, hovered = null, lastFound = null;
+  let locked = null;   // the finale: once the dot is home, it stays put
   addEventListener('pointermove', (e) => { px = e.clientX; py = e.clientY; }, { passive: true });
   stations.forEach(st => {
     const host = st.closest('[data-hover-host]');
@@ -68,6 +99,11 @@
   function target() {
     const vh = innerHeight, mid = vh * .5;
     sequences(vh);
+    if (locked) {
+      const r = locked.getBoundingClientRect();
+      if (r.top < vh) return {   // on screen or scrolled past it: the quest is over, the dot stays home
+        x: r.left + r.width / 2, y: r.top + r.height / 2, s: r.width, fill: true, color: `var(--${locked.dataset.color || 'runas'})`, st: locked };
+    }
     let best = null, bestD = Infinity, bestRect = null;
     for (const st of stations) {
       const seq = st.closest('[data-seq]');
@@ -98,11 +134,13 @@
   function frame() {
     const t = target();
     if (x === null) { x = t.x; y = t.y; s = t.s; dot.classList.add('on'); }
-    const k = reduce ? 1 : .13;
+    if (locked && t.st !== locked) { locked = null; dot.classList.remove('home'); }
+    const k = reduce || locked ? 1 : .13;
     x += (t.x - x) * k; y += (t.y - y) * k; s += (t.s - s) * k;
     dot.style.transform = `translate3d(${(x - 50).toFixed(2)}px, ${(y - 50).toFixed(2)}px, 0) scale(${(s / 100).toFixed(4)})`;
     dot.style.setProperty('--dot-c', t.color);
-    const docked = t.st && Math.hypot(t.x - x, t.y - y) < 3 && Math.abs(t.s - s) < 3;
+    const docked = !!t.st && (locked === t.st || (Math.hypot(t.x - x, t.y - y) < 3 && Math.abs(t.s - s) < 3));
+    if (docked && t.st.dataset.terminal && !locked) { locked = t.st; dot.classList.add('home'); }
     dot.classList.toggle('filled', !!(t.fill && docked) || (t.fill && reduce));
     const foundEl = docked && t.st.dataset.foundTarget ? t.st.closest(t.st.dataset.foundTarget) : null;
     if (foundEl !== lastFound) { if (lastFound) lastFound.classList.remove('found'); if (foundEl) foundEl.classList.add('found'); lastFound = foundEl; }

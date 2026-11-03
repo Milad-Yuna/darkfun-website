@@ -36,7 +36,7 @@ def word(mode, keep_knot):
         out['stations']['ahead'] = station(vb, (kb[0] + kb[2]) / 2, (kb[1] + kb[3]) / 2, kb[2] - kb[0])
     if L['origin']:
         ox, oy = L['origin']
-        out['stations']['home'] = station(vb, ox, oy, L['lost_h'] * 2.1)
+        out['stations']['home'] = station(vb, ox, oy, L['lost_h'] * 2.0)
     return out
 
 def comp(c):
