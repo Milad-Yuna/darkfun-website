@@ -19,4 +19,5 @@ export const HERO_FOCUS = { wide: 0.5, tall: 0.18, vertical: 0.45 };
 // Artworks from site/art/PROMPTS.md: the file, and where its hidden lost dot (the red jewel) sits, in % of the image.
 export const ART = {
   seeker: { file: 'media/art/seeker.jpg', dot: [26.3, 90.7], w: 906, h: 1125 },
+  camera: { file: 'media/art/camera.jpg', dot: [53.8, 45.8], w: 1500, h: 837 },
 };

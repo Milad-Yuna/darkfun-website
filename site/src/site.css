@@ -160,16 +160,26 @@ html[lang="en"] .hero h1.studio-line { font-size: clamp(2rem, 1.3rem + 3vw, 4.2r
 .arch-in img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; display: block }
 .find-dot { position: absolute; width: 9%; aspect-ratio: 1; transform: translate(-50%, -50%); border: 0; padding: 0; background: transparent; cursor: pointer }
 .find-dot::before { content: ""; position: absolute; inset: -40%; border: 2.5px solid var(--tala); transform: rotate(45deg) scale(.3); opacity: 0; transition: transform .7s var(--ease), opacity .4s }
-.seeker.found .find-dot::before { opacity: 1; transform: rotate(45deg) scale(1); animation: glint 2.4s var(--ease) infinite }
+figure.found .find-dot::before { opacity: 1; transform: rotate(45deg) scale(1); animation: glint 2.4s var(--ease) infinite }
 @keyframes glint { 0%, 100% { box-shadow: 0 0 0 0 rgba(212, 166, 64, .0) } 50% { box-shadow: 0 0 26px 6px rgba(212, 166, 64, .55) } }
 .seeker figcaption { text-align: center; display: grid; gap: 4px; max-width: 34ch }
 .seeker figcaption b { font: 700 1.6rem/1.5 var(--f-display-fa) }
 html[lang="en"] .seeker figcaption b { font: 800 1.3rem/1.2 var(--f-display) }
 .seeker .hint { color: var(--mute); font-size: .95rem }
 .seeker .found-msg { color: var(--tala); font-weight: 500 }
-.seeker.found .hint { display: none }
+figure.found .hint { display: none }
 
 /* ---------- the Qajar camera (studio) ---------- */
+.painting { margin: clamp(26px, 4vw, 46px) 0 clamp(10px, 2vw, 20px); display: grid; gap: 14px }
+.gold-frame { padding: clamp(8px, 1.2vw, 14px); background: linear-gradient(135deg, #7d5e1f, #e9c86c 28%, #a8812d 52%, #f2d684 74%, #7d5e1f); box-shadow: 0 34px 70px -34px rgba(0, 0, 0, .95) }
+.painting-in { position: relative; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .6) }
+.painting-in img { display: block; width: 100%; height: auto }
+.painting .find-dot { width: 3.6% }
+.painting figcaption { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; justify-content: space-between }
+.painting figcaption b { font: 700 1.5rem/1.5 var(--f-display-fa) }
+html[lang="en"] .painting figcaption b { font: 800 1.2rem/1.2 var(--f-display) }
+.painting .hint { color: var(--mute) }
+.painting .found-msg { color: var(--tala); font-weight: 500 }
 .camera h2 { max-width: 20ch }
 .timeline { list-style: none; margin: clamp(24px, 4vw, 44px) 0; padding: 0; display: grid; gap: 0; grid-template-columns: 1fr; border-top: 1px solid var(--line) }
 @media (min-width: 900px) { .timeline { grid-template-columns: repeat(3, 1fr) } }

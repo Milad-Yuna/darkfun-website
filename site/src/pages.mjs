@@ -264,6 +264,13 @@ export function studio(c) {
 <section class="section g-night camera"><div class="wrap">
   <span class="label">${t('دوربین قاجاری', 'The Qajar camera')}</span>
   <h2>${t('دوربین با قاجار به ایران آمد.', 'The camera came to Iran with the Qajars.')}</h2>
+  ${c.art.camera ? `<figure class="painting">
+    <div class="gold-frame"><div class="painting-in">
+      <img src="${c.asset(c.art.camera)}" width="${ART.camera.w}" height="${ART.camera.h}" loading="lazy" alt="${t('دوربین شاه: عکاس دربار زیر پارچهٔ سیاه، پادشاهی قاجاری را در ایوانی کاشی‌کاری عکس می‌گیرد', 'The Royal Camera: a court photographer under a black cloth photographs a Qajar king in a tiled iwan')}">
+      <button type="button" class="find-dot" style="left:${ART.camera.dot[0]}%;top:${ART.camera.dot[1]}%" aria-label="${t('نقطهٔ گمشده', 'The lost dot')}"></button>
+    </div></div>
+    <figcaption><b>${t('دوربین شاه', 'The Royal Camera')}</b><span class="hint">${t('نقطهٔ گمشده جایی در این پرده پنهان است. پیدایش کن.', 'The lost dot is hidden somewhere in this painting. Find it.')}</span><span class="found-msg" aria-live="polite" data-msg="${t('پیدایش کردی: روی عدسی دوربین.', 'You found it: on the camera lens.')}"></span></figcaption>
+  </figure>` : ''}
   <ol class="timeline">
     <li><b>${t('۱۲۲۱', '1842')}</b><small>${t('۱۸۴۲ میلادی', 'Photography')}</small><p>${t('نخستین دوربین عکاسی به دربار قاجار رسید.', 'The first camera reaches the Qajar court.')}</p></li>
     <li><b>${t('۱۲۲۷–۱۲۷۵', '1848–1896')}</b><small>${t('ناصرالدین‌شاه', 'Naser al-Din Shah')}</small><p>${t('شاه خود عکاس بود؛ از نخستین پادشاهان جهان که پشت دوربین ایستاد، و در کاخ گلستان عکاس‌خانه ساخت.', 'The Shah was a photographer himself, one of the first monarchs anywhere to stand behind the camera, and built a photography house in the Golestan Palace.')}</p></li>
