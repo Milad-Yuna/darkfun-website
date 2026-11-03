@@ -1,0 +1,1193 @@
+<title>Jostoju Brand Bible</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="کتاب برند جستجو · The brand bible of Jostoju, a bilingual AI film studio rooted in Qajar painting, Persian carpets and the words of Rumi and Attar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700;6..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Nastaliq+Urdu:wght@400&family=Vazirmatn:wght@400;500;700&display=swap">
+<style>
+/* Layout: a Qajar portrait gallery. Dark varnished grounds and pearl pages alternate; each part opens on a
+   full field of madder, emerald, night or lapis with one giant Persian word; frames are arches and strings of pearls. */
+:root{
+  color-scheme: dark;
+  --shab:#16110E; --morvarid:#F4EDE0; --kaghaz:#E7D9BD; --runas:#A3261F; --zomorrod:#1F5A46; --tala:#D4A640; --lajvard:#233C8E; --gol:#E39AA6;
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-display-fa:"Amiri","Times New Roman",serif;
+  --f-text:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  --f-text-fa:"Vazirmatn",Tahoma,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --f-verse:"Noto Nastaliq Urdu","Amiri",serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --bg:var(--shab); --fg:var(--morvarid); --mute:rgba(244,237,224,.72); --line:rgba(212,166,64,.32); --hi:var(--tala);
+  --ink:var(--morvarid); --acc:var(--tala); --ring:var(--tala); --panel:rgba(244,237,224,.045); --pearl:var(--morvarid);
+}
+{{PATTERN_CSS}}
+.g-shab{--bg:var(--shab);--fg:var(--morvarid);--mute:rgba(244,237,224,.72);--line:rgba(212,166,64,.32);--hi:var(--tala);--ink:var(--morvarid);--acc:var(--tala);--ring:var(--tala);--panel:rgba(244,237,224,.045);--pearl:var(--morvarid);--band:var(--p-band-shab);--field:var(--p-field-shab);--l-tl:var(--p-lachak-tl-shab);--l-tr:var(--p-lachak-tr-shab);--l-bl:var(--p-lachak-bl-shab);--l-br:var(--p-lachak-br-shab)}
+.g-morvarid{--bg:var(--morvarid);--fg:var(--shab);--mute:rgba(22,17,14,.7);--line:rgba(22,17,14,.16);--hi:var(--runas);--ink:var(--shab);--acc:var(--runas);--ring:var(--runas);--panel:var(--kaghaz);--pearl:var(--tala);--band:var(--p-band-morvarid);--field:var(--p-field-morvarid);--l-tl:var(--p-lachak-tl-morvarid);--l-tr:var(--p-lachak-tr-morvarid);--l-bl:var(--p-lachak-bl-morvarid);--l-br:var(--p-lachak-br-morvarid)}
+.g-runas{--bg:var(--runas);--fg:var(--morvarid);--mute:rgba(244,237,224,.84);--line:rgba(244,237,224,.3);--hi:var(--tala);--ink:var(--morvarid);--acc:var(--tala);--ring:var(--tala);--panel:rgba(22,17,14,.16);--pearl:var(--morvarid);--band:var(--p-band-runas);--l-tl:var(--p-lachak-tl-runas);--l-tr:var(--p-lachak-tr-runas);--l-bl:var(--p-lachak-bl-runas);--l-br:var(--p-lachak-br-runas)}
+.g-zomorrod{--bg:var(--zomorrod);--fg:var(--morvarid);--mute:rgba(244,237,224,.84);--line:rgba(244,237,224,.28);--hi:var(--tala);--ink:var(--morvarid);--acc:var(--tala);--ring:var(--tala);--panel:rgba(22,17,14,.16);--pearl:var(--morvarid);--band:var(--p-band-zomorrod);--l-tl:var(--p-lachak-tl-zomorrod);--l-tr:var(--p-lachak-tr-zomorrod);--l-bl:var(--p-lachak-bl-zomorrod);--l-br:var(--p-lachak-br-zomorrod)}
+.g-lajvard{--bg:var(--lajvard);--fg:var(--morvarid);--mute:rgba(244,237,224,.84);--line:rgba(244,237,224,.28);--hi:var(--tala);--ink:var(--morvarid);--acc:var(--tala);--ring:var(--tala);--panel:rgba(22,17,14,.18);--pearl:var(--morvarid);--band:var(--p-band-lajvard);--l-tl:var(--p-lachak-tl-lajvard);--l-tr:var(--p-lachak-tr-lajvard);--l-bl:var(--p-lachak-bl-lajvard);--l-br:var(--p-lachak-br-lajvard)}
+.g-shab,.g-morvarid,.g-runas,.g-zomorrod,.g-lajvard{background-color:var(--bg);color:var(--fg)}
+
+*,*::before,*::after{box-sizing:border-box}
+table{color:inherit;font:inherit;border-collapse:collapse}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--shab);color:var(--morvarid);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--shab)}
+#book{font:400 1.0625rem/1.95 var(--f-text-fa)}
+#book[data-lang="en"]{font-family:var(--f-text);line-height:1.62}
+#book[data-lang="fa"] .en,#book[data-lang="en"] .fa{display:none!important}
+#book .lat{font-family:var(--f-text);direction:ltr;unicode-bidi:isolate}
+#book .per{font-family:var(--f-text-fa);direction:rtl;unicode-bidi:isolate}
+[lang="fa"]{font-family:var(--f-text-fa)}
+a{color:inherit;text-decoration-color:var(--hi);text-underline-offset:.25em}
+:focus-visible{outline:2px solid var(--hi);outline-offset:3px}
+p{margin:0 0 1em;max-width:66ch}
+p:last-child{margin-bottom:0}
+strong{font-weight:600}
+code{font-family:var(--f-mono);font-size:.84em;direction:ltr;unicode-bidi:isolate}
+.mute{color:var(--mute)}
+.small{font-size:.92rem;line-height:1.75}
+#book[data-lang="en"] .small{line-height:1.55}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+.cols{display:grid;gap:clamp(20px,3vw,40px);grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--min,280px)),1fr))}
+.cols>*,.split>*{min-width:0}
+.split{display:grid;gap:clamp(28px,5vw,72px);grid-template-columns:1fr}
+@media (min-width:900px){.split{grid-template-columns:var(--split,1fr 1fr)}}
+.card{border:1px solid var(--line);background:var(--panel);padding:clamp(18px,2.4vw,28px)}
+.rule{border:0;border-top:1px solid var(--line);margin:clamp(36px,5vw,60px) 0}
+.pearls{height:16px;background:radial-gradient(circle at 50% 50%,var(--pearl) 0 3.4px,transparent 4px) center/16px 16px repeat-x;opacity:.9}
+.band{height:80px;background-image:var(--band);background-repeat:repeat-x;background-position:center;background-size:auto 80px}
+.lachak{background-image:var(--l-tl),var(--l-tr),var(--l-bl),var(--l-br);background-repeat:no-repeat;background-size:52px;background-position:left 10px top 10px,right 10px top 10px,left 10px bottom 10px,right 10px bottom 10px}
+
+/* labels and titles: the label speaks the page language; titles use Amiri (fa) or Bodoni (en) */
+.label{display:block;margin:0 0 10px;color:var(--hi)}
+.label .fa{font:500 .9rem/1.6 var(--f-text-fa)}
+.label .en,.label .lat{font:500 .72rem/1.5 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.d .fa,.d[lang="fa"],.d .per{font-family:var(--f-display-fa);font-weight:700}
+.d .en,.d .lat{font-family:var(--f-display);font-weight:700}
+
+/* ---------- language bar ---------- */
+.langbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--shab);border-bottom:1px solid var(--line)}
+.langbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:10px}
+.langbar .who{display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--mute);text-decoration:none;min-width:0}
+.langbar .who svg{width:22px;height:22px;flex:none}
+.toggle{display:flex;border:1px solid var(--line)}
+.toggle button{font:500 .85rem/1 var(--f-text-fa);padding:9px 14px;background:transparent;color:var(--morvarid);border:0;cursor:pointer}
+.toggle button+button{font-family:var(--f-text);border-inline-start:1px solid var(--line)}
+.toggle button[aria-pressed="true"]{background:var(--tala);color:var(--shab)}
+
+/* ---------- cover ---------- */
+.cover-in{display:grid;justify-items:center;text-align:center;gap:22px;padding-block:clamp(36px,7vw,90px) clamp(28px,5vw,56px)}
+.archframe{position:relative;width:min(520px,86vw);aspect-ratio:100/128;display:grid;place-items:center;padding:24% 7% 12%;color:var(--tala);background-image:var(--p-zarafshan);background-size:220px}
+.archframe .arch-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.archframe .arch-lines path{fill:none;stroke:currentColor;stroke-width:1.2}
+.archframe .cover-logo{position:relative;width:100%;height:auto}
+.archframe .pearls{position:absolute;left:4%;right:4%;bottom:-8px}
+.cover-title{margin:10px 0 0;line-height:1.1}
+.cover-title .fa{font:700 clamp(2.6rem,1.8rem + 3.6vw,4.6rem)/1.3 var(--f-display-fa)}
+.cover-title .en{font:700 clamp(2.4rem,1.6rem + 3.4vw,4.2rem)/1 var(--f-display);letter-spacing:-.01em}
+.cover-sub{margin:0;color:var(--mute)}
+.glance{display:grid;gap:0;border-top:1px solid var(--line);border-inline-start:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));margin-block:12px clamp(40px,6vw,64px)}
+.glance>div{border-inline-end:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 22px;min-width:0}
+.glance .big{margin:0 0 6px;font-size:1.35rem;line-height:1.5}
+.glance .big .fa{font:700 1.55rem/1.6 var(--f-display-fa)}
+.glance .big .en{font:700 1.3rem/1.25 var(--f-display)}
+.chips{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin:6px 0 10px}
+.chips i{aspect-ratio:1;display:block;transform:rotate(45deg) scale(.72);box-shadow:0 0 0 1px rgba(244,237,224,.25)}
+.toc{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));padding-bottom:clamp(44px,6vw,80px)}
+.toc h2{margin:0 0 8px;padding-bottom:8px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.toc h2 .fa{font:700 1.6rem/1.5 var(--f-display-fa)}
+.toc h2 .en{font:700 1.35rem/1.2 var(--f-display)}
+.toc h2 small{font-size:.75rem;color:var(--tala)}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.toc a{display:grid;grid-template-columns:2.4em 1fr;text-decoration:none;color:var(--mute)}
+.toc a:hover{color:var(--morvarid)}
+.toc a>span:first-child{color:var(--tala);font-size:.85rem}
+
+/* ---------- parts ---------- */
+.part-in{padding-block:clamp(36px,6vw,72px) clamp(28px,4vw,48px);display:grid;gap:6px}
+.part-word{margin:0 0 .12em;font:700 clamp(6rem,3rem + 16vw,14rem)/1.5 var(--f-display-fa);color:var(--fg)}
+.part-sub{margin:0;font-size:1.15rem;color:var(--mute)}
+.part-toranj{background-image:var(--p-toranj);background-repeat:no-repeat;background-position:left -80px center;background-size:auto 120%}
+#book[data-lang="en"] .part-toranj{background-position:right -80px center}
+.part-sub .en{font-family:var(--f-display);font-weight:700;font-size:1.5rem;color:var(--fg)}
+
+/* ---------- chapters ---------- */
+.ch{padding-block:clamp(60px,9vw,120px)}
+.ch-head{display:grid;gap:10px;margin-bottom:clamp(32px,5vw,56px);padding-top:16px;border-top:1px solid var(--line)}
+.ch-num{color:var(--hi);font-size:.95rem}
+.ch-num .en{font:500 .75rem/1 var(--f-mono);letter-spacing:.12em}
+.ch-title{margin:0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.2em 1em}
+.ch-title .fa{font:700 clamp(2.6rem,1.6rem + 4vw,4.8rem)/1.3 var(--f-display-fa)}
+.ch-title .en{font:700 clamp(2.3rem,1.5rem + 3.4vw,4.2rem)/1.02 var(--f-display);letter-spacing:-.012em}
+.ch-title .alt{color:var(--hi)}
+.ch-title .alt .lat{font:500 clamp(1.1rem,.9rem + 1vw,1.6rem)/1.2 var(--f-display);font-style:italic}
+.ch-title .alt .per{font:700 clamp(1.5rem,1rem + 1.6vw,2.4rem)/1.3 var(--f-display-fa)}
+.ch-sum{margin:0;max-width:62ch;color:var(--mute);font-size:1.15rem}
+.lede{font-size:1.2rem;max-width:60ch}
+.statement{margin:0 0 8px;font-size:1.6rem;line-height:1.6;max-width:34ch}
+.statement .fa{font:700 clamp(1.5rem,1.15rem + 1.2vw,2.1rem)/1.7 var(--f-display-fa)}
+.statement .en{font:500 clamp(1.45rem,1.1rem + 1.1vw,2rem)/1.22 var(--f-display)}
+ul.knots{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.knots>li{display:grid;grid-template-columns:12px 1fr;gap:12px;align-items:baseline}
+ul.knots>li::before{content:"";width:7px;height:7px;background:var(--hi);transform:translateY(-2px) rotate(45deg)}
+ul.knots>li>*{min-width:0}
+
+/* 01 name */
+.name-plate{display:grid;place-items:center;padding:clamp(28px,5vw,64px) 12px;background:var(--panel)}
+.name-plate svg{width:min(640px,100%);height:auto}
+.morph{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0;direction:rtl;justify-content:center}
+.morph div{border:1px solid var(--line);padding:6px 16px 10px;text-align:center;min-width:92px;background:var(--panel)}
+.morph b{display:block;font:700 2.2rem/1.6 var(--f-display-fa)}
+.morph small{display:block;direction:ltr;font:500 .7rem/1.4 var(--f-mono);letter-spacing:.06em;color:var(--mute)}
+.morph .op{border:0;background:none;min-width:0;display:grid;place-items:center;font-size:1.6rem;color:var(--hi);padding:0}
+.verse{margin:0;padding:72px clamp(20px,3vw,40px);text-align:center;display:grid;gap:14px}
+.verse .v{font:400 clamp(1.25rem,1rem + 1vw,1.75rem)/2.6 var(--f-verse);direction:rtl}
+.verse .t{font:500 italic 1.05rem/1.5 var(--f-display);color:var(--mute)}
+.verse cite{font-style:normal;color:var(--hi);font-size:.9rem}
+
+/* 02 origin */
+.pull{margin:0 0 clamp(32px,5vw,52px)}
+.pull .fa{font:700 clamp(2.4rem,1.6rem + 3.4vw,4.4rem)/1.45 var(--f-display-fa)}
+.pull .en{font:700 clamp(2.2rem,1.5rem + 3vw,4rem)/1.05 var(--f-display)}
+.pull em{font-style:normal;color:var(--hi)}
+.crafts{display:grid;gap:0;border-top:1px solid var(--line);border-inline-start:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.crafts article{border-inline-end:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px;display:grid;gap:8px;align-content:start;min-width:0}
+.crafts svg{width:52px;height:52px}
+.crafts h3{margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.crafts h3 .fa,.crafts h3 .per{font:700 1.7rem/1.5 var(--f-display-fa)}
+.crafts h3 .en,.crafts h3 .lat{font:700 1.3rem/1.2 var(--f-display)}
+.crafts h3 .alt{color:var(--hi)}
+.crafts h3 .alt .lat{font-size:1rem;font-weight:500;font-style:italic}
+.crafts h3 .alt .per{font-size:1.3rem}
+.fact{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-top:28px;padding:18px 22px;border:1px dashed var(--line)}
+.fact b{font:700 clamp(2rem,1.5rem + 2vw,3.2rem)/1 var(--f-display);color:var(--hi);direction:ltr}
+
+/* 03 compass */
+.values{display:grid;border-top:1px solid var(--line)}
+.values article{display:grid;gap:4px 28px;grid-template-columns:1fr;padding:20px 0;border-bottom:1px solid var(--line)}
+@media (min-width:860px){.values article{grid-template-columns:150px 230px 1fr;align-items:baseline}}
+.values .vw{font:700 2.4rem/1.4 var(--f-display-fa);color:var(--hi)}
+.values h3{margin:0;font-size:1.25rem}
+.values h3 .fa{font:700 1.35rem/1.5 var(--f-text-fa)}
+.values h3 .en{font:700 1.3rem/1.2 var(--f-display)}
+.values p{margin:0;font-size:.95rem}
+
+/* 04 audience */
+.datarow{display:grid;gap:0;border-top:1px solid var(--line);border-inline-start:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));margin:26px 0 clamp(32px,5vw,52px)}
+.datarow div{border-inline-end:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 18px;min-width:0}
+.datarow b{display:block;color:var(--hi);font-weight:500;font-size:.85rem}
+.persona{display:grid;gap:12px;align-content:start}
+.persona .who{font-size:1.6rem}
+.persona .who .fa{font:700 1.8rem/1.4 var(--f-display-fa)}
+.persona .who .en{font:700 1.6rem/1.1 var(--f-display)}
+.persona .meta{font-size:.85rem;color:var(--mute)}
+.persona blockquote{margin:0;padding-block:10px;padding-inline-start:16px;border-inline-start:2px solid var(--hi);font-size:1.05rem}
+.persona blockquote .fa{font:400 1.25rem/1.9 var(--f-display-fa)}
+.persona blockquote .en{font:500 italic 1.1rem/1.45 var(--f-display)}
+.persona p{font-size:.92rem;margin:0}
+.map{width:100%;height:auto;display:block;direction:ltr}
+.map text{font-size:13px;fill:var(--fg)}
+.map .fa{font-family:var(--f-text-fa);font-size:14px}
+.map .ax{stroke:var(--line)}
+.map .axl{font-size:12px;fill:var(--mute)}
+.comp{display:grid;border-top:1px solid var(--line)}
+.comp article{display:grid;gap:4px 24px;padding:14px 0;border-bottom:1px solid var(--line);grid-template-columns:1fr}
+@media (min-width:860px){.comp article{grid-template-columns:220px 1fr}}
+.comp h4{margin:0;font:700 1.15rem/1.3 var(--f-display)}
+.comp p{margin:0;font-size:.92rem}
+
+/* 05 architecture */
+.subs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sub{display:grid;gap:10px;align-content:start;padding:22px}
+.sub .nm{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.sub .nm svg{width:34px;height:34px}
+.sub .nm b{font:700 2rem/1.4 var(--f-display-fa)}
+.sub .nm i{font:500 italic 1.2rem/1.2 var(--f-display);color:var(--mute)}
+.status{font-size:.75rem;border:1px solid var(--line);padding:2px 8px;color:var(--mute)}
+
+/* 06 voice */
+.qualities{display:grid;gap:0;border-top:1px solid var(--line);border-inline-start:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.qualities div{border-inline-end:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 20px;min-width:0}
+.qualities h4{margin:0 0 4px;font-size:1.05rem}
+.qualities p{margin:0;font-size:.9rem}
+.saylike{display:grid;border-top:1px solid var(--line)}
+.saylike div{display:grid;gap:4px 28px;grid-template-columns:1fr;padding:14px 0;border-bottom:1px solid var(--line)}
+@media (min-width:860px){.saylike div{grid-template-columns:1fr 1fr}}
+.saylike s{color:var(--mute);text-decoration-color:var(--runas)}
+ol.rules{margin:0;padding:0;list-style:none;counter-reset:r;display:grid;gap:12px}
+ol.rules li{counter-increment:r;display:grid;grid-template-columns:2em 1fr;gap:8px;font-size:.95rem}
+ol.rules li::before{content:counter(r);color:var(--hi);font-weight:600}
+ol.rules li>*{min-width:0}
+
+/* 07 messaging */
+.core{padding:72px clamp(20px,5vw,72px);text-align:center;display:grid;gap:12px;justify-items:center}
+.core p{max-width:44ch;margin:0}
+.taglines{display:grid;border-top:1px solid var(--line)}
+.tl{display:grid;gap:4px 28px;padding:18px 0;border-bottom:1px solid var(--line);grid-template-columns:1fr;align-items:baseline}
+@media (min-width:860px){.tl{grid-template-columns:1.2fr 1fr 1.2fr}}
+.tl .t-fa{font:700 1.8rem/1.6 var(--f-display-fa);direction:rtl}
+.tl .t-en{font:700 1.45rem/1.2 var(--f-display);direction:ltr}
+.tl p{margin:0;font-size:.9rem;color:var(--mute)}
+.badge{display:inline-block;background:var(--hi);color:var(--bg);font-size:.75rem;padding:2px 8px;margin-inline-start:8px;vertical-align:middle;font-weight:600}
+
+/* 08 logo */
+.logo-hero{display:grid;place-items:center;padding:clamp(40px,7vw,96px) 16px;background-image:var(--field)}
+.logo-hero svg{width:min(780px,100%);height:auto}
+.motion-box{display:grid;justify-items:center;gap:16px;padding:clamp(24px,4vw,40px) 16px;border:1px solid var(--line)}
+.motion-svg{width:min(640px,100%);height:auto}
+.btn{font:500 .9rem/1 inherit;font-family:inherit;padding:12px 18px;border:1px solid var(--fg);background:transparent;color:var(--fg);cursor:pointer;display:inline-flex;gap:10px;align-items:center}
+.btn::before{content:"";width:7px;height:7px;background:var(--hi);transform:rotate(45deg)}
+.btn:hover{background:var(--fg);color:var(--bg)}
+.grounds{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.grounds button{font:500 .85rem/1 inherit;font-family:inherit;padding:9px 12px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.grounds button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.system{display:grid;gap:12px;grid-template-columns:repeat(12,1fr)}
+.system figure{margin:0;display:grid;grid-template-rows:1fr auto;border:1px solid var(--line);min-width:0;grid-column:span 12}
+@media (min-width:860px){.system .w7{grid-column:span 7}.system .w5{grid-column:span 5}.system .w4{grid-column:span 4}.system .w6{grid-column:span 6}}
+.system .stage{display:grid;place-items:center;padding:clamp(26px,4vw,48px) 20px;background:var(--bg);transition:background-color .3s var(--ease)}
+.system .stage svg{max-width:100%;height:auto}
+.system figcaption{padding:10px 14px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.s-stack{width:min(300px,100%)}.s-h{width:min(520px,100%)}.s-fa{width:min(420px,100%)}.s-fac{width:min(300px,100%)}.s-en{width:min(240px,100%)}.s-sym{width:110px}
+.donts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.donts figure{margin:0;border:1px solid var(--line);display:grid;grid-template-rows:150px auto;min-width:0}
+.donts .stage{position:relative;display:grid;place-items:center;overflow:hidden;padding:16px 20px}
+.donts .stage svg{width:100%;height:auto;max-height:100%}
+.donts .stage::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--runas) calc(50% - 1px),var(--runas) calc(50% + 1px),transparent calc(50% + 1px));opacity:.85;pointer-events:none}
+.donts figcaption{padding:10px 12px;font-size:.9rem;border-top:1px solid var(--line)}
+.donts .recolor{--ink:#7B2CF5;--acc:#39E27A}
+.donts .stretch svg{transform:scaleX(1.4) scaleY(.75);width:70%}
+.donts .glow svg{filter:drop-shadow(0 0 8px #D4A640) drop-shadow(0 6px 3px rgba(0,0,0,.6))}
+.donts .retype span{font:700 3rem/1.5 Tahoma,Arial,sans-serif}
+
+/* 09 colour */
+.swatches{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.sw{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line);min-width:0}
+.sw button{all:unset;cursor:pointer;display:grid;align-content:space-between;min-height:170px;padding:16px 18px;background:var(--c);color:var(--on)}
+.sw button:focus-visible{outline:2px solid var(--tala);outline-offset:2px}
+.sw .nm{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sw .nm b{font:700 2.1rem/1.4 var(--f-display-fa)}
+.sw .nm i{font:500 italic 1.2rem/1 var(--f-display)}
+.sw .hex{font:500 .85rem/1.4 var(--f-mono);display:flex;justify-content:space-between;gap:10px;direction:ltr}
+.sw .copied{opacity:0;transition:opacity .2s}
+.sw button.ok .copied{opacity:1}
+.sw .info{padding:12px 18px 16px;font-size:.9rem;display:grid;gap:4px}
+.sw .role{color:var(--hi);font-weight:500}
+.ratio{display:flex;height:84px;border:1px solid var(--line);overflow:hidden}
+.ratio div{display:grid;align-content:end;padding:8px 12px;font-size:.85rem;min-width:0;overflow:hidden}
+.pairs{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))}
+.pair{border:1px solid var(--line);min-width:0}
+.pair .demo{padding:12px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pair .demo b{font:700 1.6rem/1.5 var(--f-display-fa)}
+.pair .demo i{font:700 1.4rem/1 var(--f-display);font-style:normal}
+.pair .ct{display:flex;justify-content:space-between;padding:6px 12px;font-size:.8rem;color:var(--mute);border-top:1px solid var(--line);gap:8px}
+
+/* 10 type */
+.spec{display:grid;gap:8px 32px;grid-template-columns:1fr;padding:clamp(20px,3vw,32px) 0;border-top:1px solid var(--line)}
+@media (min-width:900px){.spec{grid-template-columns:250px 1fr}}
+.spec>*{min-width:0}
+.spec h4{margin:0 0 4px;font:700 1.3rem/1.3 var(--f-display)}
+.spec .who p{font-size:.88rem;color:var(--mute);margin:0 0 4px}
+.spec .who code{color:var(--hi)}
+.s-amiri{margin:0;font:700 clamp(2.4rem,1.6rem + 3.4vw,4.6rem)/1.5 var(--f-display-fa);direction:rtl}
+.s-vazir{margin:0;font:400 1.0625rem/2 var(--f-text-fa);direction:rtl;max-width:60ch}
+.s-verse{margin:0;font:400 clamp(1.3rem,1rem + 1.2vw,2rem)/2.6 var(--f-verse);direction:rtl}
+.s-bodoni{margin:0;font:800 clamp(2.4rem,1.6rem + 3.4vw,4.4rem)/1.04 var(--f-display);font-kerning:normal;direction:ltr}
+.s-bodoni em{font-weight:500;color:var(--hi)}
+.s-inst{margin:0;font:400 1.0625rem/1.62 var(--f-text);direction:ltr;max-width:60ch}
+.s-mono{margin:0;font:400 .95rem/1.7 var(--f-mono);letter-spacing:.04em;direction:ltr;display:flex;flex-wrap:wrap;gap:4px 22px}
+
+/* 11 pattern and frame */
+.pats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.pat{border:1px solid var(--line);display:grid;grid-template-rows:190px auto;min-width:0}
+.pat .stage{position:relative;overflow:hidden;background-color:var(--shab)}
+.pat .meta{padding:12px 16px 16px;display:grid;gap:4px;font-size:.9rem}
+.pat h4{margin:0;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.pat h4 b{font:700 1.5rem/1.4 var(--f-display-fa)}
+.pat h4 i{font:500 italic 1.05rem/1 var(--f-display);color:var(--hi)}
+.archmask{-webkit-mask:var(--p-arch) center/100% 100% no-repeat;mask:var(--p-arch) center/100% 100% no-repeat}
+.niche{position:absolute;left:50%;top:14px;bottom:0;width:120px;transform:translateX(-50%);background:var(--zomorrod)}
+.pome{position:absolute;width:34px;height:34px;border-radius:50%;background:var(--runas);left:50%;top:58%;transform:translateX(-50%)}
+.pome::before{content:"";position:absolute;left:50%;top:-9px;width:14px;height:12px;transform:translateX(-50%);background:var(--tala);clip-path:polygon(0 100%,15% 0,35% 55%,50% 0,65% 55%,85% 0,100% 100%)}
+.curtain{position:absolute;inset:0 0 0 auto;width:58%;background:repeating-linear-gradient(90deg,rgba(0,0,0,.22) 0 7px,transparent 7px 19px),var(--runas);clip-path:polygon(0 0,100% 0,100% 100%,62% 100%,52% 70%,40% 52%,22% 30%)}
+.tassel{position:absolute;width:12px;height:30px;right:44%;top:44%;background:var(--tala);border-radius:6px 6px 2px 2px}
+
+/* 12 imagery */
+.qajar{width:100%;max-width:420px;height:auto;display:block;margin-inline:auto}
+.qajar text{font:600 12px var(--f-text)}
+.principles{display:grid;border-top:1px solid var(--line)}
+.principles article{display:grid;grid-template-columns:2.2em 1fr;gap:4px 12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.principles article>*{min-width:0}
+.principles .n{color:var(--hi);font-weight:600}
+.principles h4{margin:0 0 2px;font-size:1.08rem}
+.principles p{margin:0;font-size:.92rem}
+.grade{display:grid;grid-template-columns:repeat(5,1fr);height:64px;border:1px solid var(--line)}
+.grade div{display:grid;align-content:end;padding:6px 8px;font-size:.72rem;line-height:1.3;min-width:0;overflow:hidden}
+
+/* 14 valleys */
+.valleys{list-style:none;margin:0;padding:0;display:grid}
+.valleys li{display:grid;grid-template-columns:1fr;gap:4px 24px;padding:18px 0;border-top:1px solid var(--line)}
+@media (min-width:900px){.valleys li{grid-template-columns:60px 150px 1fr 200px;align-items:baseline}}
+.valleys li>*{min-width:0}
+.valleys .vn{font:700 2.2rem/1.2 var(--f-display);color:var(--hi)}
+.valleys .vn .fa{font-family:var(--f-display-fa)}
+.valleys .vw{font:700 1.9rem/1.5 var(--f-display-fa)}
+.valleys .vw small{display:block;font:500 italic .95rem/1.2 var(--f-display);color:var(--mute)}
+.valleys p{margin:0;font-size:.92rem}
+.valleys .out{font-size:.85rem;color:var(--mute)}
+.valleys .out b{color:var(--hi);font-weight:500}
+
+/* 15 applications */
+.apps{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+.apps figure{margin:0;grid-column:span 12;display:grid;gap:8px;align-content:start;min-width:0}
+@media (min-width:900px){.apps .a8{grid-column:span 8}.apps .a4{grid-column:span 4}.apps .a6{grid-column:span 6}}
+.apps figcaption{font-size:.85rem;color:var(--mute)}
+.browser{border:1px solid var(--line);overflow:hidden;background:var(--shab)}
+.browser .bar{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid var(--line);font:400 .75rem/1 var(--f-mono);color:var(--mute);direction:ltr}
+.browser .bar i{width:8px;height:8px;background:var(--line);transform:rotate(45deg)}
+.browser .bar span{margin-inline-start:8px;padding:6px 10px;border:1px solid var(--line);flex:1;min-width:0;overflow:hidden;white-space:nowrap}
+.site{direction:rtl;font-family:var(--f-text-fa);background-color:var(--shab);color:var(--morvarid)}
+.site nav{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px clamp(16px,3vw,32px);border-bottom:1px solid rgba(212,166,64,.25);flex-wrap:wrap}
+.site nav .logo svg{width:140px;height:auto;display:block}
+.site nav ul{display:flex;gap:clamp(12px,2vw,24px);list-style:none;margin:0;padding:0;font-size:.95rem;flex-wrap:wrap}
+.site nav ul li:last-child{font:500 .75rem/1.6 var(--f-text);border:1px solid rgba(244,237,224,.3);padding:1px 8px}
+.site .hero{display:grid;gap:26px;padding:clamp(26px,5vw,60px) clamp(16px,3vw,32px);grid-template-columns:1fr;align-items:center}
+@media (min-width:860px){.site .hero{grid-template-columns:1.1fr .9fr}}
+.site .hero>*{min-width:0}
+.site h1{margin:0 0 10px;font:700 clamp(2.2rem,1.5rem + 2.6vw,3.6rem)/1.45 var(--f-display-fa)}
+.site .hero p{color:rgba(244,237,224,.75);max-width:38ch}
+.site .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.site .ctas span{padding:10px 16px;border:1px solid var(--morvarid);font-size:.95rem}
+.site .ctas span:first-child{background:var(--tala);border-color:var(--tala);color:var(--shab);font-weight:500}
+.window{position:relative;width:min(360px,100%);margin-inline:auto;aspect-ratio:1;--ink:var(--morvarid);--ring:var(--runas)}
+.window>svg{position:absolute;inset:0;width:100%;height:100%}
+.window .scene{position:absolute;left:28.6%;top:28.6%;width:42.8%;height:42.8%;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);background:var(--zomorrod);overflow:hidden}
+.scene .curtain{width:62%}
+.scene .pome{width:24%;height:24%;top:50%}
+.scene .pome::before{width:40%;height:34%;top:-26%}
+.slate{border:1px solid var(--line);position:relative;aspect-ratio:16/9;display:grid;place-items:center;align-content:center;gap:4%;background:var(--shab);overflow:hidden}
+.slate svg{width:32%;height:auto}
+.slate .pearls{position:absolute;left:6%;right:6%}
+.slate .pearls.t{top:7%}.slate .pearls.b{bottom:7%}
+.slate p{margin:0;color:var(--tala);font-size:clamp(.8rem,.6rem + .6vw,1.05rem);display:flex;gap:14px}
+.slate p .lat{font:500 .8em/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
+.post{aspect-ratio:4/5;display:grid;align-content:center;justify-items:center;gap:6%;padding:76px 12%;text-align:center}
+.post .t-fa{margin:0;font:700 clamp(1.7rem,1rem + 2vw,2.5rem)/1.6 var(--f-display-fa);direction:rtl}
+.post .t-en{margin:0;font:500 italic clamp(1rem,.8rem + .7vw,1.3rem)/1.3 var(--f-display);color:var(--mute);direction:ltr}
+.post svg{width:46px;height:46px}
+.bcards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.bcard{aspect-ratio:85/55;padding:8%;display:grid;align-content:space-between;min-width:0;box-shadow:0 14px 30px -18px rgba(0,0,0,.7)}
+.bcard.front{place-items:center;align-content:center}
+.bcard.front svg{width:72%;height:auto}
+.bcard .nm{font:700 1.3rem/1.5 var(--f-display-fa);direction:rtl}
+.bcard .nm-en{font:700 1.05rem/1.1 var(--f-display);direction:ltr}
+.bcard .row{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;font:400 .68rem/1.5 var(--f-mono);direction:ltr}
+.bcard .row svg{width:24px;height:24px;flex:none}
+.avatars{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:20px;border:1px solid var(--line)}
+.av{width:92px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:var(--bg);box-shadow:0 0 0 1px rgba(212,166,64,.35)}
+.av svg{width:56%;height:auto}
+
+/* 16 website */
+.sitemap{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.sitemap .card{display:grid;gap:6px;align-content:start}
+.sitemap h4{margin:0;font-size:1.15rem}
+.sitemap .path{font:400 .75rem/1.4 var(--f-mono);color:var(--mute);direction:ltr;text-align:start}
+.sitemap p{margin:0;font-size:.9rem}
+
+footer.end{text-align:center}
+footer.end .in{display:grid;gap:14px;justify-items:center;padding-block:clamp(44px,7vw,84px)}
+footer.end svg{width:min(360px,80%);height:auto}
+footer.end .close{margin:0;font:700 clamp(1.8rem,1.2rem + 2vw,2.8rem)/1.6 var(--f-display-fa);direction:rtl}
+footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:var(--mute)}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+
+{{SPRITE}}
+
+<div id="book" data-lang="fa" dir="rtl" lang="fa">
+
+<div class="langbar">
+  <div class="wrap">
+    <a class="who" href="#top">{{USE:sym-small::-}}<span class="fa">جستجو · کتاب برند</span><span class="en">Jostoju · Brand Bible</span></a>
+    <div class="toggle" role="group" aria-label="Language · زبان">
+      <button type="button" data-l="fa" aria-pressed="true">فارسی</button>
+      <button type="button" data-l="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================== COVER -->
+<header class="cover g-shab" id="top">
+  <div class="wrap cover-in">
+    <div class="archframe">
+      <svg class="arch-lines" viewBox="0 0 100 128" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M1 128V57Q1 33.5 21.5 20Q41 8 50 .8Q59 8 78.5 20Q99 33.5 99 57V128" vector-effect="non-scaling-stroke"/>
+        <path d="M4.5 128V58Q4.5 36.5 24 23.4Q42.4 11.6 50 5.2Q57.6 11.6 76 23.4Q95.5 36.5 95.5 58V128" vector-effect="non-scaling-stroke" style="opacity:.55"/>
+      </svg>
+      {{USE:lk-stack:cover-logo:جستجو · Jostoju}}
+      <div class="pearls" aria-hidden="true"></div>
+    </div>
+    <h1 class="cover-title"><span class="fa">کتاب برند</span><span class="en">Brand Bible</span></h1>
+    <p class="cover-sub"><span class="fa">استودیوی فیلم‌سازی با هوش مصنوعی · نسخهٔ ۲٫۰ · آبان ۱۴۰۵</span><span class="en">An AI film studio · Version 2.0 · November 2026</span></p>
+  </div>
+  <div class="wrap">
+    <div class="glance">
+      <div><span class="label"><span class="fa">نام</span><span class="en">The name</span></span>
+        <p class="big"><span class="fa">جُست + و + جو</span><span class="en">Jost + o + ju</span></p>
+        <p class="small mute"><span class="fa">یافته و جوینده، در یک واژه.</span><span class="en">Sought, and seeking, in one word.</span></p></div>
+      <div><span class="label"><span class="fa">وعده</span><span class="en">The promise</span></span>
+        <p class="big"><span class="fa">آنچه یافت می‌نشود، می‌سازیم.</span><span class="en">We make what cannot be found.</span></p></div>
+      <div><span class="label"><span class="fa">نشان</span><span class="en">The mark</span></span>
+        <p class="small mute" style="margin:0"><span class="fa">نقطهٔ «جو» از جایش رفته و پیشاپیش کلمه ایستاده است. کلمه در راه است تا به آن برسد.</span><span class="en">The dot of <em>ju</em> has left its letter and waits ahead of the word. The word is on its way to it.</span></p></div>
+      <div><span class="label"><span class="fa">رنگ</span><span class="en">The colours</span></span>
+        <div class="chips" aria-hidden="true"><i style="background:var(--shab)"></i><i style="background:var(--morvarid)"></i><i style="background:var(--runas)"></i><i style="background:var(--zomorrod)"></i><i style="background:var(--tala)"></i><i style="background:var(--lajvard)"></i><i style="background:var(--gol)"></i><i style="background:var(--kaghaz)"></i></div>
+        <p class="small mute" style="margin:0"><span class="fa">رنگ‌های نقاشی قاجار: شب، مروارید، روناس، زمرد و طلا.</span><span class="en">The colours of Qajar painting: night, pearl, madder, emerald and gold.</span></p></div>
+    </div>
+  </div>
+  <nav class="wrap toc" aria-label="فهرست · Contents">
+    <div><h2><span class="fa">نخ</span><span class="en">The Thread</span><small><span class="fa">بخش یکم</span><span class="en">Part one</span></small></h2><ol>
+      <li><a href="#name"><span><span class="fa">۰۱</span><span class="en">01</span></span><span><span class="fa">نام</span><span class="en">The name</span></span></a></li>
+      <li><a href="#origin"><span><span class="fa">۰۲</span><span class="en">02</span></span><span><span class="fa">ریشه</span><span class="en">Origin</span></span></a></li>
+      <li><a href="#compass"><span><span class="fa">۰۳</span><span class="en">03</span></span><span><span class="fa">چشم‌انداز، مأموریت، ارزش‌ها</span><span class="en">Vision, mission, values</span></span></a></li>
+      <li><a href="#audience"><span><span class="fa">۰۴</span><span class="en">04</span></span><span><span class="fa">مخاطب و جایگاه</span><span class="en">Audience and position</span></span></a></li>
+      <li><a href="#architecture"><span><span class="fa">۰۵</span><span class="en">05</span></span><span><span class="fa">معماری برند</span><span class="en">Brand architecture</span></span></a></li></ol></div>
+    <div><h2><span class="fa">صدا</span><span class="en">The Voice</span><small><span class="fa">بخش دوم</span><span class="en">Part two</span></small></h2><ol>
+      <li><a href="#voice"><span><span class="fa">۰۶</span><span class="en">06</span></span><span><span class="fa">شخصیت و لحن</span><span class="en">Personality and voice</span></span></a></li>
+      <li><a href="#messaging"><span><span class="fa">۰۷</span><span class="en">07</span></span><span><span class="fa">پیام و شعار</span><span class="en">Messaging and taglines</span></span></a></li></ol></div>
+    <div><h2><span class="fa">نقش</span><span class="en">The Image</span><small><span class="fa">بخش سوم</span><span class="en">Part three</span></small></h2><ol>
+      <li><a href="#logo"><span><span class="fa">۰۸</span><span class="en">08</span></span><span><span class="fa">نشان</span><span class="en">Logo</span></span></a></li>
+      <li><a href="#color"><span><span class="fa">۰۹</span><span class="en">09</span></span><span><span class="fa">رنگ</span><span class="en">Colour</span></span></a></li>
+      <li><a href="#type"><span><span class="fa">۱۰</span><span class="en">10</span></span><span><span class="fa">حروف</span><span class="en">Typography</span></span></a></li>
+      <li><a href="#pattern"><span><span class="fa">۱۱</span><span class="en">11</span></span><span><span class="fa">نقش و قاب</span><span class="en">Pattern and frame</span></span></a></li>
+      <li><a href="#imagery"><span><span class="fa">۱۲</span><span class="en">12</span></span><span><span class="fa">زبان تصویر</span><span class="en">Imagery and film</span></span></a></li>
+      <li><a href="#motion"><span><span class="fa">۱۳</span><span class="en">13</span></span><span><span class="fa">حرکت و صدا</span><span class="en">Motion and sound</span></span></a></li></ol></div>
+    <div><h2><span class="fa">کارگاه</span><span class="en">The Workshop</span><small><span class="fa">بخش چهارم</span><span class="en">Part four</span></small></h2><ol>
+      <li><a href="#process"><span><span class="fa">۱۴</span><span class="en">14</span></span><span><span class="fa">هفت وادی</span><span class="en">The seven valleys</span></span></a></li>
+      <li><a href="#applications"><span><span class="fa">۱۵</span><span class="en">15</span></span><span><span class="fa">کاربردها</span><span class="en">Applications</span></span></a></li>
+      <li><a href="#website"><span><span class="fa">۱۶</span><span class="en">16</span></span><span><span class="fa">وب‌سایت</span><span class="en">The website</span></span></a></li></ol></div>
+  </nav>
+  <div class="band" aria-hidden="true"></div>
+</header>
+
+<main>
+<!-- ===================================================== PART ONE -->
+<div class="part g-runas">
+  <div class="wrap part-in">
+    <span class="label"><span class="fa">بخش یکم · راهبرد</span><span class="en">Part one · Strategy</span></span>
+    <p class="part-word" lang="fa">نخ</p>
+    <p class="part-sub"><span class="fa">جستجو کیست، برای چه کسی کار می‌کند و کجا می‌ایستد.</span><span class="en">The Thread</span></p>
+    <p class="part-sub en">Who Jostoju is, who it serves and where it stands.</p>
+  </div>
+  <div class="pearls" aria-hidden="true"></div>
+</div>
+
+<!-- 01 NAME -->
+<section class="ch g-morvarid" id="name">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۰۱</span><span class="en">01</span></div>
+      <h2 class="ch-title"><span class="fa">نام</span><span class="en">The Name</span><span class="alt"><span class="fa lat">The Name</span><span class="en per">نام</span></span></h2>
+    </header>
+    <div class="split" style="--split:6fr 5fr">
+      <div>
+        <div class="name-plate">{{USE:fa::جستجو}}</div>
+        <div class="morph" aria-label="ساخت واژه · How the word is built">
+          <div><b>جُست</b><small>JOST · SOUGHT</small></div><div class="op">+</div>
+          <div><b>و</b><small>O · AND</small></div><div class="op">+</div>
+          <div><b>جو</b><small>JU · SEEK</small></div>
+        </div>
+        <p class="lede"><span class="fa">جستجو واژه‌ای روزمره است. وقتی دنبال کلیدمان می‌گردیم همین را می‌گوییم، و عارف هم وقتی در پی حقیقت است.</span><span class="en">Jostoju is an everyday Persian word. You use it when you look for your keys, and a mystic uses it when looking for the truth.</span></p>
+        <p><span class="fa">ساختش مثل «گفت‌وگو» است: بن ماضی «جُستن»، بعد «و»، بعد بن مضارع. یافته و جوینده در یک واژه. کار یک استودیوی فیلم هم همین است.</span><span class="en">It is built like <em>goft-o-gu</em>, conversation: the past stem of <em>jostan</em> (to seek), then "and", then the present stem. Sought and seeking in one word. That is also the work of a film studio.</span></p>
+        <p class="small mute"><span class="fa">قاعدهٔ نوشتن: نام برند همیشه سرهم نوشته می‌شود، «جستجو». در خط لاتین همیشه <span class="lat">jostoju</span>، با حروف کوچک.</span><span class="en">Spelling: the brand name is always written joined, <span class="per">جستجو</span>. In Latin script it is always <em>jostoju</em>, lowercase.</span></p>
+      </div>
+      <div style="display:grid;gap:20px;align-content:start">
+        <figure class="verse card lachak">
+          <div class="v" lang="fa">… یافت می‌نشود، جسته‌ایم ما<br>گفت آنکه یافت می‌نشود، آنم آرزوست</div>
+          <div class="t en">"…It cannot be found; we have searched."<br>He said, "What cannot be found is what I long for."</div>
+          <cite><span class="fa">مولانا · دیوان شمس</span><span class="en">Rumi · Divan-e Shams</span></cite>
+        </figure>
+        <p class="small"><span class="fa"><strong>فعل ما در این بیت است.</strong> «جسته‌ایم» همان فعلِ نام ماست. شعار اصلی جستجو از همین بیت آمده است.</span><span class="en"><strong>Our verb is in the verse.</strong> <span class="per">جسته‌ایم</span>, "we have searched", is the verb of our name. Our master tagline comes from this couplet.</span></p>
+        <p class="small"><span class="fa"><strong>جستجوی عطار.</strong> در «منطق‌الطیر»، مرغان جهان به جستجوی سیمرغ از هفت وادی می‌گذرند و نخستین وادی «طلب» است. سی مرغ می‌رسند و درمی‌یابند که سیمرغ خودشان‌اند. جستجویی که به آینه می‌رسد؛ کار سینما همین است. این هفت وادی روند تولید ما هم هست (فصل ۱۴).</span><span class="en"><strong>Attar's quest.</strong> In <em>The Conference of the Birds</em>, the birds of the world cross seven valleys in search of the Simorgh; the first valley is Talab, the quest. Thirty birds arrive and find that the Simorgh is <em>si morgh</em>, thirty birds: themselves. A search that ends in a mirror is what cinema does. The seven valleys are also our production process (chapter 14).</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 ORIGIN -->
+<section class="ch g-shab" id="origin">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۰۲</span><span class="en">02</span></div>
+      <h2 class="ch-title"><span class="fa">ریشه</span><span class="en">Origin</span><span class="alt"><span class="fa lat">Origin</span><span class="en per">ریشه</span></span></h2>
+      <p class="ch-sum"><span class="fa">داستان آغاز ما؛ برای صفحهٔ «دربارهٔ ما»، ارائه‌ها و هر گفت‌وگو.</span><span class="en">Our origin story, for the About page, pitch decks and every interview.</span></p>
+    </header>
+    <p class="pull"><span class="fa">پیش از پیکسل، <em>گره</em> بود.</span><span class="en">Before the pixel, there was <em>the knot</em>.</span></p>
+    <div class="crafts">
+      <article>
+        <svg viewBox="0 0 52 52" aria-hidden="true"><g style="fill:var(--tala)"><path d="M26 4l6 6-6 6-6-6z"/><path d="M14 16l6 6-6 6-6-6z"/><path d="M38 16l6 6-6 6-6-6z"/><path d="M14 36l6 6-6 6-6-6z"/><path d="M38 36l6 6-6 6-6-6z"/></g><path d="M26 26l6 6-6 6-6-6z" style="fill:var(--runas)"/></svg>
+        <h3><span class="fa">گره</span><span class="en">The knot</span><span class="alt"><span class="fa lat">The knot</span><span class="en per">گره</span></span></h3>
+        <p class="small"><span class="fa">فرش ایرانی گره به گره از روی «نقشه» بافته می‌شود؛ طرحی روی کاغذ شطرنجی که هر خانه‌اش یک گره است. ظرافت فرش را هنوز با «رج» می‌سنجند.</span><span class="en">A Persian carpet is woven knot by knot from a <em>naqsheh</em>, a design on squared paper where one square is one knot. Fineness is still measured in <em>raj</em>.</span></p>
+      </article>
+      <article>
+        <svg viewBox="0 0 52 52" aria-hidden="true"><g style="fill:var(--morvarid)"><path d="M12 8l6 6-6 6-6-6z"/><path d="M12 20l6 6-6 6-6-6z"/><path d="M12 32l6 6-6 6-6-6z"/></g><path d="M36 6v42" style="stroke:var(--tala);stroke-width:5"/></svg>
+        <h3><span class="fa">نقطه</span><span class="en">The dot</span><span class="alt"><span class="fa lat">The dot</span><span class="en per">نقطه</span></span></h3>
+        <p class="small"><span class="fa">خوشنویس هر حرف را با نقطه‌های لوزیِ قلم می‌سنجد. نقطه واحد اندازه است؛ همان کاری که پیکسل می‌کند.</span><span class="en">Calligraphers measure every letter in the rhombic dots of the reed pen. The dot is a unit of proportion, as the pixel is.</span></p>
+      </article>
+      <article>
+        <svg viewBox="0 0 52 52" aria-hidden="true"><path d="M6 6h40v32H6z" style="fill:none;stroke:var(--morvarid);stroke-width:2"/><path d="M10 10h32v24H10z" style="fill:var(--runas)"/><path d="M26 14l7 7-7 7-7-7z" style="fill:var(--tala)"/><path d="M12 38v10M40 38v10" style="stroke:var(--morvarid);stroke-width:2"/></svg>
+        <h3><span class="fa">پرده</span><span class="en">The screen</span><span class="alt"><span class="fa lat">The screen</span><span class="en per">پرده</span></span></h3>
+        <p class="small"><span class="fa">در قهوه‌خانه‌های دورهٔ قاجار، نقال پرده‌ای نقاشی‌شده می‌آویخت و شاهنامه را جلوی چشم مردم زنده می‌کرد. هنوز به پردهٔ سینما «پرده» می‌گوییم.</span><span class="en">In Qajar coffee houses the <em>naqqal</em> hung a painted canvas, the <em>pardeh</em>, and brought the Shahnameh to life in front of it. We still call the cinema screen a <em>pardeh</em>.</span></p>
+      </article>
+      <article>
+        <svg viewBox="0 0 52 52" aria-hidden="true"><path d="M8 50V22Q8 12 17 7Q23 4 26 1Q29 4 35 7Q44 12 44 22V50z" style="fill:var(--zomorrod)"/><ellipse cx="26" cy="26" rx="7" ry="9" style="fill:var(--morvarid)"/><path d="M15 50q2-14 11-14t11 14z" style="fill:var(--runas)"/><path d="M26 12l3 3-3 3-3-3z" style="fill:var(--tala)"/></svg>
+        <h3><span class="fa">چهره</span><span class="en">The portrait</span><span class="alt"><span class="fa lat">The portrait</span><span class="en per">چهره</span></span></h3>
+        <p class="small"><span class="fa">نقاشان قاجار چهره را مثل صحنه می‌چیدند: نگاه مستقیم، پردهٔ کنارزده، طاق، انار و آینه. هر پرده یک نما بود.</span><span class="en">Qajar painters staged a portrait like a scene: a direct gaze, a drawn curtain, an arch, pomegranates and a mirror. Every canvas was a shot.</span></p>
+      </article>
+    </div>
+    <div class="fact">
+      <b>&gt; 4K</b>
+      <p class="small" style="margin:0"><span class="fa">فرش اردبیل (۹۴۶ هجری قمری) ده‌ها میلیون گره دارد؛ بیشتر از پیکسل‌های یک قاب 4K. و امضا دارد: «عمل بندهٔ درگاه، مقصود کاشانی».</span><span class="en">The Ardabil Carpet (1539–40) holds tens of millions of knots, more than a 4K frame has pixels. It is also signed: "the work of a servant of the court, Maqsud of Kashan".</span></p>
+    </div>
+    <hr class="rule">
+    <div class="split">
+      <p class="lede"><span class="fa">جستجو همان رشته را با دار امروز ادامه می‌دهد: هوش مصنوعی. این‌ها قوی‌ترین ابزارهای تصویرسازی پس از دوربین‌اند، اما بیشتر آنچه می‌سازند به هیچ جایی تعلق ندارد. ما آن‌ها را رو به جایی می‌گیریم: هزار سال تصویرگری ایرانی، و قصه‌هایی که سال‌ها منتظر بودجه مانده‌اند.</span><span class="en">Jostoju picks up that thread with today's loom: AI. These are the strongest picture-making tools since the camera, and most of what they make comes from nowhere. We point them somewhere: at a thousand years of Persian image-making, and at stories that have waited a long time for a budget.</span></p>
+      <p class="lede"><span class="fa">مثل کارگاه‌های کتاب‌آرایی سلطنتی کار می‌کنیم: پیش از نخستین گره، طرح؛ بر هر رج، دست یک استاد؛ و بر کار تمام‌شده، نام. برای برندها و هنرمندان فیلم سفارشی می‌سازیم و برای خودمان فیلم‌های تازه؛ اول به فارسی، و برای جهان به انگلیسی.</span><span class="en">We work the way the royal manuscript workshops did: a design before the first knot, a master on every row, a name on the finished work. We make commissioned films for brands and artists and original films of our own: in Persian first, and in English for the world.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 COMPASS -->
+<section class="ch g-morvarid" id="compass">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۰۳</span><span class="en">03</span></div>
+      <h2 class="ch-title"><span class="fa">قطب‌نما</span><span class="en">Compass</span><span class="alt"><span class="fa lat">Vision, mission, values</span><span class="en per">قطب‌نما</span></span></h2>
+    </header>
+    <div class="cols" style="--min:340px">
+      <div><span class="label"><span class="fa">چشم‌انداز</span><span class="en">Vision</span></span>
+        <p class="statement"><span class="fa">اینکه تصویرگری ایرانی دوباره زبانی زنده در سینمای جهان شود؛ بر پایهٔ هنر، کنجکاوی، راستی و حیرت.</span><span class="en">To make Persian image-making a living language of world cinema again, built on craft, curiosity, honesty and wonder.</span></p></div>
+      <div><span class="label"><span class="fa">مأموریت</span><span class="en">Mission</span></span>
+        <p class="statement"><span class="fa">هوش مصنوعی را همان‌طور هدایت می‌کنیم که استادکار دار قالی را: با نقشه، با دستی بر هر رج، و با دلیلی برای هر گره.</span><span class="en">We direct AI the way a master weaver directs a loom: with a design, a hand on every row and a reason for every knot.</span></p></div>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">ارزش‌ها</span><span class="en">Values</span></span>
+    <div class="values">
+      <article><span class="vw" lang="fa">طلب</span><h3><span class="fa">اول بجوی</span><span class="en">Seek first</span></h3><p><span class="fa">هر پروژه با یک پرسش شروع می‌شود، نه با یک پرامپت. پیش از ساختن، می‌جوییم: نسخهٔ خطی، ترانه، مخاطب.</span><span class="en">Every project starts with a question, not a prompt. We research before we generate: the manuscript, the song, the audience.</span></p></article>
+      <article><span class="vw" lang="fa">ریشه</span><h3><span class="fa">ریشه، نه لباس مبدل</span><span class="en">Rooted, not costumed</span></h3><p><span class="fa">از سرچشمه برمی‌داریم: فرش، نسخه، معماری، شعر و چهره‌های واقعی. فرهنگ ایرانی دستور زبان ماست، نه فیلتری که آخر کار رویش بکشیم.</span><span class="en">We draw from the source: carpets, manuscripts, architecture, poetry and real faces. Persian culture is our grammar, never a filter added at the end.</span></p></article>
+      <article><span class="vw" lang="fa">دست</span><h3><span class="fa">دست در ماشین</span><span class="en">The hand in the machine</span></h3><p><span class="fa">هوش مصنوعی دار قالی ماست و دار هیچ‌وقت نقشه را انتخاب نمی‌کند. هر قاب را انسان کارگردانی، انتخاب و تمام می‌کند.</span><span class="en">AI is our loom, and a loom never chooses the design. A person directs, selects and finishes every frame.</span></p></article>
+      <article><span class="vw" lang="fa">راستی</span><h3><span class="fa">بگو چطور ساخته شد</span><span class="en">Say how it was made</span></h3><p><span class="fa">می‌گوییم کجا از هوش مصنوعی استفاده شده و نام سازندگان را می‌آوریم. چهره یا صدای هیچ آدم واقعی را بدون رضایت کتبی بازسازی نمی‌کنیم.</span><span class="en">We say where AI was used and credit the people who made the work. We never recreate a real person's face or voice without written consent.</span></p></article>
+      <article><span class="vw" lang="fa">حیرت</span><h3><span class="fa">حیرت، نه هیاهو</span><span class="en">Wonder over spectacle</span></h3><p><span class="fa">حیرت وادی ششم عطار است. ما دنبال حیرتِ آرام‌ایم: قابی که نمی‌شود از آن چشم برداشت، نه هیاهویی که با اسکرول بعدی فراموش شود.</span><span class="en">Heyrat is Attar's sixth valley: astonishment. We aim for the quiet kind, the frame you can't stop looking at, not noise that fades by the next scroll.</span></p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 04 AUDIENCE -->
+<section class="ch g-shab" id="audience">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۰۴</span><span class="en">04</span></div>
+      <h2 class="ch-title"><span class="fa">مخاطب و جایگاه</span><span class="en">Audience and Position</span><span class="alt"><span class="fa lat">Audience and position</span><span class="en per">مخاطب و جایگاه</span></span></h2>
+    </header>
+    <p class="statement" style="max-width:40ch"><span class="fa">جستجو اول برای فارسی‌زبانان است: ایرانیان داخل و بیرون از ایران که فرهنگشان را با خود دارند و می‌خواهند آن را با جاه‌طلبی سینمایی ببینند. بعد برای جهان: هر کسی که تصویری می‌خواهد که از جایی آمده باشد.</span><span class="en">Jostoju is first for Persian speakers, in Iran and across the diaspora, who carry their culture with them and want to see it on screen with ambition. Then for the world: anyone who wants images that come from somewhere.</span></p>
+    <div class="datarow">
+      <div><b><span class="fa">بازار اول</span><span class="en">First market</span></b><span class="fa">ایران و فارسی‌زبانان جهان</span><span class="en">Iran and Persian speakers worldwide</span></div>
+      <div><b><span class="fa">شهرها</span><span class="en">Cities</span></b><span class="fa">تهران، دبی، تورنتو، لس‌آنجلس، لندن، استانبول، هامبورگ</span><span class="en">Tehran, Dubai, Toronto, Los Angeles, London, Istanbul, Hamburg</span></div>
+      <div><b><span class="fa">زبان</span><span class="en">Languages</span></b><span class="fa">فارسی، سپس انگلیسی</span><span class="en">Persian first, then English</span></div>
+      <div><b><span class="fa">خریدار</span><span class="en">Buyers</span></b><span class="fa">مدیران برند، آژانس‌ها، هنرمندان و لیبل‌ها</span><span class="en">Brand leads, agencies, artists and labels</span></div>
+      <div><b><span class="fa">سن</span><span class="en">Core age</span></b><span class="fa">۲۲ تا ۴۵</span><span class="en">22–45</span></div>
+    </div>
+    <div class="cols" style="--min:290px">
+      <article class="persona card">
+        <span class="label"><span class="fa">مشتری کارگاه · برند</span><span class="en">Kargah client · brands</span></span>
+        <span class="who"><span class="fa">شیرین، ۳۴</span><span class="en">Shirin, 34</span></span>
+        <span class="meta"><span class="fa">مدیر برند یک شرکت ایرانیِ چای و زعفران، دبی</span><span class="en">Head of Brand, a Persian-founded tea and saffron company, Dubai</span></span>
+        <blockquote><span class="fa">«هر آژانسی همان قوری زیر نور غروب را پیشنهاد می‌دهد. چیزی می‌خواهم که هم شبیه خانه باشد، هم شبیه آینده.»</span><span class="en">"Every agency pitches me the same golden-hour teapot. I want something that looks like home and like the future."</span></blockquote>
+        <p><span class="fa"><strong>جستجو چه می‌کند:</strong> فیلم نوروزی با زبانی تصویری که رقیبانش نمی‌توانند کپی کنند؛ در چند هفته، به دو زبان، با خط فارسی درست.</span><span class="en"><strong>How Jostoju helps:</strong> a Nowruz film in a visual language competitors can't copy, in weeks, in both languages, with correct Persian type.</span></p>
+      </article>
+      <article class="persona card">
+        <span class="label"><span class="fa">مشتری کارگاه · موسیقی</span><span class="en">Kargah client · artists</span></span>
+        <span class="who"><span class="fa">کیان، ۲۸</span><span class="en">Kian, 28</span></span>
+        <span class="meta"><span class="fa">موزیسین و تهیه‌کنندهٔ مستقل، تورنتو</span><span class="en">Independent musician and producer, Toronto</span></span>
+        <blockquote><span class="fa">«آهنگ‌هایم هم تهرانی‌اند هم تورنتویی. ویدیوهایم هیچ‌کدام.»</span><span class="en">"My songs sound like Tehran and Toronto at once. My videos look like neither."</span></blockquote>
+        <p><span class="fa"><strong>جستجو چه می‌کند:</strong> دنیای آهنگش را یک بار می‌سازیم و فیلم را با یک بستهٔ انتشار تحویل می‌دهیم: لوپ، کاور و تیزر.</span><span class="en"><strong>How Jostoju helps:</strong> we build his song's world once and deliver the film with a release kit: loops, covers and teasers.</span></p>
+      </article>
+      <article class="persona card">
+        <span class="label"><span class="fa">تماشاگر پرده · فیلم‌های ما</span><span class="en">Pardeh audience · originals</span></span>
+        <span class="who"><span class="fa">لیلا، ۲۶</span><span class="en">Leila, 26</span></span>
+        <span class="meta"><span class="fa">طراح محصول، نسل دوم ایرانی، لندن</span><span class="en">Product designer, second-generation Iranian, London</span></span>
+        <blockquote><span class="fa">«این قصه‌ها را با صدای مادربزرگم شنیده‌ام، ولی هیچ‌وقت آن‌ها را با این دقت روی پرده ندیده‌ام.»</span><span class="en">"I grew up with these stories in my grandmother's voice. I've never seen them on screen with the care they deserve."</span></blockquote>
+        <p><span class="fa"><strong>جستجو چه می‌کند:</strong> «پرده» شاهنامه، عطار و قصه‌های عامیانه را به فیلم کوتاه و سریال دوزبانه تبدیل می‌کند.</span><span class="en"><strong>How Jostoju helps:</strong> Pardeh adapts the Shahnameh, Attar and folk tales into bilingual shorts and series.</span></p>
+      </article>
+    </div>
+    <hr class="rule">
+    <div class="split" style="--split:5fr 6fr">
+      <div>
+        <span class="label"><span class="fa">بیانیهٔ جایگاه</span><span class="en">Positioning statement</span></span>
+        <p class="statement" style="max-width:40ch"><span class="fa">برای برندها، هنرمندان و تماشاگرانی که قصه‌های ایرانی را با جاه‌طلبی سینمایی می‌خواهند، جستجو استودیوی فیلم‌سازی با هوش مصنوعی است که هزار سال تصویرگری ایرانی را در فیلم‌های تازه می‌بافد؛ با کارگردانی دست انسان، به فارسی و انگلیسی.</span><span class="en">For brands, artists and audiences who want Persian stories told with cinematic ambition, Jostoju is the AI film studio that weaves a thousand years of Persian image-making into new films, directed by human hands, in Persian and English.</span></p>
+      </div>
+      <figure style="margin:0">
+        <svg class="map" viewBox="0 0 600 470" role="img" aria-label="نقشهٔ جایگاه · Positioning map">
+          <rect x="300" y="20" width="270" height="200" style="fill:rgba(212,166,64,.1)"/>
+          <line class="ax" x1="30" y1="220" x2="570" y2="220"/><line class="ax" x1="300" y1="20" x2="300" y2="420"/>
+          <rect x="30" y="20" width="540" height="400" style="fill:none;stroke:var(--line)"/>
+          <text class="axl fa" x="36" y="444">بی‌ریشه ←</text><text class="axl en" x="36" y="444">← PLACELESS</text>
+          <text class="axl fa" x="564" y="444" text-anchor="end">→ ریشه در یک فرهنگ تصویری</text><text class="axl en" x="564" y="444" text-anchor="end">ROOTED IN A VISUAL CULTURE →</text>
+          <text class="axl fa" x="300" y="12" text-anchor="middle">مؤلف‌محور · کارگردان</text><text class="axl en" x="300" y="12" text-anchor="middle">AUTHORED · DIRECTOR-LED</text>
+          <text class="axl fa" x="300" y="466" text-anchor="middle">خروجی‌محور · ابزار</text><text class="axl en" x="300" y="466" text-anchor="middle">OUTPUT-FIRST · TOOL-LED</text>
+          <g style="fill:var(--morvarid);opacity:.85">
+            <path d="M140 72l7 7-7 7-7-7z"/><text x="154" y="83">Promise</text>
+            <path d="M190 112l7 7-7 7-7-7z"/><text x="204" y="123">Asteria</text>
+            <path d="M120 176l7 7-7 7-7-7z"/><text x="134" y="187">Secret Level</text>
+            <path d="M190 290l7 7-7 7-7-7z"/><text class="fa" x="204" y="301">تیم‌های داخلی با ابزار هوش مصنوعی</text><text class="en" x="204" y="301">In-house teams with AI tools</text>
+            <path d="M250 360l7 7-7 7-7-7z"/><text class="fa" x="264" y="371">سازندگان آزاد</text><text class="en" x="264" y="371">Freelance AI creators</text>
+          </g>
+          <path d="M420 140l7 7-7 7-7-7z" style="fill:none;stroke:var(--morvarid);stroke-width:1.5"/><text class="fa" x="434" y="152">استودیوهای ایرانی (لایو)</text><text class="en" x="434" y="152">Persian live-action houses</text>
+          <path d="M500 46l12 12-12 12-12-12z" style="fill:var(--tala)"/><text class="fa" x="500" y="96" text-anchor="middle" style="font-family:var(--f-display-fa);font-weight:700;font-size:22px">جستجو</text><text class="en" x="500" y="96" text-anchor="middle" style="font-family:var(--f-display);font-weight:700;font-size:20px">Jostoju</text>
+        </svg>
+      </figure>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">رقبا · تفاوت ما</span><span class="en">Competitors · our difference</span></span>
+    <div class="comp">
+      <article><h4>Promise</h4><p><span class="fa">استودیوی فیلم و سریال با هوش مصنوعی، با پشتوانهٔ هالیوود. تفاوت ما: زبانی تصویری که هیچ‌کس نمی‌تواند ادعایش کند، و مخاطب فارسی‌زبانی که آن‌ها نمی‌بینند.</span><span class="en">Gen-AI film and series studio with Hollywood backing. Our difference: a visual grammar nobody else can claim, and a Persian-speaking audience they don't serve.</span></p></article>
+      <article><h4>Asteria</h4><p><span class="fa">استودیوی هوش مصنوعی با مدل‌های دادهٔ مجاز و روایت اخلاقی روشن. تفاوت ما: راستی را ما هم داریم، به‌علاوهٔ ریشهٔ فرهنگی و چابکی تجاری.</span><span class="en">AI studio built on licensed-data models with a clear ethics story. Our difference: we share the honesty, and add cultural roots and commercial agility.</span></p></article>
+      <article><h4>Secret Level</h4><p><span class="fa">تبلیغات جهانی با هوش مصنوعی. تفاوت ما: برای برند فارسی‌زبان، اعتباری که جای دیگری پیدا نمی‌شود.</span><span class="en">Global AI-assisted commercials. Our difference: for a Persian-market brand, authority they can't hire elsewhere.</span></p></article>
+      <article><h4><span class="fa per" style="font-family:var(--f-text-fa)">استودیوهای تولید ایرانی</span><span class="en">Persian production houses</span></h4><p><span class="fa">گروه، اعتماد، لوکیشن و چهرهٔ واقعی. تفاوت ما: دنیاهای ناممکن با سرعت استودیو؛ و همکاری در پروژه‌های ترکیبی.</span><span class="en">Crews, trust, real locations and faces. Our difference: impossible worlds at studio speed, and partnership on hybrid shoots.</span></p></article>
+      <article><h4><span class="fa per" style="font-family:var(--f-text-fa)">سازندگان آزاد و تیم‌های داخلی</span><span class="en">Freelancers and in-house teams</span></h4><p><span class="fa">ارزان و سریع، اما با ظاهر عمومی هوش مصنوعی و خط فارسی خراب. تفاوت ما: کارگردانی، نظام طراحی، روند، و استودیویی که پشت هر قاب می‌ایستد.</span><span class="en">Cheap and fast, but with the generic AI look and broken Persian text. Our difference: direction, a design system, a process and a studio behind every frame.</span></p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 05 ARCHITECTURE -->
+<section class="ch g-morvarid" id="architecture">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۰۵</span><span class="en">05</span></div>
+      <h2 class="ch-title"><span class="fa">معماری برند</span><span class="en">Brand Architecture</span><span class="alt"><span class="fa lat">Brand architecture</span><span class="en per">معماری برند</span></span></h2>
+      <p class="ch-sum"><span class="fa">یک برند مادر و نام‌هایی فارسی برای هر شاخهٔ کار، همه از دنیای صنعتی که از آن آمده‌ایم.</span><span class="en">One master brand, with a Persian name for each line of work, each taken from the craft world we come from.</span></p>
+    </header>
+    <div class="subs">
+      <article class="sub card" style="border-top:4px solid var(--runas)">
+        <div class="nm">{{USE:sym::-}}<b>کارگاه</b><i>Kargah</i></div>
+        <span class="label"><span class="fa">کار سفارشی</span><span class="en">Commissioned work</span></span>
+        <p class="small"><span class="fa">فیلم تبلیغاتی، فیلم برند و موزیک‌ویدیو. «کارگاه» جایی است که فرش سفارشی به خواست مشتری بافته می‌شود. رنگ شاخص: روناس.</span><span class="en">Commercials, brand films and music videos. <em>Kargah</em> is the workshop where carpets are woven to a client's order. Lead colour: Runas.</span></p>
+      </article>
+      <article class="sub card" style="border-top:4px solid var(--zomorrod)">
+        <div class="nm">{{USE:sym::-}}<b>پرده</b><i>Pardeh</i></div>
+        <span class="label"><span class="fa">فیلم‌های خودمان</span><span class="en">Originals</span></span>
+        <p class="small"><span class="fa">فیلم کوتاه، سریال، و بعدها فیلم بلند. «پرده» هم پردهٔ نقال است و هم پردهٔ سینما. رنگ شاخص: زمرد.</span><span class="en">Shorts, series and, later, features. <em>Pardeh</em> is both the naqqal's canvas and the cinema screen. Lead colour: Zomorrod.</span></p>
+      </article>
+      <article class="sub card" style="border-top:4px solid var(--lajvard)">
+        <div class="nm">{{USE:sym::-}}<b>نقشه</b><i>Naqsheh</i><span class="status"><span class="fa">بعدها</span><span class="en">Later</span></span></div>
+        <span class="label"><span class="fa">آزمایشگاه</span><span class="en">Lab</span></span>
+        <p class="small"><span class="fa">روندها، یادداشت‌های پژوهشی، آموزش و ابزار. «نقشه» طرحِ پشت هر فرش است. رنگ شاخص: لاجورد.</span><span class="en">Workflows, research, education and tools. <em>Naqsheh</em> is the design behind every carpet. Lead colour: Lajvard.</span></p>
+      </article>
+    </div>
+    <p class="small mute" style="margin-top:18px"><span class="fa">در فارسی بنویسید «کارگاه جستجو» و «پردهٔ جستجو»؛ در انگلیسی <span class="lat">Jostoju Kargah</span> و <span class="lat">Jostoju Pardeh</span>. نشان هیچ‌وقت عوض نمی‌شود؛ رنگ شاخص فقط به‌صورت تأکید می‌آید.</span><span class="en">In Persian write <span class="per">کارگاه جستجو</span> and <span class="per">پردهٔ جستجو</span>; in English, Jostoju Kargah and Jostoju Pardeh. The mark never changes; lead colours appear only as accents.</span></p>
+  </div>
+</section>
+
+<!-- ===================================================== PART TWO -->
+<div class="part g-zomorrod">
+  <div class="wrap part-in">
+    <span class="label"><span class="fa">بخش دوم · هویت کلامی</span><span class="en">Part two · Verbal identity</span></span>
+    <p class="part-word" lang="fa">صدا</p>
+    <p class="part-sub"><span class="fa">جستجو چطور فکر می‌کند، حرف می‌زند و به دو زبان می‌نویسد.</span><span class="en">The Voice</span></p>
+    <p class="part-sub en">How Jostoju thinks, talks and writes, in two languages.</p>
+  </div>
+  <div class="pearls" aria-hidden="true"></div>
+</div>
+
+<!-- 06 VOICE -->
+<section class="ch g-morvarid" id="voice">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۰۶</span><span class="en">06</span></div>
+      <h2 class="ch-title"><span class="fa">شخصیت و لحن</span><span class="en">Personality and Voice</span><span class="alt"><span class="fa lat">Personality and voice</span><span class="en per">شخصیت و لحن</span></span></h2>
+    </header>
+    <div class="split">
+      <div>
+        <span class="label"><span class="fa">کهن‌الگو</span><span class="en">Archetype</span></span>
+        <p class="statement"><span class="fa">جوینده، با رگه‌ای از جادوگر. نقالی با یک رندرفارم.</span><span class="en">The Seeker, with a streak of the Magician. A naqqal with a render farm.</span></p>
+      </div>
+      <p><span class="fa">جستجو شاهنامه را از بر است و مدل‌های تازهٔ همین ماه را هم می‌شناسد. پیش از زرنگی، کنجکاو است؛ در ارجاع دادن دست‌ودل‌باز، در هنر سخت‌گیر و آرام و مطمئن. هیچ‌وقت ماشین را به رخ نمی‌کشد؛ قصه را نشان می‌دهد. وقتی شوخی می‌کند، مثل عمویی در شب یلدا شوخی می‌کند: خشک، گرم، و با یک بیت حافظ آماده.</span><span class="en">Jostoju knows the Shahnameh by heart and also this month's model releases. It is curious before it is clever, generous with references, exacting about craft and quietly confident. It never shows off the machine; it shows you the story. When it jokes, it jokes like an uncle on Yalda night: dry, warm and with a line of Hafez ready.</span></p>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">لحن</span><span class="en">Voice</span></span>
+    <p class="statement" style="max-width:40ch;margin-bottom:24px"><span class="fa">جستجو با گرمای یک قصه‌گو و دقت یک استادکار حرف می‌زند: کنجکاو، آهنگین، ساده و راست.</span><span class="en">Jostoju speaks with a storyteller's warmth and a craftsman's precision: curious, rhythmic, plain and honest.</span></p>
+    <div class="qualities">
+      <div><h4><span class="fa">کنجکاو</span><span class="en">Curious</span></h4><p><span class="fa">پیش از جواب، می‌پرسیم. پژوهش‌مان را نشان می‌دهیم، نه اینکه اعلامش کنیم.</span><span class="en">We ask before we answer. We show our research instead of announcing it.</span></p></div>
+      <div><h4><span class="fa">آهنگین</span><span class="en">Rhythmic</span></h4><p><span class="fa">نثر فارسی وزن را دوست دارد، ما هم: جمله‌های کوتاه و موازی. گاهی شاعرانه، هرگز پرطمطراق.</span><span class="en">Persian prose loves cadence, and so do we: short, parallel lines. Poetic sometimes, purple never.</span></p></div>
+      <div><h4><span class="fa">دقیق</span><span class="en">Precise</span></h4><p><span class="fa">چیز واقعی را نام می‌بریم: قرمز روناس، شاهنامهٔ طهماسبی، نمایی ۲۴ فریمی. نه «جادوی کهن و رنگارنگ».</span><span class="en">We name the real thing: madder red, the Tahmasp Shahnameh, a 24-frame shot. Never "vibrant ancient magic".</span></p></div>
+      <div><h4><span class="fa">گرم</span><span class="en">Warm</span></h4><p><span class="fa">مهمان‌نوازی ایرانی در نوشتن. «ما» و «شما» می‌گوییم و هرگز از بالا حرف نمی‌زنیم.</span><span class="en">Persian hospitality in writing. We say "we" and "you", and never talk down.</span></p></div>
+      <div><h4><span class="fa">راست دربارهٔ ماشین</span><span class="en">Honest about the machine</span></h4><p><span class="fa">می‌گوییم چه چیزی با هوش مصنوعی ساخته شد و چه چیزی با دست. نه اغراق، نه پنهان‌کاری.</span><span class="en">We say what was made with AI and what by hand. No overclaiming, no hiding.</span></p></div>
+      <div><h4><span class="fa">دوزبانه از تولد</span><span class="en">Bilingual by birth</span></h4><p><span class="fa">فارسی ترجمهٔ انگلیسی نیست و برعکس. هر زبان اول به صدای خودش نوشته می‌شود؛ فارسی همیشه اول.</span><span class="en">Persian is never a translation of English, or the reverse. Each is written first in its own voice, and Persian always comes first.</span></p></div>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">این‌طور بگو</span><span class="en">Say it like this</span></span>
+    <div class="saylike">
+      <div class="fa"><s>با جادوی هوش مصنوعی، رؤیاهایتان را در چند ثانیه فیلم می‌کنیم!</s><span>هر قاب را دست ما انتخاب می‌کند؛ ماشین فقط دار قالی است.</span></div>
+      <div class="fa"><s>ایرانِ اسرارآمیز و رؤیایی در انتظار شماست.</s><span>اصفهان، ۹۹۰ خورشیدی. نور صبح از پشت شیشه‌های ارسی.</span></div>
+      <div class="fa"><s>محتوای نامحدود، بدون فیلم‌برداری.</s><span>دنیاهایی که نمی‌شود فیلم‌برداری کرد، با کارگردانی‌ای که انگار می‌شود.</span></div>
+      <div class="en"><s>Revolutionary AI brings ancient Persia to life in seconds!</s><span>We spent a week on one sky. It's lapis, the way the old painters made it.</span></div>
+      <div class="en"><s>Exotic, mystical Persia awaits.</s><span>Isfahan, 1611. Morning light through the orosi windows.</span></div>
+      <div class="en"><s>Unlimited content. Zero shoots.</s><span>Worlds you can't film, directed as if you could.</span></div>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">نوشتن به دو زبان</span><span class="en">Writing in two languages</span></span>
+    <ol class="rules cols" style="--min:320px">
+      <li><span><span class="fa">هر زبان را بومی بنویسید. فارسی را به فارسی بنویسید و بعد معنا را با انگلیسی هم‌خوان کنید. هرگز ترجمهٔ ماشینی.</span><span class="en">Write each language natively. Draft the Persian in Persian, then align the English. Never machine-translate.</span></span></li>
+      <li><span><span class="fa">فارسی همیشه اول می‌آید. جایی که هر دو در یک سطرند، فارسی راست و انگلیسی چپ؛ مثل نشان.</span><span class="en">Persian always comes first. When both share a line, Persian sits on the right and English on the left, as in the logo.</span></span></li>
+      <li><span><span class="fa">«ی» و «ک» فارسی؛ هرگز «ي» و «ك» عربی.</span><span class="en">Use the Persian <span class="per">ی</span> and <span class="per">ک</span>, never the Arabic <span class="per">ي</span> and <span class="per">ك</span>.</span></span></li>
+      <li><span><span class="fa">نیم‌فاصله را درست بگذارید: می‌سازیم، فیلم‌ها، قصه‌ها.</span><span class="en">Use the half-space (ZWNJ) properly: <span class="per">می‌سازیم، فیلم‌ها</span>.</span></span></li>
+      <li><span><span class="fa">در متن فارسی رقم فارسی (۰ تا ۹)؛ در کد رنگ، تایم‌کد و مشخصات فنی رقم لاتین.</span><span class="en">Persian digits in Persian text; Latin digits in hex codes, timecodes and specs.</span></span></li>
+      <li><span><span class="fa">حروف فارسی را هرگز فاصله‌دار، کج یا با کشیده برای تراز کردن متن ننویسید.</span><span class="en">Never letter-space Persian, never fake an italic, never stretch body text with kashida.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 07 MESSAGING -->
+<section class="ch g-shab" id="messaging">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۰۷</span><span class="en">07</span></div>
+      <h2 class="ch-title"><span class="fa">پیام و شعار</span><span class="en">Messaging and Taglines</span><span class="alt"><span class="fa lat">Messaging and taglines</span><span class="en per">پیام و شعار</span></span></h2>
+    </header>
+    <div class="core card lachak">
+      <span class="label"><span class="fa">پیام اصلی</span><span class="en">Core message</span></span>
+      <p class="statement" style="max-width:40ch;margin:0"><span class="fa">جستجو به برندها، هنرمندان و تماشاگران کمک می‌کند قصه‌هایی را ببینند که پیش از این ساختنی نبودند؛ با بافتن تصویرگری ایرانی در فیلم‌سازی با هوش مصنوعی، به کارگردانی دست انسان.</span><span class="en">Jostoju helps brands, artists and audiences see stories that could never be filmed before, by weaving Persian image-making into AI filmmaking that human hands direct.</span></p>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">شعارها</span><span class="en">Taglines</span></span>
+    <div class="taglines">
+      <div class="tl"><span class="t-fa">آنچه یافت می‌نشود، می‌سازیم.<span class="badge"><span class="fa">شعار اصلی</span><span class="en">Master</span></span></span><span class="t-en">We make what cannot be found.</span><p><span class="fa">پاسخی به بیت مولانا که هر فارسی‌زبانی می‌شناسد؛ وعدهٔ فیلم‌سازی با هوش مصنوعی، بی‌آنکه نامش را ببرد.</span><span class="en">An answer to Rumi's line, which every Persian speaker knows; the promise of AI filmmaking without naming it.</span></p></div>
+      <div class="tl"><span class="t-fa">گره به گره، قاب به قاب.</span><span class="t-en">Knot by knot, frame by frame.</span><p><span class="fa">برای روند کار، تیتراژ و پشت صحنه. صبر را به گواه تبدیل می‌کند.</span><span class="en">For the process page, credits and making-of. It turns patience into proof.</span></p></div>
+      <div class="tl"><span class="t-fa">از پرده تا پیکسل.</span><span class="t-en">From pardeh to pixel.</span><p><span class="fa">هم‌آوایی «پ» در هر دو زبان. برای رونمایی، رسانه و صفحهٔ «دربارهٔ ما».</span><span class="en">The P–P rhyme works in both languages. For launch, press and the About page.</span></p></div>
+      <div class="tl"><span class="t-fa">هر قاب، یک جستجو.</span><span class="t-en">Every frame, a quest.</span><p><span class="fa">بازی با نام؛ برای شبکه‌های اجتماعی و جذب همکار.</span><span class="en">A play on the name, for social media and hiring.</span></p></div>
+    </div>
+    <hr class="rule">
+    <div class="cols" style="--min:320px">
+      <div>
+        <span class="label"><span class="fa">ستون‌های پیام</span><span class="en">Message pillars</span></span>
+        <ul class="knots">
+          <li><span><span class="fa"><strong>زبانی تصویری که مال کس دیگری نیست.</strong> از فرش، نقاشی قاجار و قاب نگارگری ساخته شده.</span><span class="en"><strong>A visual language nobody else owns.</strong> Built from the carpet, Qajar painting and the miniature frame.</span></span></li>
+          <li><span><span class="fa"><strong>کارگردانی انسان، بافت هوش مصنوعی.</strong> صدها برداشت می‌سازیم و چند تای راستین را نگه می‌داریم.</span><span class="en"><strong>Directed by people, woven with AI.</strong> We make hundreds of takes and keep the few that are true.</span></span></li>
+          <li><span><span class="fa"><strong>دوزبانه از تولد.</strong> فارسی و انگلیسیِ بومی، خط فارسی همیشه درست.</span><span class="en"><strong>Bilingual by birth.</strong> Native Persian and English; Persian type always correct.</span></span></li>
+          <li><span><span class="fa"><strong>قامت سینما، سرعت استودیو.</strong> دنیاهایی که گروهی صدنفره می‌خواستند، با تیمی کوچک و در چند هفته.</span><span class="en"><strong>Cinema scale, studio speed.</strong> Worlds that would need a crew of hundreds, made by a small team in weeks.</span></span></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label"><span class="fa">هرگز نمی‌گوییم</span><span class="en">We never say</span></span>
+        <ul class="knots">
+          <li><span><span class="fa">ادعای بی‌گواه: «بهترین»، «اولین»، «برندهٔ جایزه»؛ تا وقتی راست نباشد.</span><span class="en">Claims without proof: "the best", "the first", "award-winning", until true.</span></span></li>
+          <li><span><span class="fa">«ساخته‌شده با هوش مصنوعی» به‌عنوان تیتر. فیلم تیتر است.</span><span class="en">"AI-generated" as the headline. The film is the headline.</span></span></li>
+          <li><span><span class="fa">«گروه فیلم‌برداری لازم نیست». ما با فیلم‌سازان کار می‌کنیم.</span><span class="en">"No crew needed." We work with filmmakers.</span></span></li>
+          <li><span><span class="fa">کلیشه‌های شرق‌شناسانه: اسرارآمیز، قالیچهٔ پرنده، چراغ جادو.</span><span class="en">Orientalist shorthand: exotic, mystical, flying carpets, genies.</span></span></li>
+          <li><span><span class="fa">«ارزان» یا «در چند ثانیه».</span><span class="en">"Cheap" or "in seconds".</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== PART THREE -->
+<div class="part g-shab part-toranj">
+  <div class="wrap part-in">
+    <span class="label"><span class="fa">بخش سوم · هویت بصری</span><span class="en">Part three · Visual identity</span></span>
+    <p class="part-word" lang="fa" style="color:var(--tala)">نقش</p>
+    <p class="part-sub"><span class="fa">نشان، رنگ، حروف، نقش، تصویر و حرکت.</span><span class="en">The Image</span></p>
+    <p class="part-sub en">Logo, colour, type, pattern, image and motion.</p>
+  </div>
+  <div class="pearls" aria-hidden="true"></div>
+</div>
+
+<!-- 08 LOGO -->
+<section class="ch g-shab" id="logo">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۰۸</span><span class="en">08</span></div>
+      <h2 class="ch-title"><span class="fa">نشان</span><span class="en">Logo</span><span class="alt"><span class="fa lat">Logo</span><span class="en per">نشان</span></span></h2>
+      <p class="ch-sum"><span class="fa">نقطهٔ «جو» از جایش رفته و پیشاپیش کلمه ایستاده؛ بی‌هیچ نخ و خطی. کلمه با کشیدهٔ بلندش در راه است تا به آن برسد.</span><span class="en">The dot of <em>ju</em> has left its letter and waits ahead of the word, unattached. With its long stretch, the word is on the road toward it.</span></p>
+    </header>
+    <div class="logo-hero">{{USE:fa::جستجو, logotype}}</div>
+    <hr class="rule">
+    <div class="split" style="--split:6fr 5fr">
+      <div class="motion-box" id="motion-demo">
+        {{MOTION}}
+        <button type="button" class="btn" id="play-dot"><span class="fa">رفتن نقطه را ببین</span><span class="en">Watch the dot leave</span></button>
+      </div>
+      <div>
+        <span class="label"><span class="fa">ایده</span><span class="en">The idea</span></span>
+        <p class="lede"><span class="fa">جستجو از دو نیمه ساخته شده: «جُست»، یافته، و «جو»، جوینده. نقطهٔ «جُست» سر جایش است: پیدا شده. نقطهٔ «جو» رفته است.</span><span class="en">Jostoju has two halves: <em>jost</em>, sought, and <em>ju</em>, seek. The dot of <em>jost</em> stays in place: found. The dot of <em>ju</em> has gone.</span></p>
+        <p><span class="fa">این نقطه گم نشده؛ جلوتر از کلمه است، در جهتی که فارسی خوانده می‌شود. کشیدهٔ «سـ» راه است و نقطه مقصد. «آنکه یافت می‌نشود، آنم آرزوست»: نشان ما همیشه در راه است.</span><span class="en">The dot is not lost: it is ahead of the word, in the direction Persian reads. The stretched <span class="per">سـ</span> is the road and the dot is where it leads. "What cannot be found is what I long for": our mark is always on its way.</span></p>
+        <p class="small mute"><span class="fa">ساخت: بر پایهٔ حروف «امیری» (Amiri، با پروانهٔ آزاد OFL)، ضخیم‌تر شده؛ نقطه‌ها گره‌های لوزی برندند؛ اعراب و نقطهٔ پیشرو به رنگ دوم.</span><span class="en">Construction: built on the Amiri typeface (SIL Open Font License), drawn heavier; the dots are the brand's diamond knots; the vowels and the dot ahead are in the second colour.</span></p>
+      </div>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">خانوادهٔ نشان</span><span class="en">The logo family</span></span>
+    <div class="grounds" role="group" aria-label="زمینه · Ground">
+      <button type="button" data-ground="g-shab" aria-pressed="true"><span class="fa">شب</span><span class="en">Shab</span></button>
+      <button type="button" data-ground="g-morvarid" aria-pressed="false"><span class="fa">مروارید</span><span class="en">Morvarid</span></button>
+      <button type="button" data-ground="g-runas" aria-pressed="false"><span class="fa">روناس</span><span class="en">Runas</span></button>
+      <button type="button" data-ground="g-zomorrod" aria-pressed="false"><span class="fa">زمرد</span><span class="en">Zomorrod</span></button>
+    </div>
+    <div class="system" id="system">
+      <figure class="w5"><div class="stage g-shab">{{USE:lk-stack:s-stack:Stacked lockup}}</div><figcaption><span><span class="fa">نشان اصلی · عمودی</span><span class="en">Primary · stacked</span></span><span><span class="fa">پوستر، تیتراژ، صفحهٔ اول</span><span class="en">Posters, titles, covers</span></span></figcaption></figure>
+      <figure class="w7"><div class="stage g-shab">{{USE:lk-h:s-h:Horizontal lockup}}</div><figcaption><span><span class="fa">افقی · دوزبانه</span><span class="en">Horizontal · bilingual</span></span><span><span class="fa">سربرگ سایت، امضای ایمیل</span><span class="en">Site header, email signature</span></span></figcaption></figure>
+      <figure class="w6"><div class="stage g-shab">{{USE:fa:s-fa:Logotype}}</div><figcaption><span><span class="fa">نام‌نگارهٔ «سفر»</span><span class="en">Logotype · Journey</span></span><span><span class="fa">از ۲۴۰ پیکسل به بالا</span><span class="en">240 px and up</span></span></figcaption></figure>
+      <figure class="w6"><div class="stage g-shab">{{USE:fa-compact:s-fac:Compact logotype}}</div><figcaption><span><span class="fa">نام‌نگارهٔ فشرده</span><span class="en">Compact logotype</span></span><span><span class="fa">۱۲۰ تا ۲۴۰ پیکسل</span><span class="en">120–240 px</span></span></figcaption></figure>
+      <figure class="w6"><div class="stage g-shab">{{USE:en:s-en:jostoju wordmark}}</div><figcaption><span><span class="fa">نام‌نوشتهٔ لاتین · بودونی</span><span class="en">Latin wordmark · Bodoni</span></span><span><span class="fa">فقط در کنار فارسی یا برای مخاطب جهانی</span><span class="en">Beside the Persian, or for global use</span></span></figcaption></figure>
+      <figure class="w6"><div class="stage g-shab">{{USE:sym:s-sym:Symbol}}</div><figcaption><span><span class="fa">نشانه · گره گمشده</span><span class="en">Symbol · the Missing Knot</span></span><span><span class="fa">آواتار، فاوآیکن، زیر ۱۲۰ پیکسل</span><span class="en">Avatar, favicon, under 120 px</span></span></figcaption></figure>
+    </div>
+    <hr class="rule">
+    <div class="cols" style="--min:300px">
+      <div>
+        <span class="label"><span class="fa">قاعده‌ها</span><span class="en">Rules</span></span>
+        <ul class="knots small">
+          <li><span><span class="fa">نقطه همیشه جلوی کلمه است (سمت چپ)، هم‌تراز با کشیده، بی‌هیچ خط یا نخی.</span><span class="en">The dot always sits ahead of the word (to the left), level with the road, with no line or thread.</span></span></li>
+          <li><span><span class="fa">فاصلهٔ آزاد دور نشان: دست‌کم پهنای دو گره.</span><span class="en">Clear space around the logo: at least two knots wide.</span></span></li>
+          <li><span><span class="fa">زیر ۲۴۰ پیکسل نام‌نگارهٔ فشرده؛ زیر ۱۲۰ پیکسل فقط نشانه.</span><span class="en">Below 240 px use the compact logotype; below 120 px, the symbol alone.</span></span></li>
+          <li><span><span class="fa">اعراب بخشی از نشان‌اند و همیشه رنگ دوم را دارند: روناس روی روشن، طلا روی تیره.</span><span class="en">The vowels are part of the logo and always take the second colour: madder on light, gold on dark.</span></span></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label"><span class="fa">فایل‌ها</span><span class="en">Files</span></span>
+        <p class="small mute"><span class="fa">همهٔ نسخه‌ها به‌صورت SVG در مخزن، در <code>brand/logo/</code>، برای چهار زمینه: شب، مروارید، روناس و زمرد.</span><span class="en">Every version is an SVG in the repository, in <code>brand/logo/</code>, for four grounds: Shab, Morvarid, Runas and Zomorrod.</span></p>
+      </div>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">هرگز</span><span class="en">Never</span></span>
+    <div class="donts">
+      <figure><div class="stage">{{USE:x-back::-}}</div><figcaption><span class="fa">نقطه را به جای خودش برنگردانید.</span><span class="en">Put the dot back under its letter.</span></figcaption></figure>
+      <figure><div class="stage">{{USE:x-thread::-}}</div><figcaption><span class="fa">نقطه را با نخ یا خط به کلمه وصل نکنید.</span><span class="en">Tie the dot to the word with a line.</span></figcaption></figure>
+      <figure class="recolor"><div class="stage">{{USE:fa::-}}</div><figcaption><span class="fa">رنگی بیرون از هشت رنگ برند.</span><span class="en">Recolour outside the eight brand colours.</span></figcaption></figure>
+      <figure class="stretch"><div class="stage">{{USE:fa::-}}</div><figcaption><span class="fa">کشیدن یا فشردن نشان.</span><span class="en">Stretch or squash it.</span></figcaption></figure>
+      <figure class="glow"><div class="stage">{{USE:fa::-}}</div><figcaption><span class="fa">سایه، درخشش یا گرادیان.</span><span class="en">Add shadows, glows or gradients.</span></figcaption></figure>
+      <figure class="retype"><div class="stage"><span lang="fa">جستجو</span></div><figcaption><span class="fa">نام را با فونت دیگری تایپ نکنید.</span><span class="en">Retype the name in another font.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 09 COLOUR -->
+<section class="ch g-morvarid" id="color">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۰۹</span><span class="en">09</span></div>
+      <h2 class="ch-title"><span class="fa">رنگ</span><span class="en">Colour</span><span class="alt"><span class="fa lat">Colour</span><span class="en per">رنگ</span></span></h2>
+      <p class="ch-sum"><span class="fa">هشت رنگ از پرده‌های قاجار، فرش و کاشی. روی هر رنگ بزنید تا کدش کپی شود.</span><span class="en">Eight colours from Qajar canvases, carpets and tiles. Select a swatch to copy its hex code.</span></p>
+    </header>
+    <div class="swatches">
+      <div class="sw"><button type="button" data-hex="#16110E" style="--c:var(--shab);--on:var(--morvarid)"><span class="nm"><b>شب</b><i>Shab</i></span><span class="hex"><span>#16110E</span><span class="copied">✓</span></span></button><div class="info"><span class="role"><span class="fa">زمینهٔ تیره</span><span class="en">Dark ground</span></span><span><span class="fa">سیاهیِ روغنِ کهنهٔ پرده‌های قاجار.</span><span class="en">The varnished black of Qajar canvases.</span></span></div></div>
+      <div class="sw"><button type="button" data-hex="#F4EDE0" style="--c:var(--morvarid);--on:var(--shab)"><span class="nm"><b>مروارید</b><i>Morvarid</i></span><span class="hex"><span>#F4EDE0</span><span class="copied">✓</span></span></button><div class="info"><span class="role"><span class="fa">زمینهٔ روشن · متن روی تیره</span><span class="en">Light ground · text on dark</span></span><span><span class="fa">رشته‌های مروارید جواهرات قاجاری.</span><span class="en">The pearl strings of Qajar jewellery.</span></span></div></div>
+      <div class="sw"><button type="button" data-hex="#A3261F" style="--c:var(--runas);--on:var(--morvarid)"><span class="nm"><b>روناس</b><i>Runas</i></span><span class="hex"><span>#A3261F</span><span class="copied">✓</span></span></button><div class="info"><span class="role"><span class="fa">رنگ اصلی · کارگاه</span><span class="en">Primary · Kargah</span></span><span><span class="fa">قرمز فرش و جامه‌های درباری.</span><span class="en">The red of carpets and court robes.</span></span></div></div>
+      <div class="sw"><button type="button" data-hex="#1F5A46" style="--c:var(--zomorrod);--on:var(--morvarid)"><span class="nm"><b>زمرد</b><i>Zomorrod</i></span><span class="hex"><span>#1F5A46</span><span class="copied">✓</span></span></button><div class="info"><span class="role"><span class="fa">رنگ اصلی دوم · پرده</span><span class="en">Second primary · Pardeh</span></span><span><span class="fa">سبز مخمل و زمرد.</span><span class="en">Velvet and emerald green.</span></span></div></div>
+      <div class="sw"><button type="button" data-hex="#D4A640" style="--c:var(--tala);--on:var(--shab)"><span class="nm"><b>طلا</b><i>Tala</i></span><span class="hex"><span>#D4A640</span><span class="copied">✓</span></span></button><div class="info"><span class="role"><span class="fa">تأکید · اعراب نشان</span><span class="en">Accent · the logo's vowels</span></span><span><span class="fa">قاب‌ها و تاج‌ها. در چاپ، ورق طلا.</span><span class="en">Frames and crowns. Gold foil in print.</span></span></div></div>
+      <div class="sw"><button type="button" data-hex="#233C8E" style="--c:var(--lajvard);--on:var(--morvarid)"><span class="nm"><b>لاجورد</b><i>Lajvard</i></span><span class="hex"><span>#233C8E</span><span class="copied">✓</span></span></button><div class="info"><span class="role"><span class="fa">رنگ مکمل · نقشه</span><span class="en">Secondary · Naqsheh</span></span><span><span class="fa">کاشی و آسمان.</span><span class="en">Tiles and skies.</span></span></div></div>
+      <div class="sw"><button type="button" data-hex="#E39AA6" style="--c:var(--gol);--on:var(--shab)"><span class="nm"><b>گل سرخ</b><i>Gol</i></span><span class="hex"><span>#E39AA6</span><span class="copied">✓</span></span></button><div class="info"><span class="role"><span class="fa">تأکید ظریف · فقط گرافیک</span><span class="en">Delicate accent · graphics only</span></span><span><span class="fa">گل‌های صورتیِ کاشی‌های قاجار.</span><span class="en">The pink roses of Qajar tiles.</span></span></div></div>
+      <div class="sw"><button type="button" data-hex="#E7D9BD" style="--c:var(--kaghaz);--on:var(--shab)"><span class="nm"><b>کاغذ</b><i>Kaghaz</i></span><span class="hex"><span>#E7D9BD</span><span class="copied">✓</span></span></button><div class="info"><span class="role"><span class="fa">سطح روشن دوم</span><span class="en">Second light surface</span></span><span><span class="fa">کاغذ آهارمهره.</span><span class="en">Burnished manuscript paper.</span></span></div></div>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">قاعدهٔ پرتره · نسبت‌ها</span><span class="en">The portrait rule · proportions</span></span>
+    <div class="ratio">
+      <div style="flex:60;background:var(--shab);color:var(--morvarid)"><span class="fa">۶۰ · زمینه</span><span class="en">60 · ground</span></div>
+      <div style="flex:25;background:var(--runas);color:var(--morvarid)"><span class="fa">۲۵ · جامه</span><span class="en">25 · robe</span></div>
+      <div style="flex:10;background:var(--tala);color:var(--shab)"><span class="fa">۱۰</span><span class="en">10</span></div>
+      <div style="flex:5;background:var(--morvarid);color:var(--shab);box-shadow:inset 0 0 0 1px var(--line)"><span class="fa">۵</span><span class="en">5</span></div>
+    </div>
+    <p class="small mute" style="margin-top:12px"><span class="fa">مثل یک پرتره قاجار: ۶۰ درصد زمینهٔ تیره یا روشن، ۲۵ درصد «جامه» (روناس یا زمرد)، ۱۰ درصد طلا، ۵ درصد مروارید و گل سرخ.</span><span class="en">Like a Qajar portrait: 60% dark or light ground, 25% "robe" (madder or emerald), 10% gold, 5% pearl and rose.</span></p>
+    <hr class="rule">
+    <span class="label"><span class="fa">ترکیب‌های آزموده · کنتراست</span><span class="en">Tested pairings · contrast</span></span>
+    <div class="pairs">
+      <div class="pair"><div class="demo" style="background:var(--shab);color:var(--morvarid)"><b>قاب</b><i>Aa</i></div><div class="ct"><span>Morvarid / Shab</span><b>16.1</b></div></div>
+      <div class="pair"><div class="demo" style="background:var(--shab);color:var(--tala)"><b>قاب</b><i>Aa</i></div><div class="ct"><span>Tala / Shab</span><b>8.3</b></div></div>
+      <div class="pair"><div class="demo" style="background:var(--morvarid);color:var(--runas)"><b>قاب</b><i>Aa</i></div><div class="ct"><span>Runas / Morvarid</span><b>6.3</b></div></div>
+      <div class="pair"><div class="demo" style="background:var(--morvarid);color:var(--zomorrod)"><b>قاب</b><i>Aa</i></div><div class="ct"><span>Zomorrod / Morvarid</span><b>6.9</b></div></div>
+      <div class="pair"><div class="demo" style="background:var(--runas);color:var(--morvarid)"><b>قاب</b><i>Aa</i></div><div class="ct"><span>Morvarid / Runas</span><b>6.3</b></div></div>
+      <div class="pair"><div class="demo" style="background:var(--zomorrod);color:var(--morvarid)"><b>قاب</b><i>Aa</i></div><div class="ct"><span>Morvarid / Zomorrod</span><b>6.9</b></div></div>
+      <div class="pair"><div class="demo" style="background:var(--lajvard);color:var(--tala)"><b>قاب</b><i>Aa</i></div><div class="ct"><span>Tala / Lajvard</span><b>4.4</b></div></div>
+      <div class="pair"><div class="demo" style="background:var(--zomorrod);color:var(--tala)"><b>قاب</b><i>Aa</i></div><div class="ct"><span>Tala / Zomorrod</span><b>3.6 L</b></div></div>
+    </div>
+    <p class="small mute" style="margin-top:12px"><span class="fa">طلا روی روناس یا زمرد فقط برای متن درشت و گرافیک (L). روناس و زمرد روی شب فقط گرافیک، هرگز متن.</span><span class="en">Gold on madder or emerald is for large text and graphics only (L). Madder or emerald on night: graphics only, never text.</span></p>
+  </div>
+</section>
+
+<!-- 10 TYPE -->
+<section class="ch g-shab" id="type">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۱۰</span><span class="en">10</span></div>
+      <h2 class="ch-title"><span class="fa">حروف</span><span class="en">Typography</span><span class="alt"><span class="fa lat">Typography</span><span class="en per">حروف‌نگاری</span></span></h2>
+      <p class="ch-sum"><span class="fa">فارسی با نسخ کلاسیک و یک فونت صفحه‌ای روشن؛ انگلیسی با بودونی، حروف قرن نوزدهم و دورهٔ قاجار. همه رایگان در Google Fonts.</span><span class="en">Persian in a classical Naskh and a clear screen face; English in Bodoni, the type of the 19th century and the Qajar era. All free on Google Fonts.</span></p>
+    </header>
+    <div class="spec"><div class="who"><h4>Amiri</h4><p><span class="fa">نمایشی فارسی؛ همان خانوادهٔ نشان. نسخ چاپی کلاسیک.</span><span class="en">Persian display; the logo's own family. A classical printing Naskh.</span></p><code>700 · 1.5</code></div><p class="s-amiri">آنچه یافت می‌نشود، می‌سازیم.</p></div>
+    <div class="spec"><div class="who"><h4>Vazirmatn</h4><p><span class="fa">متن و رابط کاربری فارسی. استاندارد وب فارسی.</span><span class="en">Persian text and UI. The standard Persian web face.</span></p><code>400 / 500 / 700 · 1.95</code></div><p class="s-vazir">جستجو از گره آغاز می‌شود. بافنده گره به گره نقشه را می‌خواند، خوشنویس هر حرف را با نقطه می‌سنجد، و نقال با پرده‌ای نقاشی‌شده شاهنامه را پیش چشم مردم زنده می‌کند. ما همان راه را با ابزار امروز ادامه می‌دهیم.</p></div>
+    <div class="spec"><div class="who"><h4>Noto Nastaliq Urdu</h4><p><span class="fa">فقط برای شعر: مولانا، حافظ، عطار؛ و عنوان فیلم‌های پرده.</span><span class="en">Verse only: Rumi, Hafez, Attar, and Pardeh title cards.</span></p><code>400 · 2.6</code></div><p class="s-verse">گفت آنکه یافت می‌نشود، آنم آرزوست</p></div>
+    <div class="spec"><div class="who"><h4>Bodoni Moda</h4><p><span class="fa">نمایشی انگلیسی؛ دیدونِ پرکنتراست، حروف عکس‌ها و چاپ‌های دورهٔ قاجار.</span><span class="en">English display: a high-contrast Didone, the type of Qajar-era photographs and print.</span></p><code>500 / 700 / 800 · 1.0</code></div><p class="s-bodoni">We make what <em>cannot</em> be found.</p></div>
+    <div class="spec"><div class="who"><h4>Instrument Sans</h4><p><span class="fa">متن و رابط کاربری انگلیسی.</span><span class="en">English text and UI.</span></p><code>400 / 500 / 600 · 1.6</code></div><p class="s-inst">Jostoju begins with a knot. The weaver reads the naqsheh row by row, the calligrapher measures each letter in dots, and the naqqal brings the Shahnameh to life before a painted screen.</p></div>
+    <div class="spec"><div class="who"><h4>JetBrains Mono</h4><p><span class="fa">تیتراژ، تایم‌کد و مشخصات فنی؛ همیشه رقم لاتین.</span><span class="en">Credits, timecodes and specs; always Latin digits.</span></p><code>400 / 500</code></div><p class="s-mono"><span>SCENE 04</span><span>TAKE 112</span><span>TC 00:01:24:12</span><span>24 FPS</span><span>2.39 : 1</span></p></div>
+  </div>
+</section>
+
+<!-- 11 PATTERN -->
+<section class="ch g-morvarid" id="pattern">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۱۱</span><span class="en">11</span></div>
+      <h2 class="ch-title"><span class="fa">نقش و قاب</span><span class="en">Pattern and Frame</span><span class="alt"><span class="fa lat">Pattern and frame</span><span class="en per">نقش و قاب</span></span></h2>
+      <p class="ch-sum"><span class="fa">کم، درشت و درخشان: یک قاب، یک نقش، بقیه سکوت. مثل پرتره‌ای قاجار که تمام زینتش در جواهر است و زمینه‌اش آرام.</span><span class="en">Few, bold and bright: one frame, one pattern, the rest silence. Like a Qajar portrait, all the ornament is in the jewels and the ground stays calm.</span></p>
+    </header>
+    <div class="pats">
+      <div class="pat"><div class="stage" style="background:var(--shab)"><div class="pearls" style="position:absolute;left:0;right:0;top:38%;--pearl:var(--morvarid)"></div><div class="pearls" style="position:absolute;left:0;right:0;top:58%;--pearl:var(--tala)"></div></div><div class="meta"><h4><b>رشتهٔ مروارید</b><i>Pearl string</i></h4><span><span class="fa">حاشیه و جداکننده؛ از جواهرات قاجاری. مروارید روی تیره، طلا روی روشن.</span><span class="en">Borders and dividers, from Qajar jewellery. Pearl on dark, gold on light.</span></span></div></div>
+      <div class="pat"><div class="stage"><div class="niche archmask"><div class="pome"></div></div></div><div class="meta"><h4><b>طاق</b><i>The arch</i></h4><span><span class="fa">قابِ تصویر؛ طاقچهٔ پرتره‌های قاجار. هر صفحه فقط یک طاق.</span><span class="en">The image frame, from the niches of Qajar portraits. One arch per view.</span></span></div></div>
+      <div class="pat"><div class="stage" style="background:var(--zomorrod)"><div class="curtain"></div><div class="tassel"></div></div><div class="meta"><h4><b>پرده</b><i>The curtain</i></h4><span><span class="fa">پردهٔ کنارزدهٔ پرتره‌ها و پردهٔ نقال؛ گذار و نمایانی ما.</span><span class="en">The drawn curtain of portraits and the naqqal's canvas: our transition and reveal.</span></span></div></div>
+      <div class="pat"><div class="stage" style="background:var(--shab) var(--p-band-shab) center/auto 72px repeat-x"></div><div class="meta"><h4><b>حاشیه</b><i>Hashiyeh</i></h4><span><span class="fa">نوار گره‌ای از نقشهٔ فرش؛ بالا و پایین صفحه و قاب فیلم.</span><span class="en">A knotted band from the carpet chart: page edges and film slates.</span></span></div></div>
+      <div class="pat"><div class="stage" style="background:var(--shab) var(--p-toranj) center/150px no-repeat"></div><div class="meta"><h4><b>ترنج</b><i>Toranj</i></h4><span><span class="fa">نشانه که حلقه به حلقه بزرگ شده؛ برای جلد و پوستر. مرکزش همیشه خالی.</span><span class="en">The symbol grown ring by ring, for covers and posters. Its centre stays empty.</span></span></div></div>
+      <div class="pat"><div class="stage" style="background:var(--shab) var(--p-zarafshan) center/220px"></div><div class="meta"><h4><b>زرافشان</b><i>Zar-afshan</i></h4><span><span class="fa">طلاپاشِ حاشیهٔ نسخه‌ها؛ برای جلد و جشن، نوروز و اکران.</span><span class="en">Gold dust from manuscript margins, for covers and celebrations: Nowruz and premieres.</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 IMAGERY -->
+<section class="ch g-shab" id="imagery">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۱۲</span><span class="en">12</span></div>
+      <h2 class="ch-title"><span class="fa">زبان تصویر</span><span class="en">Imagery and Film</span><span class="alt"><span class="fa lat">Imagery and film language</span><span class="en per">زبان تصویر</span></span></h2>
+      <p class="ch-sum"><span class="fa">منطق پرتره قاجار، نور سینما. این قاعده‌ها راهنمای هر پرامپت، هر قاب و هر اصلاح رنگ‌اند.</span><span class="en">Qajar portrait logic, cinema light. These rules guide every prompt, every frame and every grade.</span></p>
+    </header>
+    <div class="split" style="--split:5fr 6fr">
+      <figure style="margin:0">
+        <svg class="qajar" viewBox="0 0 420 520" role="img" aria-label="ساختار یک قاب جستجو · Anatomy of a Jostoju frame">
+          <rect width="420" height="520" style="fill:#0d0a08"/>
+          <path d="M70 500V190Q70 130 125 95Q180 60 210 30Q240 60 295 95Q350 130 350 190V500z" style="fill:var(--zomorrod)"/>
+          <path d="M70 500V190Q70 130 125 95Q180 60 210 30Q240 60 295 95Q350 130 350 190V500" style="fill:none;stroke:var(--tala);stroke-width:2"/>
+          <path d="M290 60Q330 90 350 190V500H318C312 420 300 330 312 262C296 220 282 150 290 60z" style="fill:var(--runas)"/>
+          <rect x="304" y="250" width="12" height="30" rx="5" style="fill:var(--tala)"/>
+          <path d="M150 500Q152 380 210 362Q268 380 270 500z" style="fill:var(--runas)"/>
+          <path d="M168 470Q210 500 252 470" style="fill:none;stroke:var(--morvarid);stroke-width:5;stroke-dasharray:1 9;stroke-linecap:round"/>
+          <path d="M176 300Q172 226 210 214Q248 226 244 300Q248 340 230 352H190Q172 340 176 300z" style="fill:#140e0b"/>
+          <ellipse cx="210" cy="292" rx="27" ry="36" style="fill:#E8C9A4"/>
+          <path d="M210 196l10 10-10 10-10-10z" style="fill:var(--tala)"/>
+          <rect x="70" y="456" width="90" height="44" style="fill:var(--kaghaz)"/>
+          <circle cx="112" cy="438" r="20" style="fill:var(--runas)"/><path d="M104 418l3-9 5 6 5-6 3 9z" style="fill:var(--tala)"/>
+          <g><circle cx="98" cy="210" r="12" style="fill:var(--tala)"/><text x="98" y="214" text-anchor="middle" style="fill:var(--shab)">1</text></g>
+          <g><circle cx="334" cy="330" r="12" style="fill:var(--tala)"/><text x="334" y="334" text-anchor="middle" style="fill:var(--shab)">2</text></g>
+          <g><circle cx="262" cy="270" r="12" style="fill:var(--tala)"/><text x="262" y="274" text-anchor="middle" style="fill:var(--shab)">3</text></g>
+          <g><circle cx="146" cy="420" r="12" style="fill:var(--tala)"/><text x="146" y="424" text-anchor="middle" style="fill:var(--shab)">4</text></g>
+        </svg>
+        <figcaption class="small mute" style="margin-top:10px"><span class="fa">۱ طاق · ۲ پردهٔ کنارزده · ۳ نگاه مستقیم · ۴ طبیعت بی‌جان با معنا</span><span class="en">1 The arch · 2 The drawn curtain · 3 The direct gaze · 4 Still life with meaning</span></figcaption>
+      </figure>
+      <div class="principles">
+        <article><span class="n"><span class="fa">۱</span><span class="en">1</span></span><div><h4><span class="fa">قاب در قاب</span><span class="en">Frame within frame</span></h4><p><span class="fa">طاق، پنجره، آینه. سوژه را در قابی دوم بگذارید؛ مثل طاقچهٔ پرتره‌های قاجار.</span><span class="en">Arch, window, mirror. Place the subject in a second frame, like the niche of a Qajar portrait.</span></p></div></article>
+        <article><span class="n"><span class="fa">۲</span><span class="en">2</span></span><div><h4><span class="fa">پرده</span><span class="en">The curtain</span></h4><p><span class="fa">پرده‌ای سنگین که کنار زده شده: صحنه آماده است. در فیلم، گذار ما هم همین است.</span><span class="en">A heavy curtain drawn aside: the stage is set. In film, it is also our transition.</span></p></div></article>
+        <article><span class="n"><span class="fa">۳</span><span class="en">3</span></span><div><h4><span class="fa">نگاه مستقیم، بدن آرام</span><span class="en">Direct gaze, still body</span></h4><p><span class="fa">چهره‌ها رو به ما، ساکن و باوقار. دوربین کم حرکت می‌کند؛ نگاه حرف می‌زند.</span><span class="en">Faces turned to us, still and composed. The camera moves little; the gaze speaks.</span></p></div></article>
+        <article><span class="n"><span class="fa">۴</span><span class="en">4</span></span><div><h4><span class="fa">زمینهٔ تیره، نورِ جواهر</span><span class="en">Dark ground, jewel light</span></h4><p><span class="fa">زمینه در تاریکی، و نور روی چهره، پارچه و جواهر. همهٔ زینت در یک نقطه؛ بقیه آرام.</span><span class="en">The ground falls into darkness; light lands on face, fabric and jewels. All the ornament in one place, the rest calm.</span></p></div></article>
+        <article><span class="n"><span class="fa">۵</span><span class="en">5</span></span><div><h4><span class="fa">اشیای با معنا</span><span class="en">Objects with meaning</span></h4><p><span class="fa">انار، هندوانهٔ یلدا، آینه (آینهٔ سیمرغ)، جام حافظ. هر شیء جملهٔ قصه است.</span><span class="en">Pomegranate, Yalda watermelon, the mirror (the Simorgh's mirror), Hafez's cup. Every object is a line of the story.</span></p></div></article>
+        <article><span class="n"><span class="fa">۶</span><span class="en">6</span></span><div><h4><span class="fa">چهرهٔ واقعی، بافت واقعی</span><span class="en">Real faces, real texture</span></h4><p><span class="fa">مردمان گوناگون ایران؛ ترک‌خوردگی روغن، دانه، منفذ پوست. براقیِ مومیِ هوش مصنوعی ممنوع.</span><span class="en">The many peoples of Iran; oil crackle, grain, skin pores. No waxy AI gloss.</span></p></div></article>
+      </div>
+    </div>
+    <hr class="rule">
+    <div class="cols" style="--min:320px">
+      <div>
+        <span class="label"><span class="fa">رنگ‌آمیزی · نگاه جستجو</span><span class="en">Grade · the Jostoju look</span></span>
+        <div class="grade">
+          <div style="background:var(--shab);color:var(--morvarid)"><span class="fa">سایه · شب</span><span class="en">Shadows · Shab</span></div>
+          <div style="background:var(--zomorrod);color:var(--morvarid)"><span class="fa">سبز عمیق</span><span class="en">Deep greens</span></div>
+          <div style="background:var(--runas);color:var(--morvarid)"><span class="fa">قرمز عمیق</span><span class="en">Deep reds</span></div>
+          <div style="background:#E8C9A4;color:var(--shab)"><span class="fa">پوست گرم</span><span class="en">Warm skin</span></div>
+          <div style="background:var(--tala);color:var(--shab)"><span class="fa">روشن · طلا</span><span class="en">Highlights · gold</span></div>
+        </div>
+        <p class="small" style="margin-top:10px"><span class="fa">سیاهی‌ها نرم، مثل روغن کهنه؛ قرمز و سبز عمیق و اشباع؛ نورهای روشن کمی طلایی؛ پوست گرم و محفوظ.</span><span class="en">Soft blacks like old varnish; deep, saturated reds and greens; highlights tipped with gold; skin warm and protected.</span></p>
+      </div>
+      <div>
+        <span class="label"><span class="fa">دروازهٔ کیفیت · پیش از تحویل</span><span class="en">Quality gate · before delivery</span></span>
+        <ul class="knots small">
+          <li><span><span class="fa"><strong>خط فارسیِ ساخت هوش مصنوعی ممنوع.</strong> هر نوشته، تابلو و کتیبه با حروف واقعی جایگزین می‌شود.</span><span class="en"><strong>No AI-written Persian.</strong> Replace every sign, book and inscription with real type.</span></span></li>
+          <li><span><span class="fa"><strong>دورهٔ درست.</strong> صفوی، قاجار و پهلوی فرق دارند: لباس، معماری، اشیا.</span><span class="en"><strong>The right period.</strong> Safavid, Qajar and Pahlavi differ: costume, architecture, objects.</span></span></li>
+          <li><span><span class="fa"><strong>پیوستگی.</strong> نقش لباس، دست‌ها و چشم‌ها از نمایی به نمای دیگر یکی بمانند.</span><span class="en"><strong>Continuity.</strong> Costume patterns, hands and eyes must hold from shot to shot.</span></span></li>
+          <li><span><span class="fa"><strong>رضایت.</strong> چهره یا صدای هیچ آدم واقعی بدون رضایت کتبی.</span><span class="en"><strong>Consent.</strong> No real person's face or voice without written consent.</span></span></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">هرگز</span><span class="en">Never</span></span>
+    <ul class="knots cols" style="--min:280px">
+      <li><span><span class="fa">قالیچهٔ پرنده، غول چراغ جادو، کلیشه‌های «هزار و یک شب»</span><span class="en">Flying carpets, genies, "Arabian Nights" mash-ups</span></span></li>
+      <li><span><span class="fa">فیلتر زرد و غبارآلودِ «خاورمیانه»</span><span class="en">Yellow, dusty "Middle East" filters</span></span></li>
+      <li><span><span class="fa">تصاویر خبر و جنگ به‌عنوان نشانهٔ ایران</span><span class="en">News and war imagery as shorthand for Iran</span></span></li>
+      <li><span><span class="fa">نگاه بیگانه: ایرانی فقط قربانی، شرور یا عجیب</span><span class="en">The outsider's gaze: Iranians only as victims, villains or exotica</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 13 MOTION -->
+<section class="ch g-morvarid" id="motion">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۱۳</span><span class="en">13</span></div>
+      <h2 class="ch-title"><span class="fa">حرکت و صدا</span><span class="en">Motion and Sound</span><span class="alt"><span class="fa lat">Motion and sound</span><span class="en per">حرکت و صدا</span></span></h2>
+      <p class="ch-sum"><span class="fa">فرش از رج پایین به بالا بافته می‌شود و پرده کنار می‌رود. جستجو هم همین‌طور حرکت می‌کند.</span><span class="en">A carpet is woven from the bottom row up, and a curtain is drawn aside. Jostoju moves the same way.</span></p>
+    </header>
+    <div class="cols" style="--min:300px">
+      <div class="principles">
+        <article><span class="n"><span class="fa">۱</span><span class="en">1</span></span><div><h4><span class="fa">رج به رج، از پایین</span><span class="en">Row by row, from below</span></h4><p><span class="fa">نمایان شدن از پایین به بالا، مثل رشد فرش روی دار. هرگز پرواز از کنارها.</span><span class="en">Reveals rise from the bottom up, like a carpet on the loom. Never fly in from the sides.</span></p></div></article>
+        <article><span class="n"><span class="fa">۲</span><span class="en">2</span></span><div><h4><span class="fa">گذارِ پرده</span><span class="en">The curtain wipe</span></h4><p><span class="fa">گذار امضای ما: پرده‌ای سنگین که کنار می‌رود و قاب بعدی را نشان می‌دهد.</span><span class="en">Our signature transition: a heavy curtain draws aside to reveal the next frame.</span></p></div></article>
+        <article><span class="n"><span class="fa">۳</span><span class="en">3</span></span><div><h4><span class="fa">مثل نقال ببُر</span><span class="en">Cut like a naqqal</span></h4><p><span class="fa">روی تصویر بیشتر از عادتِ فید بمانید. روی ضرب قصه کات کنید؛ بی‌افکت‌های پرسروصدا.</span><span class="en">Hold on images longer than the feed expects. Cut on the story's beat, without noisy effects.</span></p></div></article>
+        <article><span class="n"><span class="fa">۴</span><span class="en">4</span></span><div><h4><span class="fa">شتابِ ماکو</span><span class="en">The shuttle ease</span></h4><p><span class="fa">شروع سریع، فرود نرم و بلند: <code>cubic-bezier(.2,.7,.2,1)</code></span><span class="en">A quick start and a long, soft landing: <code>cubic-bezier(.2,.7,.2,1)</code></span></p></div></article>
+      </div>
+      <div>
+        <span class="label"><span class="fa">امضای نشان · ۳ ثانیه</span><span class="en">Logo sting · 3 seconds</span></span>
+        <ul class="knots small">
+          <li><span><span class="fa"><strong>۰٫۰</strong> تاریکی. دو ضربهٔ دفتینِ قالی‌باف.</span><span class="en"><strong>0.0 s</strong> Darkness. Two beats of the weaver's comb (<em>daftin</em>).</span></span></li>
+          <li><span><span class="fa"><strong>۰٫۴</strong> جستجو از پایین به بالا نمایان می‌شود؛ اعراب طلایی آخر از همه.</span><span class="en"><strong>0.4 s</strong> The word rises from below; the gold vowels arrive last.</span></span></li>
+          <li><span><span class="fa"><strong>۱٫۶</strong> نقطهٔ «جو» از جایش جدا می‌شود و جلوی کلمه می‌ایستد. یک نت تار.</span><span class="en"><strong>1.6 s</strong> The dot of <em>ju</em> leaves its letter and stops ahead of the word. One note on the <em>tar</em>.</span></span></li>
+          <li><span><span class="fa"><strong>۲٫۴</strong> پرده کنار می‌رود و نخستین قاب فیلم پیدا می‌شود.</span><span class="en"><strong>2.4 s</strong> A curtain draws aside onto the first frame of the film.</span></span></li>
+        </ul>
+        <p class="small mute" style="margin-top:12px"><span class="fa">صدای برند: پشم، چوب و یک سیم. بی‌صداهای «حماسی» و افکت‌های الکترونیک.</span><span class="en">Sonic identity: wool, wood and one string. No "epic" impacts or synth risers.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== PART FOUR -->
+<div class="part g-lajvard">
+  <div class="wrap part-in">
+    <span class="label"><span class="fa">بخش چهارم · ساختن</span><span class="en">Part four · Making</span></span>
+    <p class="part-word" lang="fa">کارگاه</p>
+    <p class="part-sub"><span class="fa">کار چطور ساخته می‌شود و برند کجا دیده می‌شود.</span><span class="en">The Workshop</span></p>
+    <p class="part-sub en">How the work gets made, and where the brand shows up.</p>
+  </div>
+  <div class="pearls" aria-hidden="true"></div>
+</div>
+
+<!-- 14 PROCESS -->
+<section class="ch g-morvarid" id="process">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۱۴</span><span class="en">14</span></div>
+      <h2 class="ch-title"><span class="fa">هفت وادی</span><span class="en">The Seven Valleys</span><span class="alt"><span class="fa lat">The seven valleys</span><span class="en per">هفت وادی</span></span></h2>
+      <p class="ch-sum"><span class="fa">مرغان عطار از هفت وادی گذشتند تا به سیمرغ برسند. هر فیلم جستجو از همین هفت وادی، به همین ترتیب، می‌گذرد.</span><span class="en">Attar's birds crossed seven valleys to reach the Simorgh. Every Jostoju film crosses the same seven, in order.</span></p>
+    </header>
+    <ol class="valleys">
+      <li><span class="vn"><span class="fa">۱</span><span class="en">1</span></span><span class="vw">طلب<small>Quest · Discovery</small></span><p><span class="fa">سفارش را به یک پرسش تبدیل می‌کنیم: برای چه کسی است و چه حسی باید بدهد؟ اول گوش می‌دهیم.</span><span class="en">We turn the brief into a question: who is it for, and what should they feel? We listen first.</span></p><span class="out"><b><span class="fa">خروجی:</span><span class="en">Out:</span></b> <span class="fa">پرسش خلاقانه، یک صفحه</span><span class="en">the creative question, one page</span></span></li>
+      <li><span class="vn"><span class="fa">۲</span><span class="en">2</span></span><span class="vw">عشق<small>Love · Concept</small></span><p><span class="fa">ایده‌ای را پیدا می‌کنیم که نمی‌توانیم از فکرش بیرون بیاییم. اگر عاشقش نباشیم، مخاطب هم نمی‌شود.</span><span class="en">We find the idea we can't stop thinking about. If we aren't in love with it, the audience won't be.</span></p><span class="out"><b><span class="fa">خروجی:</span><span class="en">Out:</span></b> <span class="fa">طرح و سه قاب کلیدی</span><span class="en">treatment and three key frames</span></span></li>
+      <li><span class="vn"><span class="fa">۳</span><span class="en">3</span></span><span class="vw">معرفت<small>Knowing · World-building</small></span><p><span class="fa">پژوهش، لوک‌بوک، شخصیت، لوکیشن، فیلمنامه و استوری‌بورد. پیش از بافتن، دنیا را طراحی می‌کنیم.</span><span class="en">Research, look book, characters, locations, script and storyboard. We design the world before we weave it.</span></p><span class="out"><b><span class="fa">خروجی:</span><span class="en">Out:</span></b> <span class="fa">کتاب دنیا و انیماتیک</span><span class="en">world bible and animatic</span></span></li>
+      <li><span class="vn"><span class="fa">۴</span><span class="en">4</span></span><span class="vw">استغنا<small>Detachment · Generation</small></span><p><span class="fa">صدها برداشت می‌سازیم و چند تای راستین را نگه می‌داریم. دل نبستن به ساختهٔ ماشین، خودِ کار است.</span><span class="en">We make hundreds of takes and keep the few that are true. Not clinging to what the machine made is the job.</span></p><span class="out"><b><span class="fa">خروجی:</span><span class="en">Out:</span></b> <span class="fa">برداشت‌های منتخب، نما به نما</span><span class="en">selects, approved shot by shot</span></span></li>
+      <li><span class="vn"><span class="fa">۵</span><span class="en">5</span></span><span class="vw">توحید<small>Unity · Finishing</small></span><p><span class="fa">تدوین، صدا، موسیقی، رنگ و خط فارسی. صدها پاره یک فیلم می‌شوند.</span><span class="en">Edit, sound, music, grade and Persian type. Hundreds of fragments become one film.</span></p><span class="out"><b><span class="fa">خروجی:</span><span class="en">Out:</span></b> <span class="fa">نسخهٔ نهایی تصویر و صدا</span><span class="en">picture lock and final mix</span></span></li>
+      <li><span class="vn"><span class="fa">۶</span><span class="en">6</span></span><span class="vw">حیرت<small>Wonder · Delivery</small></span><p><span class="fa">نسخه برای هر پرده و هر دو زبان: کوتاه، عمودی، زیرنویس و عکس. بعد، اکران.</span><span class="en">Masters for every screen and both languages: cut-downs, verticals, subtitles and stills. Then the premiere.</span></p><span class="out"><b><span class="fa">خروجی:</span><span class="en">Out:</span></b> <span class="fa">نسخه‌های نهایی و بستهٔ انتشار</span><span class="en">masters and release kit</span></span></li>
+      <li><span class="vn"><span class="fa">۷</span><span class="en">7</span></span><span class="vw">فقر و فنا<small>Letting go · Release</small></span><p><span class="fa">فیلم حالا مال تماشاگر است. آموخته‌ها را می‌نویسیم، کار را منتشر می‌کنیم و جستجوی بعدی را آغاز می‌کنیم.</span><span class="en">The film now belongs to its audience. We write down what we learned, publish the case study and begin the next search.</span></p><span class="out"><b><span class="fa">خروجی:</span><span class="en">Out:</span></b> <span class="fa">شرح پروژه و آموخته‌ها</span><span class="en">case study and lessons</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 15 APPLICATIONS -->
+<section class="ch g-shab" id="applications">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۱۵</span><span class="en">15</span></div>
+      <h2 class="ch-title"><span class="fa">کاربردها</span><span class="en">Applications</span><span class="alt"><span class="fa lat">Applications</span><span class="en per">کاربردها</span></span></h2>
+    </header>
+    <div class="apps">
+      <figure style="grid-column:span 12">
+        <div class="browser">
+          <div class="bar"><i></i><i></i><i></i><span>jostoju.studio</span></div>
+          <div class="site" lang="fa" dir="rtl">
+            <nav><div class="logo">{{USE:fa-compact::جستجو}}</div><ul><li>کارها</li><li>پرده</li><li>استودیو</li><li>تماس</li><li>EN</li></ul></nav>
+            <div class="hero">
+              <div>
+                <h1>آنچه یافت می‌نشود، می‌سازیم.</h1>
+                <p>جستجو استودیوی فیلم‌سازی با هوش مصنوعی است، با ریشه در نقاشی قاجار، فرش ایرانی و شعر مولانا. هر قاب با دست انسان.</p>
+                <div class="ctas"><span>تماشای شوریل</span><span>سفارش فیلم</span></div>
+              </div>
+              <div class="window">{{USE:win::-}}<div class="scene"><div class="curtain"></div><div class="pome"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <figcaption><span class="fa">صفحهٔ اول وب‌سایت، نسخهٔ فارسی (پیش‌فرض). پنجرهٔ ترنج شوریل را قاب می‌گیرد.</span><span class="en">Website home, Persian version (the default). The medallion window frames the showreel.</span></figcaption>
+      </figure>
+      <figure class="a8">
+        <div class="slate"><div class="pearls t" aria-hidden="true"></div>{{USE:lk-stack::جستجو}}<p><span class="per">فیلمی از جستجو</span><span class="lat">A Jostoju film</span></p><div class="pearls b" aria-hidden="true"></div></div>
+        <figcaption><span class="fa">پایان‌نمای فیلم، ۱۶:۹</span><span class="en">Film end slate, 16:9</span></figcaption>
+      </figure>
+      <figure class="a4">
+        <div class="post g-runas lachak">{{USE:sym::-}}<p class="t-fa">گره به گره،<br>قاب به قاب.</p><p class="t-en">Knot by knot, frame by frame.</p></div>
+        <figcaption><span class="fa">پست اینستاگرام، ۴:۵</span><span class="en">Instagram post, 4:5</span></figcaption>
+      </figure>
+      <figure class="a6">
+        <div class="bcards">
+          <div class="bcard front g-zomorrod">{{USE:lk-stack::جستجو}}</div>
+          <div class="bcard g-morvarid"><div><div class="nm">نام شما</div><div class="small mute" style="direction:rtl">بنیان‌گذار و کارگردان</div></div><div class="nm-en">Your Name</div><div class="row"><span>hello@jostoju.studio<br>jostoju.studio</span>{{USE:sym::-}}</div></div>
+        </div>
+        <figcaption><span class="fa">کارت ویزیت، ۸۵ × ۵۵ میلی‌متر. دامنه نمونه است تا ثبت شود.</span><span class="en">Business card, 85 × 55 mm. The domain is a placeholder until one is secured.</span></figcaption>
+      </figure>
+      <figure class="a6">
+        <div class="avatars">
+          <div class="av g-shab">{{USE:sym::-}}</div><div class="av g-runas">{{USE:sym::-}}</div><div class="av g-zomorrod">{{USE:sym::-}}</div>
+          <p class="small mute" style="margin:0;flex:1;min-width:180px"><span class="fa">تصویر پروفایل: نشانه روی شب. فاوآیکن: نسخهٔ کوچک نشانه.</span><span class="en">Profile picture: the symbol on Shab. Favicon: the small-size symbol.</span></p>
+        </div>
+        <figcaption><span class="fa">آواتار و فاوآیکن</span><span class="en">Avatars and favicon</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 16 WEBSITE -->
+<section class="ch g-morvarid" id="website">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۱۶</span><span class="en">16</span></div>
+      <h2 class="ch-title"><span class="fa">وب‌سایت</span><span class="en">The Website</span><span class="alt"><span class="fa lat">The website</span><span class="en per">وب‌سایت</span></span></h2>
+      <p class="ch-sum"><span class="fa">گام بعدی. سایت فارسی‌محور است: فارسی در نشانی اصلی و راست‌به‌چپ، انگلیسی در <span class="lat">/en</span>.</span><span class="en">The next step. The site is Persian-first: Persian at the root, right to left, with English at /en.</span></p>
+    </header>
+    <div class="sitemap">
+      <div class="card"><h4><span class="fa">خانه</span><span class="en">Home</span></h4><span class="path">/ · /en</span><p><span class="fa">پنجرهٔ ترنج با شوریل، شعار اصلی، کارهای منتخب و دعوت به گفت‌وگو.</span><span class="en">The medallion window with the showreel, the master tagline, selected work and an invitation to talk.</span></p></div>
+      <div class="card"><h4><span class="fa">کارها · کارگاه</span><span class="en">Work · Kargah</span></h4><span class="path">/work</span><p><span class="fa">پروژه‌ها در شبکه‌ای گره‌ای؛ هر پروژه با فیلم، سفارش، هفت وادی و نام سازندگان.</span><span class="en">Projects in a knot grid; each with the film, the brief, its seven valleys and credits.</span></p></div>
+      <div class="card"><h4><span class="fa">پرده</span><span class="en">Originals · Pardeh</span></h4><span class="path">/pardeh</span><p><span class="fa">فیلم‌های خودمان: تریلر، عکس، متن مرجع و تاریخ انتشار.</span><span class="en">Our own films: trailers, stills, source texts and release dates.</span></p></div>
+      <div class="card"><h4><span class="fa">استودیو</span><span class="en">Studio</span></h4><span class="path">/studio</span><p><span class="fa">از پرده تا پیکسل: داستان، ارزش‌ها، هفت وادی، تیم و سیاست اخلاقی هوش مصنوعی.</span><span class="en">From pardeh to pixel: story, values, the seven valleys, team and our AI ethics.</span></p></div>
+      <div class="card"><h4><span class="fa">تماس</span><span class="en">Contact</span></h4><span class="path">/contact</span><p><span class="fa">فرم کوتاه سفارش: نوع پروژه، زمان، بودجه و زبان.</span><span class="en">A short brief form: project type, timeline, budget and language.</span></p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="end g-shab">
+  <div class="band" aria-hidden="true"></div>
+  <div class="wrap in">
+    {{USE:fa::جستجو}}
+    <p class="close">گره به گره، قاب به قاب.</p>
+    <p class="close-en">Knot by knot, frame by frame.</p>
+    <p class="small mute" style="margin:0"><span class="fa">کتاب برند جستجو · نسخهٔ ۲٫۰ · آبان ۱۴۰۵ · <a href="#top">بازگشت به بالا</a></span><span class="en">Jostoju Brand Bible · Version 2.0 · November 2026 · <a href="#top">Back to the top</a></span></p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(() => {
+  const book = document.getElementById('book');
+  const setLang = (l) => {
+    book.dataset.lang = l; book.lang = l; book.dir = l === 'fa' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.toggle button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l ? 'true' : 'false'));
+    try { localStorage.setItem('jostoju-lang', l); } catch (e) {}
+  };
+  try { const saved = localStorage.getItem('jostoju-lang'); if (saved === 'en' || saved === 'fa') setLang(saved); } catch (e) {}
+  document.querySelectorAll('.toggle button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
+
+  document.querySelectorAll('.sw button').forEach(btn => btn.addEventListener('click', () => {
+    const hex = btn.dataset.hex, done = () => { btn.classList.add('ok'); setTimeout(() => btn.classList.remove('ok'), 1400); };
+    const sel = () => { const r = document.createRange(); r.selectNodeContents(btn.querySelector('.hex span')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(hex).then(done, sel); } catch (e) { sel(); }
+  }));
+
+  const grounds = ['g-shab', 'g-morvarid', 'g-runas', 'g-zomorrod'];
+  document.querySelectorAll('.grounds button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.grounds button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+    document.querySelectorAll('#system .stage').forEach(st => { st.classList.remove(...grounds); st.classList.add(b.dataset.ground); });
+  }));
+
+  const anim = document.getElementById('dotmove');
+  document.getElementById('play-dot').addEventListener('click', () => { try { anim.beginElement(); } catch (e) {} });
+})();
+</script>

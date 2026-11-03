@@ -1,107 +1,75 @@
-"""Assemble the brand bible: inject logo sprite, pattern data URIs and generated diagrams into the template."""
-import os, re, sys, runpy, urllib.parse
+"""Assemble brand bible v2 (Qajar, bilingual): sprite, pattern variables, lost-dot motion demo."""
+import os, sys, re, urllib.parse, runpy
+HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
+import assets as A
+import lostdot as LD
+from lostdot import to_d
+from shapely import affinity
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-template, out = sys.argv[1], sys.argv[2]
-os.environ.setdefault('OUT', os.path.join(os.path.dirname(HERE), 'logo'))
-L = runpy.run_path(os.path.join(HERE, 'gen_logo.py'))
-P = runpy.run_path(os.path.join(HERE, 'gen_patterns.py'))
+PAT = runpy.run_path(os.environ.get('GEN_PATTERNS', os.path.join(HERE, 'gen_patterns.py')))
+Q = dict(shab='#16110E', morvarid='#F4EDE0', kaghaz='#E7D9BD', runas='#A3261F', zomorrod='#1F5A46', tala='#D4A640', lajvard='#233C8E', gol='#E39AA6')
 
-def varfill(svgtxt):
-    return re.sub(r'fill="(var\([^"]+\))"', r'style="fill:\1"', svgtxt)
+def patterns():
+    fg, sv, B, F, LA = PAT['from_grid'], PAT['svg'], PAT['BAND'], PAT['FIELD'], PAT['LACHAK']
+    out = {}
+    bands = {'shab': dict(r=Q['tala'], z=Q['morvarid'], w=Q['runas']), 'morvarid': dict(r=Q['runas'], z=Q['zomorrod'], w=Q['tala']),
+             'runas': dict(r=Q['tala'], z=Q['morvarid'], w=Q['zomorrod']), 'zomorrod': dict(r=Q['tala'], z=Q['morvarid'], w=Q['runas']),
+             'lajvard': dict(r=Q['tala'], z=Q['morvarid'], w=Q['runas'])}
+    for g, cm in bands.items():
+        out[f'band-{g}'] = sv(*fg(B, cm))
+        flips = {'tl': LA, 'tr': [r[::-1] for r in LA], 'bl': LA[::-1], 'br': [r[::-1] for r in LA[::-1]]}
+        for k, grid in flips.items(): out[f'lachak-{k}-{g}'] = sv(*fg(grid, cm))
+    out['field-shab'] = sv(*fg(F, dict(z='rgba(212,166,64,.10)')))
+    out['field-morvarid'] = sv(*fg(F, dict(z='rgba(22,17,14,.06)')))
+    out['toranj'] = sv(*PAT['toranj_lattice'](6, [None, Q['tala'], Q['runas'], None, Q['morvarid'], None, Q['zomorrod']]))
+    out['zarafshan'] = sv(*PAT['zarafshan'](color=Q['tala']))
+    out['arch'] = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 130" preserveAspectRatio="none">'
+                   '<path d="M0 130V58Q0 34 21 20Q41 8 50 0Q59 8 79 20Q100 34 100 58V130Z" fill="#000"/></svg>')
+    return out
 
-IDS = {'symbol': 'sym', 'symbol-mono': 'sym-mono', 'symbol-small': 'sym-small', 'wordmark-en': 'wm-en',
-       'wordmark-fa': 'wm-fa', 'lockup-horizontal': 'lk-h', 'lockup-stacked': 'lk-s'}
-files = {IDS[k]: varfill(v) for k, v in L['build']('css', 'var(--ink)', 'var(--knot)', 'var(--ring)', None).items()}
-diamond, medallion, A, H, SYM_HALF = L['diamond'], L['medallion'], L['A'], L['H'], L['SYM_HALF']
+def uri(t): return 'url("data:image/svg+xml,' + urllib.parse.quote(t.replace('"', "'"), safe=" /=:;,.-()'") + '")'
 
-# extra symbols: window medallion (centre two rings open) and the "filled" misuse example
-def window_medallion(a=10, h=8.4):
-    n_r = 3; n = 7; half = (n - 1) * a + h
-    ring2, ring3 = [], []
-    for i in range(n):
-        for j in range(n):
-            r = max(abs(i - n_r), abs(j - n_r))
-            if r < 2: continue
-            x = half + (i - j) * a; y = half + (i + j - (n - 1)) * a
-            (ring2 if r == 2 else ring3).append(diamond(x, y, h))
-    return (f'<svg viewBox="0 0 {2*half:g} {2*half:g}"><path d="{"".join(ring3)}" style="fill:var(--ink)"/>'
-            f'<path d="{"".join(ring2)}" style="fill:var(--ring)"/></svg>')
-files['win'] = window_medallion()
-o, i = medallion(SYM_HALF, SYM_HALF, A, H, ring_split=True)
-files['sym-filled'] = (f'<svg viewBox="0 0 {2*SYM_HALF:g} {2*SYM_HALF:g}"><path d="{o}" style="fill:var(--ink)"/>'
-                       f'<path d="{i}{diamond(SYM_HALF, SYM_HALF, H)}" style="fill:var(--ring)"/></svg>')
+def sprite():
+    syms, boxes = [], {}
+    for key, fn in A.COMPONENTS.items():
+        c = fn(True); b = c['box']; pad = max(b[2]-b[0], b[3]-b[1]) * 0.02
+        vb = (b[0]-pad, b[1]-pad, b[2]-b[0]+2*pad, b[3]-b[1]+2*pad)
+        syms.append(f'<symbol id="{key}" viewBox="{vb[0]:.0f} {vb[1]:.0f} {vb[2]:.0f} {vb[3]:.0f}">{c["markup"]}</symbol>')
+        boxes[key] = (round(vb[2]), round(vb[3]))
+    return '<svg width="0" height="0" style="position:absolute" aria-hidden="true">' + ''.join(syms) + '</svg>', boxes
 
-sprite, boxes = [], {}
-for key, txt in files.items():
-    vb = re.search(r'viewBox="([^"]+)"', txt).group(1)
-    body = re.sub(r'^<svg[^>]*>', '', txt.strip()); body = re.sub(r'</svg>$', '', body)
-    body = re.sub(r'<title>.*?</title>', '', body)
-    sprite.append(f'<symbol id="{key}" viewBox="{vb}">{body}</symbol>')
-    boxes[key] = vb
-SPRITE = '<svg width="0" height="0" style="position:absolute" aria-hidden="true">' + ''.join(sprite) + '</svg>'
+def motion():
+    """The dot of 'ju' leaves its letter and runs ahead of the word. Rests in its final place."""
+    L = LD.build(mode='journey', bold=14)
+    vow = affinity.translate(L['vow'], 0, 55)
+    kx, ky = L['kc']; ox, oy = L['origin']
+    r = lambda x, y: f'{x - kx:.0f} {y - ky:.0f}'
+    mp = f'M{r(ox, oy)}C{r(ox - 260, oy + 190)} {r(kx + 420, ky + 210)} {r(kx, ky)}'
+    minx, miny, maxx, maxy = L['bounds']; pad = 40
+    vb = f'{minx-pad:.0f} {miny-pad:.0f} {maxx-minx+2*pad:.0f} {maxy-miny+300:.0f}'
+    knot = affinity.translate(L['knot'], -kx, -ky)
+    return (f'<svg class="motion-svg" viewBox="{vb}" role="img" aria-label="The dot leaves the last letter and runs ahead of the word">'
+            f'<path d="{to_d(L["ink"])}" style="fill:var(--ink)"/><path d="{to_d(L["dots"])}" style="fill:var(--ink)"/>'
+            f'<path d="{to_d(vow)}" style="fill:var(--acc)"/>'
+            f'<g transform="translate({kx:.0f} {ky:.0f})"><path d="{to_d(knot)}" fill-rule="evenodd" style="fill:var(--acc)">'
+            f'<animateMotion id="dotmove" dur="2.4s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".5 0 .15 1" path="{mp}"/></path></g></svg>')
 
-def use(m):
-    key, cls, label = m.group(1), m.group(2), m.group(3)
-    aria = f'role="img" aria-label="{label}"' if label != '-' else 'aria-hidden="true"'
-    return f'<svg class="{cls}" viewBox="{boxes[key]}" {aria}><use href="#{key}"/></svg>'
+def use_fn(boxes):
+    def use(m):
+        sid, cls, label = m.group(1), m.group(2), m.group(3)
+        w, h = boxes[sid]
+        aria = f'role="img" aria-label="{label}"' if label != '-' else 'aria-hidden="true"'
+        return f'<svg class="{cls}" viewBox="0 0 {w} {h}" {aria}><use href="#{sid}" width="{w}" height="{h}"/></svg>'
+    return use
 
-# pattern custom properties
-def uri(svgtxt):
-    return 'url("data:image/svg+xml,' + urllib.parse.quote(svgtxt.replace('"', "'"), safe=" /=:;,.-()'") + '")'
-pats = P['all_patterns']()
-PATTERN_CSS = ':root{' + ''.join(f'--p-{k}:{uri(v)};' for k, v in pats.items()) + '}'
-
-# construction diagram
-def construction():
-    s = 2.4; a, h = A * s, H * s; c = 160
-    parts = []
-    for k in range(-3, 4):  # lattice guides through knot centres
-        off = k * a * 2 ** .5 / 2 * 2 ** .5
-        parts.append(f'<line x1="{c - 150 + k*a:.1f}" y1="{c - 150 - k*a:.1f}" x2="{c + 150 + k*a:.1f}" y2="{c + 150 - k*a:.1f}"/>')
-        parts.append(f'<line x1="{c - 150 + k*a:.1f}" y1="{c + 150 + k*a:.1f}" x2="{c + 150 + k*a:.1f}" y2="{c - 150 + k*a:.1f}"/>')
-    guides = f'<g class="cg">{"".join(parts)}</g>'
-    o, i = medallion(c, c, a, h, ring_split=True)
-    hole = f'<path class="ch" d="{diamond(c, c, h)}"/>'
-    # step annotation between two knot centres on the top-right edge
-    x1, y1 = c + 0 * a, c - 4 * a; x2, y2 = c + 1 * a, c - 3 * a
-    ann = (f'<g class="ca"><line x1="{x1+14:.1f}" y1="{y1-14:.1f}" x2="{x2+14:.1f}" y2="{y2-14:.1f}"/>'
-           f'<text x="{(x1+x2)/2+24:.1f}" y="{(y1+y2)/2-16:.1f}">a</text>'
-           '</g>')
-    return (f'<svg class="construct" viewBox="0 0 330 320" role="img" aria-label="Symbol construction on a 5 by 5 diagonal lattice">'
-            f'{guides}<path d="{o}" style="fill:var(--ink)"/><path d="{i}" style="fill:var(--ring)"/>{hole}{ann}</svg>')
-
-# weave demo: 24 separate knots with a row index (bottom row = 0)
-def weave():
-    a, h = A, H; c = SYM_HALF; out = []
-    for ii in range(5):
-        for jj in range(5):
-            if ii == 2 and jj == 2: continue
-            x = c + (ii - jj) * a; y = c + (ii + jj - 4) * a
-            row = 8 - (ii + jj); ring = max(abs(ii-2), abs(jj-2))
-            fill = 'var(--ink)' if ring == 2 else 'var(--ring)'
-            out.append(f'<path d="{diamond(x, y, h)}" style="fill:{fill};--r:{row}"/>')
-    return f'<svg class="weave-svg" viewBox="0 0 {2*c:g} {2*c:g}" role="img" aria-label="The symbol weaving in, row by row">{"".join(out)}</svg>'
-
-# naqsheh view of the border band: graph paper + knots
-def naqsheh_view():
-    grid = P['BAND']; cmap = dict(r='var(--runas)', z='var(--zafaran)', w='var(--pashm)')
-    cell = 22; cols = len(grid[0]) * 2; rows = len(grid)
-    lines = ''.join(f'<line x1="{x*cell}" y1="0" x2="{x*cell}" y2="{rows*cell}"/>' for x in range(cols + 1))
-    lines += ''.join(f'<line x1="0" y1="{y*cell}" x2="{cols*cell}" y2="{y*cell}"/>' for y in range(rows + 1))
-    kn = []
-    for y, row in enumerate(grid):
-        for x, ch in enumerate(row * 2):
-            if ch != '.':
-                kn.append(f'<path d="{diamond(x*cell+cell/2, y*cell+cell/2, cell*0.42)}" style="fill:{cmap[ch]}"/>')
-    return (f'<svg class="naqsheh" viewBox="-1 -1 {cols*cell+2} {rows*cell+2}" role="img" aria-label="The border pattern drawn as a naqsheh: one square is one knot">'
-            f'<g class="ng">{lines}</g>{"".join(kn)}</svg>')
-
-html = open(template, encoding='utf-8').read()
-html = html.replace('{{SPRITE}}', SPRITE).replace('{{PATTERN_CSS}}', PATTERN_CSS)
-html = html.replace('{{CONSTRUCTION}}', construction()).replace('{{WEAVE}}', weave()).replace('{{NAQSHEH}}', naqsheh_view())
-html = re.sub(r'\{\{USE:([\w-]+):([\w -]+):([^}]+)\}\}', use, html)
-left = re.findall(r'\{\{[^}]+\}\}', html)
-if left: raise SystemExit(f'unreplaced tokens: {left[:5]}')
-open(out, 'w', encoding='utf-8').write(html)
-print('ok', out, round(len(html) / 1024), 'KB')
+if __name__ == '__main__':
+    tpl, out = sys.argv[1], sys.argv[2]
+    sp, boxes = sprite()
+    pcss = ':root{' + ''.join(f'--p-{k}:{uri(v)};' for k, v in patterns().items()) + '}'
+    t = open(tpl, encoding='utf-8').read()
+    t = t.replace('{{SPRITE}}', sp).replace('{{PATTERN_CSS}}', pcss).replace('{{MOTION}}', motion())
+    t = re.sub(r'\{\{USE:([\w-]+):([\w -]*):([^}]+)\}\}', use_fn(boxes), t)
+    left = re.findall(r'\{\{[^}]+\}\}', t)
+    if left: raise SystemExit(f'unreplaced: {left[:4]}')
+    open(out, 'w', encoding='utf-8').write(t)
+    print('ok', round(len(t) / 1024), 'KB')

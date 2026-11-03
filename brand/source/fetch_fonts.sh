@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# Download the TTFs the logo generator outlines (SIL Open Font License, via Google Fonts).
+# Fonts the logo is built from: Amiri Bold (Khaled Hosny) and Bodoni Moda ExtraBold (Owen Earl),
+# both SIL Open Font License, via Google Fonts.
 set -euo pipefail
-cd "$(dirname "$0")"
-mkdir -p fonts
-curl -sSfo fonts/InstrumentSerif-Regular.ttf https://fonts.gstatic.com/s/instrumentserif/v5/jizBRFtNs2ka5fXjeivQ4LroWlx-2zI.ttf
-curl -sSfo fonts/Markazi-Bold.ttf https://fonts.gstatic.com/s/markazitext/v28/sykh-ydym6AtQaiEtX7yhqb_rV1k_81ZVYYZtROXT4M.ttf
-curl -sSfo fonts/Markazi-SemiBold.ttf https://fonts.gstatic.com/s/markazitext/v28/sykh-ydym6AtQaiEtX7yhqb_rV1k_81ZVYYZtSqXT4M.ttf
-echo "Fonts saved to $(pwd)/fonts"
+cd "$(dirname "$0")"; mkdir -p fonts
+get() { url=$(curl -sS "https://fonts.googleapis.com/css2?family=$1" | grep -o 'https://[^)]*\.ttf' | head -1); curl -sSfo "fonts/$2" "$url"; echo "saved fonts/$2"; }
+get "Amiri:wght@700" Amiri-Bold.ttf
+get "Bodoni+Moda:opsz,wght@96,800" BodoniModa-800.ttf
