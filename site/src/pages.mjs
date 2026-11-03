@@ -1,7 +1,7 @@
 // Jostoju website pages. Every string is written twice, natively: t(فارسی, English).
 // Persian is the default language (served at /), English lives at /en/.
 
-import { CLIPS } from './clips.mjs';
+import { CLIPS, HERO_FOCUS, ART } from './clips.mjs';
 
 export const NAV = ['work', 'pardeh', 'studio', 'contact'];
 export const EMAIL = 'hello@jostoju.studio';          // placeholder until the domain is secured
@@ -59,14 +59,14 @@ export function home(c) {
   const heroVideo = c.hero.video || CLIPS[0].src;
   const hs = c.marks.hero.stations.ahead, fs = c.marks.slot.stations.home, ms = c.marks.symbol.stations.center;
   return `
-<section class="hero mirror" aria-labelledby="hero-title" data-hero>
+<section class="hero mirror${heroVideo || c.hero.image ? ' side' : ''}" aria-labelledby="hero-title" data-hero data-focus="${heroVideo ? '0.5 0.5' : `${HERO_FOCUS.wide} ${HERO_FOCUS.tall}`}">
   <div class="mirror-media" aria-hidden="true">
     ${heroVideo ? `<video class="mirror-src" muted loop playsinline autoplay preload="auto" src="${c.asset(heroVideo)}"${c.hero.image ? ` poster="${c.asset(c.hero.image)}"` : ''}></video>`
       : c.hero.image ? `<img class="mirror-src" src="${c.asset(c.hero.image)}"${c.hero.vertical ? ` data-portrait="${c.asset(c.hero.vertical)}"` : ''} alt="">` : ''}
     <canvas class="mirror-gl"></canvas>
   </div>
   <div class="mirror-veil" aria-hidden="true"></div>
-  <div class="wrap hero-in">
+  <div class="wrap hero-in"><div class="hero-copy">
     <div class="hero-mark">
       ${mark('hero', '', 'جستجو')}
       ${station({ name: 'hero', left: hs.left, top: hs.top, width: hs.width, color: 'tala', elusive: true })}
@@ -79,7 +79,7 @@ export function home(c) {
       <a class="btn" href="#clips">${t('کارها', 'Work')}</a>
     </div>
     <p class="follow"><i aria-hidden="true"></i>${t('نقطه گم شده است. دنبالش بیا.', 'The dot is lost. Follow it.')}</p>
-  </div>
+  </div></div>
 </section>
 
 <section class="clips g-paper" id="clips" aria-labelledby="clips-title" data-strip>
@@ -99,6 +99,7 @@ export function home(c) {
 
 <section class="manifesto g-red" aria-labelledby="m-title">
   <div class="wrap">
+    <div class="manifesto-grid${c.art.seeker ? ' with-art' : ''}"><div class="m-text">
     <span class="label">${t('جستجو یعنی', 'Jostoju means')}</span>
     <h2 id="m-title">${t('هر فیلم، یک جستجوست', 'Every film is a quest')}${station({ name: 'period', inline: true, color: 'tala', fill: true })}</h2>
     <div class="halves" aria-label="${t('ساخت واژه', 'How the word is built')}">
@@ -108,6 +109,15 @@ export function home(c) {
     </div>
     <p>${t('جستجو از دو نیمه ساخته شده است: «جُست»، یافته، و «جو»، جوینده. در نشان ما نقطهٔ «جو» از جایش رفته و پیشاپیش کلمه ایستاده است. ما همیشه در راهیم؛ هر فیلم سفری است به سوی آنچه هنوز پیدا نشده.',
       'Jostoju has two halves: jost, sought, and ju, seek. In our logo the dot of ju has left its letter and waits ahead of the word. We are always on the way; every film is a journey toward what has not been found yet.')}</p>
+    </div>
+    ${c.art.seeker ? `<figure class="seeker">
+      <div class="arch-frame"><div class="arch-in arch">
+        <img src="${c.asset(c.art.seeker)}" width="${ART.seeker.w}" height="${ART.seeker.h}" loading="lazy" alt="${t('جوینده: بانویی قاجاری با آینه‌ای نقاشی‌شده با گل سرخ', 'The Seeker: a Qajar lady with a rose-painted hand mirror')}">
+        <button type="button" class="find-dot" style="left:${ART.seeker.dot[0]}%;top:${ART.seeker.dot[1]}%" aria-label="${t('نقطهٔ گمشده', 'The lost dot')}"></button>
+      </div></div>
+      <figcaption><b>${t('جوینده', 'The Seeker')}</b><span class="hint">${t('نقطهٔ گمشده جایی در این پرده پنهان است. پیدایش کن.', 'The lost dot is hidden somewhere in this painting. Find it.')}</span><span class="found-msg" aria-live="polite" data-msg="${t('پیدایش کردی. نقطهٔ گمشده همین‌جا بود.', 'You found it. The lost dot was here.')}"></span></figcaption>
+    </figure>` : ''}
+    </div>
   </div>
 </section>
 

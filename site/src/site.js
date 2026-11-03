@@ -50,6 +50,12 @@
     }));
   });
 
+  /* every artwork hides the lost dot: find it */
+  document.querySelectorAll('.find-dot').forEach((b) => b.addEventListener('click', () => {
+    const fig = b.closest('figure'); fig.classList.add('found');
+    const m = fig.querySelector('.found-msg'); if (m) m.textContent = m.dataset.msg;
+  }));
+
   /* contact form: posts to data-endpoint when configured, otherwise says so honestly */
   const form = document.querySelector('form[data-endpoint]');
   if (form) form.addEventListener('submit', async (e) => {

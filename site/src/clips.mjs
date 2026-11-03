@@ -11,3 +11,11 @@ export const CLIPS = [
   { id: 'ad', src: '', poster: '', rw: 16, rh: 9, title: ['فیلم تبلیغاتی', 'Commercial'], kind: ['کارگاه', 'Kargah'], scene: 'sky' },
   { id: 'social', src: '', poster: '', rw: 9, rh: 16, title: ['پست کوتاه', 'Social short'], kind: ['کارگاه', 'Kargah'], scene: 'portrait' },
 ];
+
+// Where the subject sits in the hero still (0 = left edge, 1 = right edge): wide screens, then phones.
+export const HERO_FOCUS = { wide: 0.5, tall: 0.18 };
+
+// Artworks from site/art/PROMPTS.md: the file, and where its hidden lost dot (the red jewel) sits, in % of the image.
+export const ART = {
+  seeker: { file: 'media/art/seeker.jpg', dot: [26.3, 90.7], w: 906, h: 1125 },
+};

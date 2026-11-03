@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync } fr
 import { dirname, relative, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as P from './src/pages.mjs';
+import { ART } from './src/clips.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const read = (p) => readFileSync(join(HERE, p), 'utf8');
@@ -14,6 +15,7 @@ const uri = (svg) => `url("data:image/svg+xml,${encodeURIComponent(svg.trim()).r
 const PATTERN_CSS = `:root{--p-dust:${uri(brand('patterns/zarafshan.svg'))};--p-arch:${uri(brand('patterns/arch.svg'))};--p-band:${uri(brand('patterns/band-shab.svg'))}}\n`;
 const CSS = PATTERN_CSS + read('src/site.css');
 const JS = read('src/site.js') + '\n' + read('src/mirror.js');
+const ARTFILES = Object.fromEntries(Object.entries(ART).map(([k, v]) => [k, existsSync(join(HERE, v.file)) ? v.file : '']));
 const firstExisting = (list) => list.find((p) => existsSync(join(HERE, p))) || '';
 // Hero media: drop files with these names into site/media/hero/ and the hero picks them up.
 const HERO = { video: firstExisting(['media/hero/reel.mp4', 'media/hero/reel.webm']), image: firstExisting(['media/hero/still.jpg', 'media/hero/still.webp', 'media/hero/still.png']),
@@ -42,7 +44,7 @@ function ctxFor(mode, lang, page) {
     const style = left !== undefined ? ` style="left:${left}%;top:${top}%;width:${width}%"` : '';
     return `<span class="station${inline ? ' inline' : ''}" ${attrs}${style} aria-hidden="true"></span>`;
   };
-  return { mode, lang, page, t, href, mark, station, marks, asset, hero: HERO };
+  return { mode, lang, page, t, href, mark, station, marks, asset, hero: HERO, art: ARTFILES };
 }
 
 function header(c) {

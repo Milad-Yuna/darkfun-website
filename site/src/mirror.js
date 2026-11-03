@@ -22,16 +22,18 @@
     if (!video.muted) { const p = video.play(); if (p && p.catch) p.catch(() => {}); }
   });
 
+  const focus = (hero.dataset.focus || '0.5 0.5').split(' ').map(Number);
+  if (src) src.style.objectPosition = `${(innerHeight > innerWidth ? focus[1] : focus[0]) * 100}% 50%`;
   const cvs = hero.querySelector('.mirror-gl');
   const gl = cvs && (cvs.getContext('webgl', { antialias: false, premultipliedAlpha: false }) || cvs.getContext('experimental-webgl'));
   if (!gl) { hero.classList.add('no-gl'); return; }
 
   const VS = 'attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
   const FS = `precision mediump float;
-uniform sampler2D T;uniform vec2 R,S,M;uniform float t,sh,cell,hov,kb;varying vec2 v;
+uniform sampler2D T;uniform vec2 R,S,M,F;uniform float t,sh,cell,hov,kb;varying vec2 v;
 float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 vec2 h2(vec2 p){return vec2(h(p),h(p+19.19));}
-vec2 cover(vec2 u){float ra=R.x/R.y,ta=S.x/S.y;vec2 s=ra>ta?vec2(1.,ta/ra):vec2(ra/ta,1.);return (u-.5)*s/kb+.5;}
+vec2 cover(vec2 u){float ra=R.x/R.y,ta=S.x/S.y;vec2 s=ra>ta?vec2(1.,ta/ra):vec2(ra/ta,1.);vec2 w=s/kb;return (u-.5)*w+.5+(F-.5)*(1.-w);}
 void main(){
   vec2 px=v*R; float c=cell*1.41421;
   vec2 q=vec2(px.x+px.y,px.x-px.y)/c; vec2 id=floor(q); vec2 f=fract(q)-.5;
@@ -61,7 +63,7 @@ void main(){
   const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
   const loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-  const U = {}; ['T', 'R', 'S', 'M', 't', 'sh', 'cell', 'hov', 'kb'].forEach((k) => { U[k] = gl.getUniformLocation(prog, k); });
+  const U = {}; ['T', 'R', 'S', 'M', 'F', 't', 'sh', 'cell', 'hov', 'kb'].forEach((k) => { U[k] = gl.getUniformLocation(prog, k); });
   const tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex);
   gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
   [[gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE], [gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR]]
@@ -103,14 +105,14 @@ void main(){
     const t = (now - t0) / 1000;
     upload();
     const intro = reduce ? 1 : Math.min(1, t / 2.8), ease = 1 - Math.pow(1 - intro, 3);
-    const base = reduce ? .22 : 1 - .68 * ease;
+    const base = reduce ? .2 : 1 - .74 * ease;
     const r = hero.getBoundingClientRect();
     const scrolled = Math.min(1, Math.max(0, -r.top / (r.height * .7)));
     if (!fine && !reduce) { tmx = .5 + .28 * Math.cos(t * .27); tmy = .5 + .22 * Math.sin(t * .41); thov = .55; }
     const k = reduce ? 1 : .08;
     mx += (tmx - mx) * k; my += (tmy - my) * k; hov += (thov - hov) * k; clear += (tclear - clear) * .06;
     const shatter = base * (1 - scrolled) * (1 - clear);
-    gl.uniform1i(U.T, 0); gl.uniform2f(U.R, W, H); gl.uniform2f(U.S, srcW, srcH); gl.uniform2f(U.M, mx, my);
+    gl.uniform1i(U.T, 0); gl.uniform2f(U.R, W, H); gl.uniform2f(U.S, srcW, srcH); gl.uniform2f(U.M, mx, my); gl.uniform2f(U.F, H > W ? focus[1] : focus[0], .5);
     gl.uniform1f(U.t, reduce ? 0 : t); gl.uniform1f(U.sh, shatter); gl.uniform1f(U.cell, (W < 700 * dpr ? 26 : 42) * dpr);
     gl.uniform1f(U.hov, hov * (1 - clear)); gl.uniform1f(U.kb, img && !reduce ? 1 + .06 * (.5 + .5 * Math.sin(t * .05)) : 1);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
