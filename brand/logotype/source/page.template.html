@@ -1,0 +1,147 @@
+<title>Jostoju Logotype</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@400;500;700&family=Markazi+Text:wght@600&display=swap">
+<style>
+/* Layout: a single review sheet. Each direction gets a large wool plate, then the same mark on three grounds and at three sizes. */
+:root{
+  color-scheme: light;
+  --pashm:#F2EBDD; --kaghaz:#E4D6BA; --morakkab:#1A1714; --nil:#121A3F; --lajvard:#203A8F; --runas:#A3261F; --zafaran:#E2A63B; --zomorrod:#1F5A46;
+  --bg:var(--pashm); --fg:var(--morakkab); --mute:rgba(26,23,20,.68); --line:rgba(26,23,20,.16);
+  --ink:var(--morakkab); --vow:var(--runas); --ghost:rgba(26,23,20,.13); --line-c:#2E9E97;
+  --f-display:"Instrument Serif",Georgia,serif; --f-text:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  --f-fa:"Vazirmatn",Tahoma,sans-serif; --f-fa-d:"Markazi Text","Vazirmatn",serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+table{color:inherit;font:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--f-text);-webkit-font-smoothing:antialiased}
+[lang="fa"]{font-family:var(--f-fa)}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+header.top{padding-block:clamp(40px,7vw,80px) 28px;display:grid;gap:12px}
+.label{display:block;font:500 .75rem/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--runas);margin:0}
+h1{margin:0;font:400 clamp(2.4rem,1.6rem + 3.4vw,4.2rem)/1 var(--f-display);letter-spacing:-.012em;text-wrap:balance}
+h2{margin:0;font:400 clamp(1.9rem,1.4rem + 2vw,2.8rem)/1.05 var(--f-display);display:flex;flex-wrap:wrap;gap:.1em .6em;align-items:baseline}
+h1 .fa-h{font:600 .9em/1.2 var(--f-fa-d)}
+h2 [lang="fa"]{font:600 .85em/1.3 var(--f-fa-d);color:var(--runas)}
+h3{margin:0 0 6px;font:600 1rem/1.4 var(--f-text)}
+p{margin:0 0 1em;max-width:64ch}
+.lede{font-size:1.2rem;line-height:1.55;max-width:60ch;color:var(--mute)}
+.small{font-size:.9rem;line-height:1.55}
+.mute{color:var(--mute)}
+.took{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));margin-block:8px 0}
+.took div{background:var(--bg);padding:16px 18px;min-width:0}
+.took b{display:block;font:500 .72rem/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--runas);margin-bottom:6px}
+section.dir{padding-block:clamp(48px,7vw,88px);border-top:1px solid var(--line);display:grid;gap:22px}
+.plate{display:grid;place-items:center;padding:clamp(28px,6vw,80px) clamp(12px,4vw,56px);background:var(--kaghaz)}
+.plate svg{width:min(820px,100%);height:auto}
+.plate.st svg{width:min(560px,100%)}
+.grounds{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.g{display:grid;place-items:center;aspect-ratio:4/3;padding:12%}
+.g svg{width:100%;height:auto;max-height:100%}
+.g-nil{background:var(--nil);--ink:var(--pashm);--vow:var(--zafaran)}
+.g-runas{background:var(--runas);--ink:var(--pashm);--vow:var(--zafaran)}
+.g-zomorrod{background:var(--zomorrod);--ink:var(--pashm);--vow:var(--zafaran)}
+.cap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font:400 .78rem/1.5 var(--f-mono);color:var(--mute);margin-top:6px}
+.sizes{display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap;padding:22px;border:1px solid var(--line)}
+.sizes svg{display:block;height:auto}.s320{width:min(320px,100%)}.s180{width:180px}.s110{width:110px}.s220{width:220px}.s130{width:130px}.s80{width:80px}
+.sizes figure{min-width:0;max-width:100%;margin:0;display:grid;gap:8px;justify-items:start;font:400 .75rem/1 var(--f-mono);color:var(--mute)}
+.notes{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.notes>div{min-width:0}
+.build{display:grid;gap:22px;grid-template-columns:1fr;align-items:center}
+@media (min-width:860px){.build{grid-template-columns:3fr 2fr}}
+.build>*{min-width:0}
+.build svg{width:100%;height:auto;background:var(--pashm);border:1px solid var(--line)}
+.spell{display:flex;gap:10px;flex-wrap:wrap;direction:rtl;margin:6px 0 14px}
+.spell div{border:1px solid var(--line);padding:6px 12px 8px;text-align:center;background:var(--kaghaz)}
+.spell b{display:block;font:600 2rem/1.5 var(--f-fa-d)}
+.spell b i{font-style:normal;color:var(--runas)}
+.spell small{display:block;direction:ltr;font:500 .68rem/1.4 var(--f-mono);letter-spacing:.06em;color:var(--mute)}
+ol.q{margin:0;padding:0;list-style:none;counter-reset:q;display:grid;gap:14px}
+ol.q li{counter-increment:q;display:grid;grid-template-columns:2.2em 1fr;gap:6px}
+ol.q li::before{content:counter(q,decimal-leading-zero);font:500 .8rem/1.9 var(--f-mono);color:var(--runas)}
+ol.q li>*{min-width:0}
+.sw{display:inline-block;width:.8em;height:.8em;transform:rotate(45deg) translateY(-1px);margin-inline:4px 6px;vertical-align:middle}
+footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:.85rem;color:var(--mute)}
+</style>
+
+{{SPRITE}}
+
+<header class="wrap top">
+  <span class="label">Jostoju · logotype · round 1</span>
+  <h1>Two pen-drawn directions for <span lang="fa" class="fa-h">جُسْتُجُو</span></h1>
+  <p class="lede">Both are drawn from scratch with a digital reed pen. I draw the path of each stroke, and a cut nib is swept along it at the calligrapher's angle, so the thick and thin come from the pen, not from a font. The vowel marks are a second colour, as you asked.</p>
+  <div class="took">
+    <div><b>From your lettering reference</b>Tall broad-pen letters, sharp cut ends, diamond dots, and vowel and decorative marks scattered through the word.</div>
+    <div><b>From your Qajar references</b>Madder red, deep emerald, pearl white and gold. White letters on carpet red.</div>
+    <div><b>From the brand</b>Every dot is the brand's diamond knot, and the three marks under the س are knots too.</div>
+  </div>
+</header>
+
+<main>
+<section class="wrap dir" id="a">
+  <span class="label">Direction A</span>
+  <h2>Keshideh <span lang="fa" dir="rtl">کشیده</span></h2>
+  <p class="mute">One long horizontal pull through the سـ is the exaggerated gesture. Everything else is compact around it. It reads well from far away and fits wide formats: the website header, the film end slate and signage.</p>
+  <div class="plate">{{USE:kesh::جُسْتُجُو, keshideh direction}}</div>
+  <div class="grounds">
+    <div><div class="g g-nil">{{USE:kesh::-}}</div><div class="cap"><span>Wool on Nil · saffron vowels</span></div></div>
+    <div><div class="g g-runas">{{USE:kesh::-}}</div><div class="cap"><span>Wool on Runas · like your carpet reference</span></div></div>
+    <div><div class="g g-zomorrod">{{USE:kesh::-}}</div><div class="cap"><span>Wool on emerald · proposed new dye</span></div></div>
+  </div>
+  <div class="sizes" aria-label="Size test">
+    <figure>{{USE:kesh:s320:-}}<span>320 px</span></figure>
+    <figure>{{USE:kesh:s180:-}}<span>180 px</span></figure>
+    <figure>{{USE:kesh:s110:-}}<span>110 px</span></figure>
+  </div>
+</section>
+
+<section class="wrap dir" id="b">
+  <span class="label">Direction B</span>
+  <h2>Pellekan <span lang="fa" dir="rtl">پلکان</span></h2>
+  <p class="mute">The stair. As in Nastaliq, each join steps down to the left, so the word falls from the ج at the top right to the و tail at the bottom left. It forms a compact block, close to the stacked lettering in your reference, and suits square formats: the avatar, posters and the title card of a film.</p>
+  <div class="plate st">{{USE:stair::جُسْتُجُو, stair direction}}</div>
+  <div class="grounds">
+    <div><div class="g g-nil">{{USE:stair::-}}</div><div class="cap"><span>Wool on Nil · saffron vowels</span></div></div>
+    <div><div class="g g-runas">{{USE:stair::-}}</div><div class="cap"><span>Wool on Runas</span></div></div>
+    <div><div class="g g-zomorrod">{{USE:stair::-}}</div><div class="cap"><span>Wool on emerald · proposed new dye</span></div></div>
+  </div>
+  <div class="sizes" aria-label="Size test">
+    <figure>{{USE:stair:s220:-}}<span>220 px</span></figure>
+    <figure>{{USE:stair:s130:-}}<span>130 px</span></figure>
+    <figure>{{USE:stair:s80:-}}<span>80 px</span></figure>
+  </div>
+</section>
+
+<section class="wrap dir" id="how">
+  <span class="label">How it is built</span>
+  <h2>The pen, the strokes, the vowels</h2>
+  <div class="build">
+    {{USE:kesh-build::Construction view with the pen's centre-lines}}
+    <div>
+      <p class="small">The teal lines are the paths I drew. The pen is a cut nib, held at 68°, about one fifth of the word's height wide. Horizontal pulls come out heavy and rising strokes come out thin, the way a qalam behaves. The teeth of ت are written with the pen turned, so they stay strong.</p>
+      <span class="label">The spelling</span>
+      <div class="spell">
+        <div><b>جُ</b><small>JO · ZAMMEH</small></div>
+        <div><b>سْ</b><small>S · SOKUN</small></div>
+        <div><b>تُ</b><small>TO · ZAMMEH</small></div>
+        <div><b>جُو</b><small>JU · ZAMMEH</small></div>
+      </div>
+      <p class="small mute">The three knots under the س are the old manuscript way of marking a sin written without teeth. They are decoration, not a sound.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap dir" id="next">
+  <span class="label">Your call</span>
+  <h2>Questions for round 2</h2>
+  <ol class="q">
+    <li><span><strong>A, B or both?</strong> One option is to make the Keshideh the main logotype and keep the Pellekan for square formats.</span></li>
+    <li><span><strong>Push it further?</strong> I can make the pen heavier, the keshideh longer, or the vowel marks larger and denser, closer to your reference.</span></li>
+    <li><span><strong>Emerald:</strong> should it become a ninth brand colour? Your Qajar references are full of it.<span class="sw" style="background:var(--zomorrod)"></span>#1F5A46</span></li>
+    <li><span><strong>Latin:</strong> should <em>jostoju</em> get its own drawn lettering to match, or stay a quiet serif line under the Persian?</span></li>
+  </ol>
+</section>
+</main>
+<footer class="wrap">Jostoju · logotype sketches, round 1 · drawn with a digital qalam, November 2026</footer>

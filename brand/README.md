@@ -58,3 +58,17 @@ python3 brand/source/build_bible.py brand/source/brand-bible.template.html brand
 
 The patterns are stored as *naqsheh* grids in `gen_patterns.py`. Each character is one knot, so you can
 redesign a border by editing text.
+
+## Persian logotype (in progress)
+
+Round 1 sketches of a custom, pen-drawn جُسْتُجُو live in [`logotype/`](logotype/) and are published at
+https://claude.ai/artifact/LhXyyUmYKhhq6AqecmEPhQ. There are two directions: **Keshideh** (horizontal) and
+**Pellekan** (stair). `logotype/source/qalam.py` is the digital reed pen: stroke centre-lines with a cut nib
+swept along them. `letters.py` holds the letter forms and `compose.py` arranges them into the two directions.
+
+```bash
+pip install shapely
+cd brand/logotype/source && python3 build_page.py ../logotype-round1.html
+```
+
+Once a direction is chosen, it replaces the Markazi-based wordmark in `logo/` and in the brand bible.
