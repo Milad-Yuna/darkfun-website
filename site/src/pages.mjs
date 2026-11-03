@@ -59,10 +59,10 @@ export function home(c) {
   const heroVideo = c.hero.video || CLIPS[0].src;
   const hs = c.marks.hero.stations.ahead, fs = c.marks.slot.stations.home, ms = c.marks.symbol.stations.center;
   return `
-<section class="hero mirror${heroVideo || c.hero.image ? ' side' : ''}" aria-labelledby="hero-title" data-hero data-focus="${heroVideo ? '0.5 0.5' : `${HERO_FOCUS.wide} ${HERO_FOCUS.tall}`}">
+<section class="hero mirror${heroVideo || c.hero.image ? ' side' : ''}${!heroVideo && c.hero.vertical ? ' has-vertical' : ''}" aria-labelledby="hero-title" data-hero data-focus="${heroVideo ? '0.5 0.5' : `${HERO_FOCUS.wide} ${HERO_FOCUS.tall} ${HERO_FOCUS.vertical}`}">
   <div class="mirror-media" aria-hidden="true">
     ${heroVideo ? `<video class="mirror-src" muted loop playsinline autoplay preload="auto" src="${c.asset(heroVideo)}"${c.hero.image ? ` poster="${c.asset(c.hero.image)}"` : ''}></video>`
-      : c.hero.image ? `<img class="mirror-src" src="${c.asset(c.hero.image)}"${c.hero.vertical ? ` data-portrait="${c.asset(c.hero.vertical)}"` : ''} alt="">` : ''}
+      : c.hero.image ? `<picture>${c.hero.vertical ? `<source media="(max-width: 979px) and (orientation: portrait)" srcset="${c.asset(c.hero.vertical)}">` : ''}<img class="mirror-src" src="${c.asset(c.hero.image)}" alt=""></picture>` : ''}
     <canvas class="mirror-gl"></canvas>
   </div>
   <div class="mirror-veil" aria-hidden="true"></div>

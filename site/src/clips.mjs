@@ -12,8 +12,9 @@ export const CLIPS = [
   { id: 'social', src: '', poster: '', rw: 9, rh: 16, title: ['پست کوتاه', 'Social short'], kind: ['کارگاه', 'Kargah'], scene: 'portrait' },
 ];
 
-// Where the subject sits in the hero still (0 = left edge, 1 = right edge): wide screens, then phones.
-export const HERO_FOCUS = { wide: 0.5, tall: 0.18 };
+// Where to centre the hero still (0 = left edge, 1 = right edge): the wide still on wide screens, the wide still
+// on phones (no vertical version), and the vertical still on phones.
+export const HERO_FOCUS = { wide: 0.5, tall: 0.18, vertical: 0.45 };
 
 // Artworks from site/art/PROMPTS.md: the file, and where its hidden lost dot (the red jewel) sits, in % of the image.
 export const ART = {

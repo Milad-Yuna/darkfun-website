@@ -23,7 +23,9 @@
   });
 
   const focus = (hero.dataset.focus || '0.5 0.5').split(' ').map(Number);
-  if (src) src.style.objectPosition = `${(innerHeight > innerWidth ? focus[1] : focus[0]) * 100}% 50%`;
+  const portraitQ = matchMedia('(max-width: 979px) and (orientation: portrait)');
+  const fx = (tall) => tall ? (hero.classList.contains('has-vertical') && portraitQ.matches ? (focus[2] ?? .5) : focus[1]) : focus[0];
+  if (src) src.style.objectPosition = `${fx(innerHeight > innerWidth) * 100}% 50%`;
   const cvs = hero.querySelector('.mirror-gl');
   const gl = cvs && (cvs.getContext('webgl', { antialias: false, premultipliedAlpha: false }) || cvs.getContext('experimental-webgl'));
   if (!gl) { hero.classList.add('no-gl'); return; }
@@ -72,7 +74,7 @@ void main(){
   /* the source: video > still > painted placeholder */
   const paint = src ? null : painter();
   const img = src && src.tagName === 'IMG' ? src : null;
-  if (img && img.dataset.portrait && innerHeight > innerWidth * 1.1) img.src = img.dataset.portrait;   // phones get the vertical still
+  if (img) img.addEventListener('load', () => { uploadedStill = false; });   // <picture> may switch to the vertical still
   let srcW = 960, srcH = 540, uploadedStill = false;
   const upload = () => {
     if (video) { if (video.readyState < 2) return; srcW = video.videoWidth; srcH = video.videoHeight; gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, video); hero.classList.add('ready'); }
@@ -112,7 +114,7 @@ void main(){
     const k = reduce ? 1 : .08;
     mx += (tmx - mx) * k; my += (tmy - my) * k; hov += (thov - hov) * k; clear += (tclear - clear) * .06;
     const shatter = base * (1 - scrolled) * (1 - clear);
-    gl.uniform1i(U.T, 0); gl.uniform2f(U.R, W, H); gl.uniform2f(U.S, srcW, srcH); gl.uniform2f(U.M, mx, my); gl.uniform2f(U.F, H > W ? focus[1] : focus[0], .5);
+    gl.uniform1i(U.T, 0); gl.uniform2f(U.R, W, H); gl.uniform2f(U.S, srcW, srcH); gl.uniform2f(U.M, mx, my); gl.uniform2f(U.F, fx(H > W), .5);
     gl.uniform1f(U.t, reduce ? 0 : t); gl.uniform1f(U.sh, shatter); gl.uniform1f(U.cell, (W < 700 * dpr ? 26 : 42) * dpr);
     gl.uniform1f(U.hov, hov * (1 - clear)); gl.uniform1f(U.kb, img && !reduce ? 1 + .06 * (.5 + .5 * Math.sin(t * .05)) : 1);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
