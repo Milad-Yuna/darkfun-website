@@ -6,4 +6,4 @@ miniature painting and the naqqal's painted screen.
 - Brand bible, logo, tokens and patterns: [`brand/`](brand/README.md)
 - Brand context for AI tools: [`.agents/brand-context.md`](.agents/brand-context.md)
 
-The website itself is next.
+- Website: [`site/`](site/README.md). Persian-first, built around the quest for the lost dot.

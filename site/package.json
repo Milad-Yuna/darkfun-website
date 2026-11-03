@@ -1,0 +1,13 @@
+{
+  "name": "jostoju-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "جستجو · Jostoju website. Persian-first, bilingual, no dependencies.",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node serve.mjs dist",
+    "dev": "node build.mjs && node serve.mjs dist",
+    "marks": "python3 tools/export_svg.py"
+  }
+}

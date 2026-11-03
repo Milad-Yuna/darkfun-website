@@ -1,3 +1,5 @@
 brand/source/fonts/
 __pycache__/
 brand/logotype/round2/fonts/
+site/dist/
+site/preview/
