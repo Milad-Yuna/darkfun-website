@@ -38,7 +38,9 @@ export function clipCard(c, clip) {
   const attrs = has ? ` data-play data-src="${asset(clip.src)}" data-title="${title}" tabindex="0" role="button" aria-label="${t('پخش', 'Play')}: ${title}"` : '';
   const media = has
     ? `<video muted loop playsinline preload="metadata"${clip.poster ? ` poster="${asset(clip.poster)}"` : ''} src="${asset(clip.src)}"></video><span class="play" aria-hidden="true"></span>`
-    : `${scene(clip.scene)}<span class="soon-chip">${t('به‌زودی', 'Coming soon')}</span>`;
+    : c.exists(clip.poster)
+      ? `<img src="${asset(clip.poster)}" alt="" loading="lazy"><span class="soon-chip">${t('فیلم به‌زودی', 'Film coming soon')}</span>`
+      : `${scene(clip.scene)}<span class="soon-chip">${t('به‌زودی', 'Coming soon')}</span>`;
   return `<figure class="clip" style="--rw:${clip.rw};--rh:${clip.rh}"${attrs}><div class="frame">${media}</div><figcaption><b>${title}</b><span>${kind}</span></figcaption></figure>`;
 }
 
@@ -172,7 +174,8 @@ export function home(c) {
   </div>
 </section>
 
-<section class="pardeh g-night" aria-labelledby="p-title">
+<section class="pardeh g-night${c.art.pardeh ? ' has-art' : ''}" aria-labelledby="p-title">
+  ${c.art.pardeh ? `<div class="stage-art" aria-hidden="true"><img src="${c.asset(c.art.pardeh)}" alt="" loading="lazy"></div>` : ''}
   <div class="curtain-l" aria-hidden="true"></div><div class="curtain-r" aria-hidden="true"></div>
   <div class="wrap in">
     <span class="label">${t('فیلم‌های خودمان', 'Our originals')}</span>
@@ -229,6 +232,15 @@ export function pardeh(c) {
       '“Pardeh” is both the naqqal\'s painted canvas and the cinema screen. This is where we make our own films: shorts, series and one day features, in Persian first and in English for the world.')}</p>
   </div>
 </section>
+${c.art.pardeh ? `<section class="section g-night" style="padding-top:clamp(40px,6vw,80px)"><div class="wrap">
+  <figure class="painting">
+    <div class="gold-frame"><div class="painting-in">
+      <img src="${c.asset(c.art.pardeh)}" width="${ART.pardeh.w}" height="${ART.pardeh.h}" loading="lazy" alt="${t('پردهٔ نقال: نقالی در قهوه‌خانه‌ای قاجاری جلوی پرده‌ای نقاشی‌شده از نبرد پهلوانان', 'The Naqqal\'s Pardeh: a storyteller in a Qajar coffee house before a painted canvas of heroes in battle')}">
+      <button type="button" class="find-dot" style="left:${ART.pardeh.dot[0]}%;top:${ART.pardeh.dot[1]}%" aria-label="${t('نقطهٔ گمشده', 'The lost dot')}"></button>
+    </div></div>
+    <figcaption><b>${t('پردهٔ نقال', 'The Naqqal\'s Pardeh')}</b><span class="hint">${t('پیش از سینما، نقال بود و پرده. نقطهٔ گمشده جایی در این قاب است؛ پیدایش کن.', 'Before cinema there was the naqqal and his painted screen. The lost dot is somewhere in this frame. Find it.')}</span><span class="found-msg" aria-live="polite" data-msg="${t('پیدایش کردی: بر تاج پهلوان، روی پرده.', 'You found it: on the hero\'s crown, on the painted screen.')}"></span></figcaption>
+  </figure>
+</div></section>` : ''}
 <section class="section g-pearl"><div class="wrap">
   <h2>${t('سرچشمه‌ها', 'The sources')}</h2>
   <div class="cards">

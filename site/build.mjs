@@ -44,7 +44,8 @@ function ctxFor(mode, lang, page) {
     const style = left !== undefined ? ` style="left:${left}%;top:${top}%;width:${width}%"` : '';
     return `<span class="station${inline ? ' inline' : ''}" ${attrs}${style} aria-hidden="true"></span>`;
   };
-  return { mode, lang, page, t, href, mark, station, marks, asset, hero: HERO, art: ARTFILES };
+  const exists = (p) => !!p && existsSync(join(HERE, p));
+  return { mode, lang, page, t, href, mark, station, marks, asset, exists, hero: HERO, art: ARTFILES };
 }
 
 function header(c) {
