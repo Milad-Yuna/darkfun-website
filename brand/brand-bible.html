@@ -401,6 +401,41 @@ footer.end svg{width:min(360px,80%);height:auto}
 footer.end .close{margin:0;font:700 clamp(1.8rem,1.2rem + 2vw,2.8rem)/1.6 var(--f-display-fa);direction:rtl}
 footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:var(--mute)}
 
+
+/* v2.1 additions */
+.framed{margin:0;display:grid;gap:10px}
+.framed .gold{padding:clamp(6px,1vw,12px);background:linear-gradient(135deg,#7d5e1f,#e9c86c 28%,#a8812d 52%,#f2d684 74%,#7d5e1f);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.framed img{display:block;width:100%;height:auto}
+.framed figcaption{font-size:.9rem;color:var(--mute)}
+.tline{list-style:none;margin:16px 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.tline li{display:grid;grid-template-columns:7.5em 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.tline li>*{min-width:0}
+.tline b{font:700 1.5rem/1.3 var(--f-display-fa);color:var(--hi)}
+.tline b .en{font-family:var(--f-display)}
+.gal{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));margin-top:18px}
+.gal figure{margin:0;display:grid;gap:8px;min-width:0}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;box-shadow:0 0 0 1px var(--line)}
+.gal figcaption{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.88rem}
+.gal figcaption>span{color:var(--hi)}
+.shots{display:flex;gap:14px;align-items:flex-end}
+.shots img{display:block;height:auto;box-shadow:0 0 0 1px var(--line),0 24px 50px -28px rgba(0,0,0,.8)}
+.shots img:first-child{width:calc(76% - 7px)}.shots img:last-child{width:calc(24% - 7px)}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:460px}
+.ig-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.sm-table{display:grid;border-top:1px solid var(--line)}
+.sm-table div{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.sm-table code{color:var(--hi)}
+.ig-row{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr))}
+.ig-row.tall{grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));max-width:720px;margin-bottom:22px}
+.ig-row figure,.ig-hl figure{margin:0;display:grid;gap:6px;min-width:0}
+.ig-row img{width:100%;height:auto;display:block;box-shadow:0 0 0 1px var(--line)}
+.ig-row figcaption,.ig-hl figcaption{font-size:.85rem;color:var(--mute);text-align:center}
+.ig-carousel{display:flex;gap:4px;max-width:900px;overflow-x:auto}
+.ig-carousel img{width:calc((100% - 8px)/3);min-width:150px;height:auto;display:block}
+.ig-hl{display:flex;gap:18px;flex-wrap:wrap}
+.ig-hl .hl{width:92px;height:92px;border-radius:50%;overflow:hidden;display:block;box-shadow:0 0 0 2px var(--line),0 0 0 5px var(--bg),0 0 0 6px var(--hi)}
+.ig-hl .hl img{width:100%;height:100%;object-fit:cover;display:block}
+
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 
@@ -430,7 +465,7 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
       <div class="pearls" aria-hidden="true"></div>
     </div>
     <h1 class="cover-title"><span class="fa">کتاب برند</span><span class="en">Brand Bible</span></h1>
-    <p class="cover-sub"><span class="fa">استودیوی فیلم‌سازی با هوش مصنوعی · نسخهٔ ۲٫۰ · آبان ۱۴۰۵</span><span class="en">An AI film studio · Version 2.0 · November 2026</span></p>
+    <p class="cover-sub"><span class="fa">استودیوی فیلم‌سازی با هوش مصنوعی · نسخهٔ ۲٫۱ · آبان ۱۴۰۵</span><span class="en">An AI film studio · Version 2.1 · November 2026</span></p>
   </div>
   <div class="wrap">
     <div class="glance">
@@ -466,7 +501,8 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
     <div><h2><span class="fa">کارگاه</span><span class="en">The Workshop</span><small><span class="fa">بخش چهارم</span><span class="en">Part four</span></small></h2><ol>
       <li><a href="#process"><span><span class="fa">۱۴</span><span class="en">14</span></span><span><span class="fa">هفت وادی</span><span class="en">The seven valleys</span></span></a></li>
       <li><a href="#applications"><span><span class="fa">۱۵</span><span class="en">15</span></span><span><span class="fa">کاربردها</span><span class="en">Applications</span></span></a></li>
-      <li><a href="#website"><span><span class="fa">۱۶</span><span class="en">16</span></span><span><span class="fa">وب‌سایت</span><span class="en">The website</span></span></a></li></ol></div>
+      <li><a href="#website"><span><span class="fa">۱۶</span><span class="en">16</span></span><span><span class="fa">وب‌سایت</span><span class="en">The website</span></span></a></li>
+      <li><a href="#social"><span><span class="fa">۱۷</span><span class="en">17</span></span><span><span class="fa">اینستاگرام</span><span class="en">Instagram</span></span></a></li></ol></div>
   </nav>
   <div class="band" aria-hidden="true"></div>
 </header>
@@ -549,6 +585,21 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
     <div class="fact">
       <b>&gt; 4K</b>
       <p class="small" style="margin:0"><span class="fa">فرش اردبیل (۹۴۶ هجری قمری) ده‌ها میلیون گره دارد؛ بیشتر از پیکسل‌های یک قاب 4K. و امضا دارد: «عمل بندهٔ درگاه، مقصود کاشانی».</span><span class="en">The Ardabil Carpet (1539–40) holds tens of millions of knots, more than a 4K frame has pixels. It is also signed: "the work of a servant of the court, Maqsud of Kashan".</span></p>
+    </div>
+    <hr class="rule">
+    <div class="split cam" style="--split:7fr 5fr">
+      <figure class="framed"><div class="gold"><img src="art/camera.jpg" width="1400" height="781" loading="lazy" alt="دوربین شاه · The Royal Camera"></div>
+        <figcaption><span class="fa">«دوربین شاه»، از تصویرهای جستجو</span><span class="en">“The Royal Camera”, a Jostoju artwork</span></figcaption></figure>
+      <div>
+        <span class="label"><span class="fa">دوربین قاجاری</span><span class="en">The Qajar camera</span></span>
+        <p class="statement"><span class="fa">دوربین با قاجار به ایران آمد.</span><span class="en">The camera came to Iran with the Qajars.</span></p>
+        <ol class="tline">
+          <li><b><span class="fa">۱۲۲۱</span><span class="en">1842</span></b><span><span class="fa">نخستین دوربین عکاسی به دربار قاجار رسید.</span><span class="en">The first camera reaches the Qajar court.</span></span></li>
+          <li><b><span class="fa">۱۲۲۷–۱۲۷۵</span><span class="en">1848–96</span></b><span><span class="fa">ناصرالدین‌شاه خود عکاس بود و در کاخ گلستان عکاس‌خانه ساخت.</span><span class="en">Naser al-Din Shah photographs himself and builds a photography house in the Golestan Palace.</span></span></li>
+          <li><b><span class="fa">۱۲۷۹</span><span class="en">1900</span></b><span><span class="fa">عکاس‌باشی دربار نخستین فیلم ایرانی را گرفت.</span><span class="en">The court photographer shoots the first Iranian film footage.</span></span></li>
+        </ol>
+        <p class="small mute"><span class="fa">برای همین قاجار برای ما تزئین نیست: جایی است که دوربین ایرانی چشم باز کرد.</span><span class="en">That is why Qajar is not decoration for us: it is where the Iranian camera first opened its eye.</span></p>
+      </div>
     </div>
     <hr class="rule">
     <div class="split">
@@ -847,6 +898,7 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
         <span class="label"><span class="fa">قاعده‌ها</span><span class="en">Rules</span></span>
         <ul class="knots small">
           <li><span><span class="fa">نقطه همیشه جلوی کلمه است (سمت چپ)، هم‌تراز با کشیده، بی‌هیچ خط یا نخی.</span><span class="en">The dot always sits ahead of the word (to the left), level with the road, with no line or thread.</span></span></li>
+          <li><span><span class="fa"><strong>پایان قصه:</strong> فقط در لحظهٔ پایان یک روایت (پایان وب‌سایت، پایان تیزر یک فیلم) نقطه به زیر «ج» برمی‌گردد و کلمه کامل می‌شود. این یک لحظه از قصه است، هرگز نسخه‌ای از نشان.</span><span class="en"><strong>The end of the story:</strong> only at the close of a narrative (the end of the website, the end of a film's sting) does the dot return under the ج and the word become whole. It is a story beat, never a version of the logo.</span></span></li>
           <li><span><span class="fa">فاصلهٔ آزاد دور نشان: دست‌کم پهنای دو گره.</span><span class="en">Clear space around the logo: at least two knots wide.</span></span></li>
           <li><span><span class="fa">زیر ۲۴۰ پیکسل نام‌نگارهٔ فشرده؛ زیر ۱۲۰ پیکسل فقط نشانه.</span><span class="en">Below 240 px use the compact logotype; below 120 px, the symbol alone.</span></span></li>
           <li><span><span class="fa">اعراب بخشی از نشان‌اند و همیشه رنگ دوم را دارند: روناس روی روشن، طلا روی تیره.</span><span class="en">The vowels are part of the logo and always take the second colour: madder on light, gold on dark.</span></span></li>
@@ -860,7 +912,7 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
     <hr class="rule">
     <span class="label"><span class="fa">هرگز</span><span class="en">Never</span></span>
     <div class="donts">
-      <figure><div class="stage"><svg class="" viewBox="0 0 2571 1508" aria-hidden="true"><use href="#x-back" width="2571" height="1508"/></svg></div><figcaption><span class="fa">نقطه را به جای خودش برنگردانید.</span><span class="en">Put the dot back under its letter.</span></figcaption></figure>
+      <figure><div class="stage"><svg class="" viewBox="0 0 2571 1508" aria-hidden="true"><use href="#x-back" width="2571" height="1508"/></svg></div><figcaption><span class="fa">در نشان، نقطه را به جای خودش برنگردانید (فقط در پایان قصه).</span><span class="en">Put the dot back under its letter in the logo (only at the end of a story).</span></figcaption></figure>
       <figure><div class="stage"><svg class="" viewBox="0 0 3274 1535" aria-hidden="true"><use href="#x-thread" width="3274" height="1535"/></svg></div><figcaption><span class="fa">نقطه را با نخ یا خط به کلمه وصل نکنید.</span><span class="en">Tie the dot to the word with a line.</span></figcaption></figure>
       <figure class="recolor"><div class="stage"><svg class="" viewBox="0 0 4057 1565" aria-hidden="true"><use href="#fa" width="4057" height="1565"/></svg></div><figcaption><span class="fa">رنگی بیرون از هشت رنگ برند.</span><span class="en">Recolour outside the eight brand colours.</span></figcaption></figure>
       <figure class="stretch"><div class="stage"><svg class="" viewBox="0 0 4057 1565" aria-hidden="true"><use href="#fa" width="4057" height="1565"/></svg></div><figcaption><span class="fa">کشیدن یا فشردن نشان.</span><span class="en">Stretch or squash it.</span></figcaption></figure>
@@ -958,27 +1010,8 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
       <p class="ch-sum"><span class="fa">منطق پرتره قاجار، نور سینما. این قاعده‌ها راهنمای هر پرامپت، هر قاب و هر اصلاح رنگ‌اند.</span><span class="en">Qajar portrait logic, cinema light. These rules guide every prompt, every frame and every grade.</span></p>
     </header>
     <div class="split" style="--split:5fr 6fr">
-      <figure style="margin:0">
-        <svg class="qajar" viewBox="0 0 420 520" role="img" aria-label="ساختار یک قاب جستجو · Anatomy of a Jostoju frame">
-          <rect width="420" height="520" style="fill:#0d0a08"/>
-          <path d="M70 500V190Q70 130 125 95Q180 60 210 30Q240 60 295 95Q350 130 350 190V500z" style="fill:var(--zomorrod)"/>
-          <path d="M70 500V190Q70 130 125 95Q180 60 210 30Q240 60 295 95Q350 130 350 190V500" style="fill:none;stroke:var(--tala);stroke-width:2"/>
-          <path d="M290 60Q330 90 350 190V500H318C312 420 300 330 312 262C296 220 282 150 290 60z" style="fill:var(--runas)"/>
-          <rect x="304" y="250" width="12" height="30" rx="5" style="fill:var(--tala)"/>
-          <path d="M150 500Q152 380 210 362Q268 380 270 500z" style="fill:var(--runas)"/>
-          <path d="M168 470Q210 500 252 470" style="fill:none;stroke:var(--morvarid);stroke-width:5;stroke-dasharray:1 9;stroke-linecap:round"/>
-          <path d="M176 300Q172 226 210 214Q248 226 244 300Q248 340 230 352H190Q172 340 176 300z" style="fill:#140e0b"/>
-          <ellipse cx="210" cy="292" rx="27" ry="36" style="fill:#E8C9A4"/>
-          <path d="M210 196l10 10-10 10-10-10z" style="fill:var(--tala)"/>
-          <rect x="70" y="456" width="90" height="44" style="fill:var(--kaghaz)"/>
-          <circle cx="112" cy="438" r="20" style="fill:var(--runas)"/><path d="M104 418l3-9 5 6 5-6 3 9z" style="fill:var(--tala)"/>
-          <g><circle cx="98" cy="210" r="12" style="fill:var(--tala)"/><text x="98" y="214" text-anchor="middle" style="fill:var(--shab)">1</text></g>
-          <g><circle cx="334" cy="330" r="12" style="fill:var(--tala)"/><text x="334" y="334" text-anchor="middle" style="fill:var(--shab)">2</text></g>
-          <g><circle cx="262" cy="270" r="12" style="fill:var(--tala)"/><text x="262" y="274" text-anchor="middle" style="fill:var(--shab)">3</text></g>
-          <g><circle cx="146" cy="420" r="12" style="fill:var(--tala)"/><text x="146" y="424" text-anchor="middle" style="fill:var(--shab)">4</text></g>
-        </svg>
-        <figcaption class="small mute" style="margin-top:10px"><span class="fa">۱ طاق · ۲ پردهٔ کنارزده · ۳ نگاه مستقیم · ۴ طبیعت بی‌جان با معنا</span><span class="en">1 The arch · 2 The drawn curtain · 3 The direct gaze · 4 Still life with meaning</span></figcaption>
-      </figure>
+      <figure class="framed" style="margin:0"><div class="gold"><img src="art/mirror-vertical.jpg" width="502" height="900" loading="lazy" alt="آینه‌خانه · The Mirror Hall"></div>
+        <figcaption><span class="fa">«آینه‌خانه»: طاق، پرده، نگاه مستقیم، نور جواهر؛ و نقطهٔ گمشده در آینهٔ دستی.</span><span class="en">“The Mirror Hall”: arch, curtain, direct gaze, jewel light, and the lost dot in the hand mirror.</span></figcaption></figure>
       <div class="principles">
         <article><span class="n"><span class="fa">۱</span><span class="en">1</span></span><div><h4><span class="fa">قاب در قاب</span><span class="en">Frame within frame</span></h4><p><span class="fa">طاق، پنجره، آینه. سوژه را در قابی دوم بگذارید؛ مثل طاقچهٔ پرتره‌های قاجار.</span><span class="en">Arch, window, mirror. Place the subject in a second frame, like the niche of a Qajar portrait.</span></p></div></article>
         <article><span class="n"><span class="fa">۲</span><span class="en">2</span></span><div><h4><span class="fa">پرده</span><span class="en">The curtain</span></h4><p><span class="fa">پرده‌ای سنگین که کنار زده شده: صحنه آماده است. در فیلم، گذار ما هم همین است.</span><span class="en">A heavy curtain drawn aside: the stage is set. In film, it is also our transition.</span></p></div></article>
@@ -1019,6 +1052,28 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
       <li><span><span class="fa">تصاویر خبر و جنگ به‌عنوان نشانهٔ ایران</span><span class="en">News and war imagery as shorthand for Iran</span></span></li>
       <li><span><span class="fa">نگاه بیگانه: ایرانی فقط قربانی، شرور یا عجیب</span><span class="en">The outsider's gaze: Iranians only as victims, villains or exotica</span></span></li>
     </ul>
+    <hr class="rule">
+    <span class="label"><span class="fa">نقطهٔ پنهان · قاعدهٔ تازه</span><span class="en">The hidden dot · a new rule</span></span>
+    <p class="statement" style="max-width:44ch"><span class="fa">هر تصویر جستجو یک نقطهٔ گمشده پنهان دارد: یک لوزی کوچک قرمز. تماشاگر می‌تواند پیدایش کند.</span><span class="en">Every Jostoju image hides one lost dot: a small red diamond. Viewers can find it.</span></p>
+    <div class="gal">
+      <figure><img src="art/mirror-hall.jpg" loading="lazy" alt=""><figcaption><b><span class="fa">آینه‌خانه</span><span class="en">The Mirror Hall</span></b><span><span class="fa">در آینهٔ دستی</span><span class="en">In the hand mirror</span></span></figcaption></figure>
+      <figure><img src="art/simorgh.jpg" loading="lazy" alt=""><figcaption><b><span class="fa">سی مرغ</span><span class="en">Thirty Birds</span></b><span><span class="fa">در منقار هدهد</span><span class="en">In the hoopoe's beak</span></span></figcaption></figure>
+      <figure><img src="art/camera.jpg" loading="lazy" alt=""><figcaption><b><span class="fa">دوربین شاه</span><span class="en">The Royal Camera</span></b><span><span class="fa">روی عدسی</span><span class="en">On the lens</span></span></figcaption></figure>
+      <figure><img src="art/pardeh.jpg" loading="lazy" alt=""><figcaption><b><span class="fa">پردهٔ نقال</span><span class="en">The Naqqal's Pardeh</span></b><span><span class="fa">بر تاج پهلوان</span><span class="en">On the hero's crown</span></span></figcaption></figure>
+      <figure><img src="art/desert-mirror.jpg" loading="lazy" alt=""><figcaption><b><span class="fa">آینهٔ صحرا</span><span class="en">The Desert Mirror</span></b><span><span class="fa">بر تاج آینه</span><span class="en">On the mirror's crest</span></span></figcaption></figure>
+      <figure><img src="art/nowruz.jpg" loading="lazy" alt=""><figcaption><b><span class="fa">نوروز</span><span class="en">Nowruz</span></b><span><span class="fa">روی تخم‌مرغ رنگی</span><span class="en">On a painted egg</span></span></figcaption></figure>
+      <figure><img src="art/tar.jpg" loading="lazy" alt=""><figcaption><b><span class="fa">تار</span><span class="en">The Tar Player</span></b><span><span class="fa">آویز یقه</span><span class="en">The collar pendant</span></span></figcaption></figure>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">ساختن تصویر · آموخته‌ها</span><span class="en">Making images · what we learned</span></span>
+    <ul class="knots cols" style="--min:300px">
+      <li><span><span class="fa"><strong>یک تابلوی قاجاری مرجع.</strong> هر تصویر از یک نقاشی واقعی قاجار شروع می‌شود و صحنه‌ای تازه می‌سازد؛ Higgsfield Soul Cinema یا Nano Banana Pro.</span><span class="en"><strong>One Qajar reference.</strong> Every image starts from a real Qajar painting and builds a new scene, in Higgsfield Soul Cinema or Nano Banana Pro.</span></span></li>
+      <li><span><span class="fa"><strong>جا برای نشان.</strong> سوژه را به یک سو ببرید تا نام روی تصویر بنشیند؛ برای تلفن نسخهٔ عمودی جدا بسازید.</span><span class="en"><strong>Room for the name.</strong> Keep the subject to one side so the name can sit on the image, and make a separate vertical version for phones.</span></span></li>
+      <li><span><span class="fa"><strong>لوزی، نه برچسب.</strong> نقطه یک لوزی قرمز روناس است که در صحنه جا افتاده (بازتاب، جواهر، نقش)؛ نه شکلی چسبانده.</span><span class="en"><strong>A diamond, not a sticker.</strong> The dot is a madder-red diamond that belongs to the scene (a reflection, a jewel, a pattern), never a pasted-on shape.</span></span></li>
+      <li><span><span class="fa"><strong>امضای ساختگی پاک شود.</strong> مدل‌ها گاهی نام نقاش و تاریخ می‌سازند؛ پیش از انتشار پاکش کنید.</span><span class="en"><strong>Remove invented signatures.</strong> Models sometimes paint a fake artist's name and date; remove it before publishing.</span></span></li>
+      <li><span><span class="fa"><strong>فایل اصلی.</strong> همیشه فایل دانلودشده با کیفیت کامل، هرگز اسکرین‌شات.</span><span class="en"><strong>The original file.</strong> Always the full-quality download, never a screenshot.</span></span></li>
+      <li><span><span class="fa"><strong>دستورها.</strong> همهٔ دستورهای تصویر در <code>site/art/PROMPTS.md</code>.</span><span class="en"><strong>Prompts.</strong> Every image prompt lives in <code>site/art/PROMPTS.md</code>.</span></span></li>
+    </ul>
   </div>
 </section>
 
@@ -1046,6 +1101,18 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
           <li><span><span class="fa"><strong>۲٫۴</strong> پرده کنار می‌رود و نخستین قاب فیلم پیدا می‌شود.</span><span class="en"><strong>2.4 s</strong> A curtain draws aside onto the first frame of the film.</span></span></li>
         </ul>
         <p class="small mute" style="margin-top:12px"><span class="fa">صدای برند: پشم، چوب و یک سیم. بی‌صداهای «حماسی» و افکت‌های الکترونیک.</span><span class="en">Sonic identity: wool, wood and one string. No "epic" impacts or synth risers.</span></p>
+      </div>
+    </div>
+    <hr class="rule">
+    <div class="split" style="--split:7fr 5fr">
+      <figure class="framed"><div class="gold"><img src="art/site-hero.jpg" width="1280" height="800" loading="lazy" alt="آینه‌کاری در وب‌سایت · The mirror hall on the website"></div>
+        <figcaption><span class="fa">آینه‌کاری روی صفحهٔ اول وب‌سایت</span><span class="en">The mirror hall on the website's opening</span></figcaption></figure>
+      <div>
+        <span class="label"><span class="fa">آینه‌کاری · جلوهٔ امضا</span><span class="en">Ayeneh-kari · the signature effect</span></span>
+        <p class="statement"><span class="fa">فیلم از صدها آینهٔ لوزی دیده می‌شود.</span><span class="en">The film is seen through hundreds of diamond mirrors.</span></p>
+        <p class="small"><span class="fa">مثل آینه‌کاری کاخ گلستان: تصویر شکسته در آینه‌ها نمایان می‌شود، آینه‌های نزدیک نشانگر نور طلایی می‌گیرند، و با پایین رفتن صفحه، تکه‌ها کنار هم می‌نشینند و یک قاب روشن می‌سازند. از تکه‌ها تا تصویر پیداشده. برای شروع وب‌سایت، تیزرها و پایان فیلم‌ها.</span><span class="en">Like the mirror halls of the Golestan Palace: the image appears broken across the mirrors, the ones near the cursor catch gold light, and as you scroll the pieces settle into one clear frame. From fragments to the found image. For the website opening, teasers and film endings.</span></p>
+        <span class="label" style="margin-top:22px"><span class="fa">پایان قصه</span><span class="en">The end of the story</span></span>
+        <p class="small"><span class="fa">در پایان هر روایت، نقطه به زیر «ج» برمی‌گردد، می‌ایستد و دیگر حرکت نمی‌کند: جستجو تمام شد.</span><span class="en">At the end of every narrative the dot returns under the ج, settles and stops moving: the quest is complete.</span></p>
       </div>
     </div>
   </div>
@@ -1091,21 +1158,8 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
     </header>
     <div class="apps">
       <figure style="grid-column:span 12">
-        <div class="browser">
-          <div class="bar"><i></i><i></i><i></i><span>jostoju.studio</span></div>
-          <div class="site" lang="fa" dir="rtl">
-            <nav><div class="logo"><svg class="" viewBox="0 0 3093 1528" role="img" aria-label="جستجو"><use href="#fa-compact" width="3093" height="1528"/></svg></div><ul><li>کارها</li><li>پرده</li><li>استودیو</li><li>تماس</li><li>EN</li></ul></nav>
-            <div class="hero">
-              <div>
-                <h1>آنچه یافت می‌نشود، می‌سازیم.</h1>
-                <p>جستجو استودیوی فیلم‌سازی با هوش مصنوعی است، با ریشه در نقاشی قاجار، فرش ایرانی و شعر مولانا. هر قاب با دست انسان.</p>
-                <div class="ctas"><span>تماشای شوریل</span><span>سفارش فیلم</span></div>
-              </div>
-              <div class="window"><svg class="" viewBox="0 0 569 569" aria-hidden="true"><use href="#win" width="569" height="569"/></svg><div class="scene"><div class="curtain"></div><div class="pome"></div></div></div>
-            </div>
-          </div>
-        </div>
-        <figcaption><span class="fa">صفحهٔ اول وب‌سایت، نسخهٔ فارسی (پیش‌فرض). پنجرهٔ ترنج شوریل را قاب می‌گیرد.</span><span class="en">Website home, Persian version (the default). The medallion window frames the showreel.</span></figcaption>
+        <div class="shots"><img src="art/site-hero.jpg" width="1280" height="800" loading="lazy" alt="وب‌سایت جستجو · Jostoju website"><img src="art/site-hero-phone.jpg" width="390" height="760" loading="lazy" alt="وب‌سایت جستجو روی تلفن · on a phone"></div>
+        <figcaption><span class="fa">وب‌سایت جستجو، صفحهٔ اول، روی رایانه و تلفن (فصل ۱۶).</span><span class="en">The Jostoju website opening, on desktop and phone (chapter 16).</span></figcaption>
       </figure>
       <figure class="a8">
         <div class="slate"><div class="pearls t" aria-hidden="true"></div><svg class="" viewBox="0 0 4057 3323" role="img" aria-label="جستجو"><use href="#lk-stack" width="4057" height="3323"/></svg><p><span class="per">فیلمی از جستجو</span><span class="lat">A Jostoju film</span></p><div class="pearls b" aria-hidden="true"></div></div>
@@ -1113,7 +1167,7 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
       </figure>
       <figure class="a4">
         <div class="post g-runas lachak"><svg class="" viewBox="0 0 403 403" aria-hidden="true"><use href="#sym" width="403" height="403"/></svg><p class="t-fa">گره به گره،<br>قاب به قاب.</p><p class="t-en">Knot by knot, frame by frame.</p></div>
-        <figcaption><span class="fa">پست اینستاگرام، ۴:۵</span><span class="en">Instagram post, 4:5</span></figcaption>
+        <figcaption><span class="fa">پست اینستاگرام، ۴:۵ · همهٔ قالب‌ها در فصل ۱۷</span><span class="en">Instagram post, 4:5 · every template in chapter 17</span></figcaption>
       </figure>
       <figure class="a6">
         <div class="bcards">
@@ -1139,15 +1193,69 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
     <header class="ch-head">
       <div class="ch-num"><span class="fa">۱۶</span><span class="en">16</span></div>
       <h2 class="ch-title"><span class="fa">وب‌سایت</span><span class="en">The Website</span><span class="alt"><span class="fa lat">The website</span><span class="en per">وب‌سایت</span></span></h2>
-      <p class="ch-sum"><span class="fa">گام بعدی. سایت فارسی‌محور است: فارسی در نشانی اصلی و راست‌به‌چپ، انگلیسی در <span class="lat">/en</span>.</span><span class="en">The next step. The site is Persian-first: Persian at the root, right to left, with English at /en.</span></p>
+      <p class="ch-sum"><span class="fa">ساخته شد. فارسی در نشانی اصلی و راست‌به‌چپ، انگلیسی در <span class="lat">/en</span>. کل سایت یک جستجوست: نقطهٔ گمشده از نام جدا می‌شود، صفحه را با بیننده می‌پیماید و در پایان به جای خود برمی‌گردد.</span><span class="en">Built. Persian at the root, right to left, English at /en. The whole site is one quest: the lost dot leaves the name, travels the page with the visitor and returns home at the end.</span></p>
     </header>
     <div class="sitemap">
-      <div class="card"><h4><span class="fa">خانه</span><span class="en">Home</span></h4><span class="path">/ · /en</span><p><span class="fa">پنجرهٔ ترنج با شوریل، شعار اصلی، کارهای منتخب و دعوت به گفت‌وگو.</span><span class="en">The medallion window with the showreel, the master tagline, selected work and an invitation to talk.</span></p></div>
+      <div class="card"><h4><span class="fa">خانه</span><span class="en">Home</span></h4><span class="path">/ · /en</span><p><span class="fa">آینه‌کاری با شوریل؛ «قاب‌ها»؛ «هر فیلم، یک جستجوست»؛ آنچه می‌سازیم؛ گره گمشده؛ سی مرغ و هفت وادی؛ پرده؛ و پایان قصه.</span><span class="en">The mirror hall with the reel; Frames; Every film is a quest; what we make; the missing knot; Thirty Birds and the seven valleys; Pardeh; and the end of the story.</span></p></div>
       <div class="card"><h4><span class="fa">کارها · کارگاه</span><span class="en">Work · Kargah</span></h4><span class="path">/work</span><p><span class="fa">پروژه‌ها در شبکه‌ای گره‌ای؛ هر پروژه با فیلم، سفارش، هفت وادی و نام سازندگان.</span><span class="en">Projects in a knot grid; each with the film, the brief, its seven valleys and credits.</span></p></div>
       <div class="card"><h4><span class="fa">پرده</span><span class="en">Originals · Pardeh</span></h4><span class="path">/pardeh</span><p><span class="fa">فیلم‌های خودمان: تریلر، عکس، متن مرجع و تاریخ انتشار.</span><span class="en">Our own films: trailers, stills, source texts and release dates.</span></p></div>
       <div class="card"><h4><span class="fa">استودیو</span><span class="en">Studio</span></h4><span class="path">/studio</span><p><span class="fa">از پرده تا پیکسل: داستان، ارزش‌ها، هفت وادی، تیم و سیاست اخلاقی هوش مصنوعی.</span><span class="en">From pardeh to pixel: story, values, the seven valleys, team and our AI ethics.</span></p></div>
       <div class="card"><h4><span class="fa">تماس</span><span class="en">Contact</span></h4><span class="path">/contact</span><p><span class="fa">فرم کوتاه سفارش: نوع پروژه، زمان، بودجه و زبان.</span><span class="en">A short brief form: project type, timeline, budget and language.</span></p></div>
     </div>
+    <figure class="framed" style="margin-top:28px"><div class="gold"><img src="art/site-clips.jpg" width="1280" height="820" loading="lazy" alt="قاب‌ها · Frames"></div>
+      <figcaption><span class="fa">«قاب‌ها»: فیلم‌ها در شکل واقعی خودشان؛ تا آمدن فیلم، تصویرشان با برچسب «فیلم به‌زودی».</span><span class="en">Frames: films in their real shapes; until a film arrives, its still is marked “Film coming soon”.</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- 17 SOCIAL -->
+<section class="ch g-shab" id="social">
+  <div class="wrap">
+    <header class="ch-head">
+      <div class="ch-num"><span class="fa">۱۷</span><span class="en">17</span></div>
+      <h2 class="ch-title"><span class="fa">اینستاگرام</span><span class="en">Instagram</span><span class="alt"><span class="fa lat">Social media</span><span class="en per">شبکه‌های اجتماعی</span></span></h2>
+      <p class="ch-sum"><span class="fa">قالب‌های آماده در اندازهٔ دقیق اینستاگرام، همه در <code>brand/social/export/</code>. صفحهٔ ما مثل یک فرش چیده می‌شود: تصویر، رنگ، تصویر.</span><span class="en">Ready templates at Instagram's exact sizes, all in <code>brand/social/export/</code>. Our grid is laid out like a carpet: image, colour, image.</span></p>
+    </header>
+    <div class="split" style="--split:5fr 6fr">
+      <div>
+        <span class="label"><span class="fa">صفحهٔ ما · چیدمان</span><span class="en">The grid</span></span>
+        <div class="ig-grid">
+          <img src="social/preview/post-film-desert.jpg" loading="lazy" alt=""><img src="social/preview/post-quote-rumi.jpg" loading="lazy" alt=""><img src="social/preview/post-art-tar.jpg" loading="lazy" alt=""><img src="social/preview/post-quote-hafez.jpg" loading="lazy" alt=""><img src="social/preview/carousel-valleys-1.jpg" loading="lazy" alt=""><img src="social/preview/post-film-nowruz.jpg" loading="lazy" alt=""><img src="social/preview/post-history-camera.jpg" loading="lazy" alt=""><img src="social/preview/post-quote-attar.jpg" loading="lazy" alt=""><img src="social/preview/reel-cover-mirror.jpg" loading="lazy" alt="">
+        </div>
+        <p class="small mute" style="margin-top:12px"><span class="fa">تصویر و رنگ یکی‌درمیان، مثل نقش شطرنجی فرش. اینستاگرام صفحه را ۳:۴ برش می‌دهد؛ چیزهای مهم را در میانهٔ قاب بگذارید.</span><span class="en">Image and colour alternate, like a carpet's checker. Instagram crops the grid to 3:4; keep what matters in the middle of the frame.</span></p>
+      </div>
+      <div>
+        <span class="label"><span class="fa">اندازه‌ها</span><span class="en">Sizes</span></span>
+        <div class="sm-table">
+          <div><b><span class="fa">پست و کاروسل</span><span class="en">Post and carousel</span></b><code>1080 × 1350 · 4:5</code></div>
+          <div><b><span class="fa">استوری و ریلز</span><span class="en">Story and reel</span></b><code>1080 × 1920 · 9:16</code></div>
+          <div><b><span class="fa">حاشیهٔ امن استوری</span><span class="en">Story safe zone</span></b><code>top 250 · bottom 340</code></div>
+          <div><b><span class="fa">کاور ریلز در صفحه</span><span class="en">Reel cover on the grid</span></b><code>1080 × 1440 · 3:4</code></div>
+          <div><b><span class="fa">هایلایت</span><span class="en">Highlight cover</span></b><code>1080 × 1920 · icon centred</code></div>
+          <div><b><span class="fa">تصویر پروفایل</span><span class="en">Profile picture</span></b><code>1080 × 1080 · symbol on Shab</code></div>
+        </div>
+        <span class="label" style="margin-top:26px"><span class="fa">قاعده‌ها</span><span class="en">Rules</span></span>
+        <ul class="knots small">
+          <li><span><span class="fa">هر پست تصویری یک نقطهٔ پنهان دارد؛ در کپشن بپرسید: «نقطه کجاست؟»</span><span class="en">Every image post hides the dot; ask in the caption: “Where is the dot?”</span></span></li>
+          <li><span><span class="fa">کپشن: اول فارسی، بعد یک خط فاصله، بعد انگلیسی.</span><span class="en">Captions: Persian first, then a line break, then English.</span></span></li>
+          <li><span><span class="fa">هشتگ کم: <span class="lat">#جستجو #Jostoju</span> و یکی مرتبط با پست.</span><span class="en">Few hashtags: #جستجو #Jostoju and one about the post.</span></span></li>
+          <li><span><span class="fa">ریتم: سه پست در هفته، یک ریلز در هفته، استوری هر روز.</span><span class="en">Rhythm: three posts a week, one reel a week, stories daily.</span></span></li>
+          <li><span><span class="fa">بیو: «استودیوی فیلم‌سازی با هوش مصنوعی · ریشه در ایران · ساختهٔ دست» و زیرش انگلیسی.</span><span class="en">Bio: “AI film studio. Persian roots. Human hands.” under the Persian line.</span></span></li>
+          <li><span><span class="fa">آیدی <span class="lat">@jostoju</span> نمونه است تا ثبت شود.</span><span class="en">The handle @jostoju is a placeholder until it is secured.</span></span></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="rule">
+    <span class="label"><span class="fa">پست‌ها · ۴:۵</span><span class="en">Posts · 4:5</span></span>
+    <div class="ig-row"><figure><img src="social/preview/post-quote-rumi.jpg" loading="lazy" alt=""><figcaption><span class="fa">شعر · روناس</span><span class="en">Verse · Runas</span></figcaption></figure><figure><img src="social/preview/post-quote-hafez.jpg" loading="lazy" alt=""><figcaption><span class="fa">شعر · زمرد</span><span class="en">Verse · Zomorrod</span></figcaption></figure><figure><img src="social/preview/post-quote-attar.jpg" loading="lazy" alt=""><figcaption><span class="fa">شعر · لاجورد</span><span class="en">Verse · Lajvard</span></figcaption></figure><figure><img src="social/preview/post-film-desert.jpg" loading="lazy" alt=""><figcaption><span class="fa">فیلم تازه</span><span class="en">New film</span></figcaption></figure><figure><img src="social/preview/post-film-nowruz.jpg" loading="lazy" alt=""><figcaption><span class="fa">فیلم تازه</span><span class="en">New film</span></figcaption></figure><figure><img src="social/preview/post-art-tar.jpg" loading="lazy" alt=""><figcaption><span class="fa">تصویر در طاق</span><span class="en">Image in the arch</span></figcaption></figure><figure><img src="social/preview/post-history-camera.jpg" loading="lazy" alt=""><figcaption><span class="fa">تاریخ و قصه</span><span class="en">History and story</span></figcaption></figure></div>
+    <hr class="rule">
+    <span class="label"><span class="fa">کاروسل · هفت وادی</span><span class="en">Carousel · the seven valleys</span></span>
+    <div class="ig-carousel"><img src="social/preview/carousel-valleys-1.jpg" loading="lazy" alt=""><img src="social/preview/carousel-valleys-2.jpg" loading="lazy" alt=""><img src="social/preview/carousel-valleys-3.jpg" loading="lazy" alt=""></div>
+    <p class="small mute" style="margin-top:10px"><span class="fa">سه اسلاید از یک تصویر پیوسته؛ نقطه با ورق زدن از وادی به وادی می‌رود و در اسلاید آخر قرمز می‌شود.</span><span class="en">Three slides cut from one panorama; the dot walks valley to valley as you swipe and turns red on the last slide.</span></p>
+    <hr class="rule">
+    <span class="label"><span class="fa">استوری، ریلز، هایلایت، پروفایل</span><span class="en">Stories, reels, highlights, profile</span></span>
+    <div class="ig-row tall"><figure><img src="social/preview/story-film-tar.jpg" loading="lazy" alt=""><figcaption><span class="fa">استوری فیلم</span><span class="en">Film story</span></figcaption></figure><figure><img src="social/preview/story-question.jpg" loading="lazy" alt=""><figcaption><span class="fa">استوری پرسش</span><span class="en">Question story</span></figcaption></figure><figure><img src="social/preview/reel-cover-mirror.jpg" loading="lazy" alt=""><figcaption><span class="fa">کاور ریلز</span><span class="en">Reel cover</span></figcaption></figure></div>
+    <div class="ig-hl"><figure><span class="hl"><img src="social/preview/highlight-work.jpg" loading="lazy" alt=""></span><figcaption>کارها</figcaption></figure><figure><span class="hl"><img src="social/preview/highlight-pardeh.jpg" loading="lazy" alt=""></span><figcaption>پرده</figcaption></figure><figure><span class="hl"><img src="social/preview/highlight-bts.jpg" loading="lazy" alt=""></span><figcaption>پشت صحنه</figcaption></figure><figure><span class="hl"><img src="social/preview/highlight-quest.jpg" loading="lazy" alt=""></span><figcaption>نقطه</figcaption></figure><figure><span class="hl"><img src="social/preview/highlight-contact.jpg" loading="lazy" alt=""></span><figcaption>تماس</figcaption></figure><figure><span class="hl"><img src="social/preview/avatar.jpg" loading="lazy" alt=""></span><figcaption><span class="fa">پروفایل</span><span class="en">Profile</span></figcaption></figure></div>
+    <p class="small mute" style="margin-top:14px"><span class="fa">برای ساختن نسخهٔ تازه با متن یا تصویر دیگر: <code>brand/social/render_social.js</code>.</span><span class="en">To make a new version with other text or images: <code>brand/social/render_social.js</code>.</span></p>
   </div>
 </section>
 </main>
@@ -1158,7 +1266,7 @@ footer.end .close-en{margin:0;font:500 italic 1.2rem/1.3 var(--f-display);color:
     <svg class="" viewBox="0 0 4057 1565" role="img" aria-label="جستجو"><use href="#fa" width="4057" height="1565"/></svg>
     <p class="close">گره به گره، قاب به قاب.</p>
     <p class="close-en">Knot by knot, frame by frame.</p>
-    <p class="small mute" style="margin:0"><span class="fa">کتاب برند جستجو · نسخهٔ ۲٫۰ · آبان ۱۴۰۵ · <a href="#top">بازگشت به بالا</a></span><span class="en">Jostoju Brand Bible · Version 2.0 · November 2026 · <a href="#top">Back to the top</a></span></p>
+    <p class="small mute" style="margin:0"><span class="fa">کتاب برند جستجو · نسخهٔ ۲٫۱ · آبان ۱۴۰۵ · <a href="#top">بازگشت به بالا</a></span><span class="en">Jostoju Brand Bible · Version 2.1 · November 2026 · <a href="#top">Back to the top</a></span></p>
   </div>
 </footer>
 
