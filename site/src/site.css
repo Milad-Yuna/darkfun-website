@@ -220,9 +220,8 @@ html[lang="en"] .clips-head h2 { font: 800 clamp(2.8rem, 1.6rem + 4.6vw, 5.6rem)
 .clip figcaption b { font: 700 1.25rem/1.5 var(--f-display-fa) }
 html[lang="en"] .clip figcaption b { font: 800 1.05rem/1.25 var(--f-display) }
 .clip figcaption span { font-size: .85rem; color: var(--mute) }
-.clip-grid { display: grid; gap: 28px 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)) }
-.clip-grid .clip .frame { aspect-ratio: 16 / 9 }
-.clip-grid .clip video { object-fit: contain }
+.clip-grid { columns: 3 300px; column-gap: 18px }
+.clip-grid .clip { break-inside: avoid; margin-bottom: 30px }
 
 /* ---------- manifesto ---------- */
 .manifesto { padding-block: clamp(72px, 11vw, 150px) }
