@@ -20,7 +20,11 @@ It's a few plain files. There is nothing to install and nothing to build.
 1. On GitHub, open this repository and click **Settings**, then **Pages**.
 2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
 3. Choose the branch **main** and the folder **/ (root)**. Click **Save**.
-4. Wait a minute or two. The site is at **https://milad-yuna.github.io/darkfun-website/**
+4. In the DNS settings for darkfunstudios.com (at ParsPack), add these records:
+   - Four **A** records for `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - One **CNAME** record for `www`, pointing to `milad-yuna.github.io`
+5. Back in **Settings → Pages**, check that **Custom domain** says `darkfunstudios.com`, then tick **Enforce HTTPS** once GitHub allows it.
+6. The site is at **https://darkfunstudios.com/**. The `CNAME` file in this folder holds the domain, so don't delete it.
 
 After that, every change you save on `main` goes live by itself within a minute or two.
 
